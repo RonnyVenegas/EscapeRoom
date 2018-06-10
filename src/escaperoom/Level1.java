@@ -29,11 +29,11 @@ public class Level1 {
     private Button btnReturn;
     private Label label;
     //private Image image;
-    private ImageView dog1;
-    private ImageView dog2;
-    private ImageView dog3;
-    private ImageView dog4;
-    private ImageView dog5;
+    private ImageView imageLock1;
+    private ImageView imageLock2;
+    private ImageView imageLock3;
+    private ImageView imageLock4;
+    private ImageView imageLock5;
 
     public void initializeElements() {
         levelContainer = new AnchorPane();
@@ -43,52 +43,71 @@ public class Level1 {
         lock4 = new Button();
         btnReturn = new Button("Return");
         label = new Label();
-        //image = new Image("/css/level1Room.jpg", 1820, 980, true, true);
-        dog1 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog1.png")));
-        dog2 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog2.png")));
-        dog3 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog3.png")));
-        dog4 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog4.png")));
-        dog5 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog5.png")));
 
-        levelContainer.setPadding(new Insets(20));
+        levelContainer.setPadding(new Insets(10));
         btnReturn.setPrefSize(80, 10);
-        
+        /**
+        imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog1.png")));
+            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog2.png")));
+            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog3.png")));
+            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog4.png")));
+            imageLock5 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog5.png")));
+            * */
         //later it has to recieve this number from the server to display the same
         //to all the players in the same game.
         int randomLevel = (int) Math.floor((Math.random() * 4) + 1);
         randomLevel = 1;
         if (randomLevel == 1) {
-            
+
+            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog1.png")));
+            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog2.png")));
+            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog3.png")));
+            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog4.png")));
+            imageLock5 = new ImageView(new Image(getClass().getResourceAsStream("/css/dog5.png")));
+
             lock1.setPrefSize(28, 16);
             lock2.setPrefSize(53, 63);
             lock3.setPrefSize(24, 19);
             lock4.setPrefSize(15, 10);
-            
-            lock1.setTranslateX(991);
-            lock1.setTranslateY(536);
-            dog1.setTranslateX(991);
-            dog1.setTranslateY(536);
 
-            lock2.setTranslateX(606);
-            lock2.setTranslateY(343);
-            dog2.setTranslateX(606);
-            dog2.setTranslateY(343);
+            imageLock1.setFitHeight(128);
+            imageLock1.setFitWidth(116);
 
-            lock3.setTranslateX(1528);
-            lock3.setTranslateY(549);
-            dog3.setTranslateX(1528);
-            dog3.setTranslateY(549);
+            imageLock2.setFitHeight(153);
+            imageLock2.setFitWidth(163);
 
-            lock4.setTranslateX(941);
-            lock4.setTranslateY(123);
-            dog4.setTranslateX(941);
-            dog4.setTranslateY(123);
             
-            dog5.setTranslateX(40);
-            dog5.setTranslateY(740);
-            
+            imageLock3.setFitHeight(124);
+            imageLock3.setFitWidth(119);
+
+            imageLock4.setFitHeight(115);
+            imageLock4.setFitWidth(110);
+
+            lock1.setLayoutX(991);
+            lock1.setLayoutY(536);
+            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
+            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
+
+            lock2.setLayoutX(606);
+            lock2.setLayoutY(343);
+            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
+            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
+
+            lock3.setLayoutX(1528);
+            lock3.setLayoutY(549);
+            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
+            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
+
+            lock4.setLayoutX(941);
+            lock4.setLayoutY(123);
+            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
+            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
+
+            imageLock5.setTranslateX(40);
+            imageLock5.setTranslateY(740);
+
         } else if (randomLevel == 2) {
-            
+
             lock1.setPrefSize(128, 116);
             lock2.setPrefSize(153, 163);
             lock3.setPrefSize(118, 125);
@@ -107,7 +126,7 @@ public class Level1 {
             lock4.setTranslateY(219);
 
         } else if (randomLevel == 3) {
-            
+
             lock1.setPrefSize(28, 16);
             lock2.setPrefSize(53, 63);
             lock3.setPrefSize(18, 25);
@@ -126,7 +145,7 @@ public class Level1 {
             lock4.setTranslateY(119);
 
         } else {
-            
+
             lock1.setPrefSize(28, 16);
             lock2.setPrefSize(53, 63);
             lock3.setPrefSize(18, 25);
@@ -145,12 +164,13 @@ public class Level1 {
             lock4.setTranslateY(119);
 
         }
-        /** needed to hide the buttons for the image interaction.
+        
+        //needed to hide the buttons for the image interaction.
         lock1.setOpacity(0);
         lock2.setOpacity(0);
         lock3.setOpacity(0);
         lock4.setOpacity(0);
-        */
+
         btnReturn.setTranslateX(20);
         btnReturn.setTranslateY(940);
 
@@ -158,7 +178,28 @@ public class Level1 {
             levelStage.close();
             new Main().start(new Stage());
         });
-        levelContainer.getChildren().addAll(lock1, lock2, lock3, lock4, btnReturn, dog1, dog2, dog3, dog4, dog5);
+
+        lock1.setOnAction(event -> {
+            System.out.println("lock1");
+            imageLock1.setVisible(false);
+        });
+
+        lock2.setOnAction(event -> {
+            System.out.println("lock2");
+            imageLock2.setVisible(false);
+        });
+
+        lock3.setOnAction(event -> {
+            System.out.println("lock3");
+            imageLock3.setVisible(false);
+        });
+
+        lock4.setOnAction(event -> {
+            System.out.println("lock4");
+            imageLock4.setVisible(false);
+        });
+
+        levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, imageLock5, lock1, lock2, lock3, lock4);
     }
 
     public void displayLevel() {

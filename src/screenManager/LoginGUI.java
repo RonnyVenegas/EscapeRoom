@@ -46,6 +46,7 @@ public class LoginGUI {
         btnReturn.setTranslateY(140);
         
         btnReturn.setOnAction(event -> {
+            //level1.displayLevel();
             loginStage.close();
             new Main().start(new Stage());
         });

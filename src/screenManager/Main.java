@@ -26,7 +26,7 @@ public class Main extends Application {
                 primaryStage.close();
                 //loginGUI.displayLoginWindow();
                 level1.displayLevel();
-            }
+            }   
         });
         
         StackPane root = new StackPane();
