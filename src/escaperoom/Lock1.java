@@ -17,10 +17,10 @@ import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 import screenManager.Main;
 
-public class Level1 {
+public class Lock1 {
 
-    private final Stage levelStage = new Stage();
-    private Scene levelScene;
+    private final Stage lockStage = new Stage();
+    private Scene lockScene;
     private AnchorPane levelContainer;
     private Button lock1;
     private Button lock2;
@@ -242,8 +242,7 @@ public class Level1 {
         btnReturn.setTranslateY(940);
 
         btnReturn.setOnAction(event -> {
-            levelStage.close();
-            new Main().start(new Stage());
+            lockStage.close();
         });
 
         lock1.setOnAction(event -> {
@@ -269,15 +268,16 @@ public class Level1 {
         levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3, lock4);
     }
 
-    public void displayLevel() {
+    public void displayLock() {
         initializeElements();
-        levelScene = new Scene(levelContainer, 1820, 980);
+        lockScene = new Scene(levelContainer, 300, 300);
         String cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
-        levelScene.getStylesheets().add("file:///" + cssPath);
-        levelStage.setTitle("Escape Room - Level 1 Test");
-        levelStage.setScene(levelScene);
-        levelStage.setResizable(false);
-        levelStage.show();
+        lockScene.getStylesheets().add("file:///" + cssPath);
+        lockStage.setTitle("Escape Room - Level 1 Test");
+        lockStage.setScene(lockScene);
+        lockStage.setResizable(false);
+        lockStage.show();
     }
 
 }
+
