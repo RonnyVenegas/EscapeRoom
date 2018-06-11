@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package roseyPush;
+package teamManager;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -18,6 +18,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
+import screenManager.Main;
 
 /**
  *
@@ -38,6 +39,7 @@ public class SignInGUI {
     public static Button btnSave;
     public static ScrollPane scrollPanePlayerList;
     public static TextArea textAreaPlayerList;
+    public static Button returnButton;
     private SignInLogic signInLogic = new SignInLogic();
     String txt = "";
 
@@ -54,6 +56,9 @@ public class SignInGUI {
 
         btnAddPlayer = new Button("+");
         btnSave = new Button("Save");
+        
+        returnButton = new Button("Retun");
+        
 
         scrollPanePlayerList = new ScrollPane();
         textAreaPlayerList = new TextArea();
@@ -87,7 +92,9 @@ public class SignInGUI {
         btnAddPlayer.setTranslateX(300);
         btnAddPlayer.setTranslateY(80);
         btnSave.setTranslateX(30);
-        btnSave.setTranslateY(330);
+        btnSave.setTranslateY(325);
+        returnButton.setTranslateX(300);
+        returnButton.setTranslateY(325);
         txtDate.setEditable(false);
         textAreaPlayerList.setEditable(false);
         txtDate.setText(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
@@ -107,16 +114,21 @@ public class SignInGUI {
                 textAreaPlayerList.setText(txt);            
             }
         });
+        
+        returnButton.setOnAction(event -> {
+            signStage.close();
+            new Main().start(new Stage());
+        });
         signContainer.getChildren().addAll(lblDate, lblPlayerList, lblTeamName, txtDate, txtTeamName, txtPlayerID, btnAddPlayer,
-          btnSave, scrollPanePlayerList);
+          btnSave, scrollPanePlayerList, returnButton);
     }
 
     public void displaySignWindow() {
         initializeElements();
         signScene = new Scene(signContainer, 350, 350);
-        String cssPath = new File("src/Files/styles.css").getAbsolutePath().replace("\\", "/");
+        String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
         signScene.getStylesheets().add("file:///" + cssPath);
-        signStage.setTitle("Scape Room - Sign In");
+        signStage.setTitle("Team Builder - Sign In");
         signStage.setScene(signScene);
         signStage.setResizable(false);
         signStage.show();
