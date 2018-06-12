@@ -9,8 +9,8 @@ package escapeRoomFiles;
  *
  * @author San
  */
-public class ScapeRoomConfigurations {
-    private static final String TEAM_FILE_ROUTE = "src/ApplicationFiles/adminFile.txt";
+public class EscapeRoomConfigurations {
+    private static final String TEAM_FILE_ROUTE = "src/escapeRoomFiles/teamFile.txt";
 
     public static String getTEAM_FILE_ROUTE() {
         return TEAM_FILE_ROUTE;

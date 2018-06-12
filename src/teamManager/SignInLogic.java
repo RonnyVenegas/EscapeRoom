@@ -18,6 +18,7 @@ public class SignInLogic {
     private final int maxLength = 8;
     private final HashMap<String, Player> playersList = new HashMap<>();
     private static Team team;
+    private TeamFileManager manager = new TeamFileManager();
 
     public void validateTeam() {
         System.out.println("Team " + team.getTeamName());
@@ -27,6 +28,7 @@ public class SignInLogic {
                 team.addPlayerToArray(e.getValue());
                 System.out.println(e.getKey() + " " + e.getValue().toString());
             }
+            manager.createOpenTeamFile();
         } else {
             System.out.println("El equipo debe contener al menos 3 jugadores");
         }

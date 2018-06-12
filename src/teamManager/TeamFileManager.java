@@ -16,7 +16,7 @@ public class TeamFileManager {
 
     public void createOpenTeamFile() {
         try {
-            reader.open(escapeRoomFiles.ScapeRoomConfigurations.getTEAM_FILE_ROUTE());
+            writer.open(escapeRoomFiles.EscapeRoomConfigurations.getTEAM_FILE_ROUTE());
             writer.write(SignInLogic.getTeam());
             writer.close();
         } catch (IOException ex) {
@@ -25,7 +25,7 @@ public class TeamFileManager {
     }
     public void readTeamFile(){
         try {
-            reader.open(escapeRoomFiles.ScapeRoomConfigurations.getTEAM_FILE_ROUTE());
+            reader.open(escapeRoomFiles.EscapeRoomConfigurations.getTEAM_FILE_ROUTE());
             
         } catch (IOException ex) {
             Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
