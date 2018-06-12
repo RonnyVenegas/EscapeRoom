@@ -17,7 +17,7 @@ public class SignInLogic {
     private final int minLength = 2;
     private final int maxLength = 8;
     private final HashMap<String, Player> playersList = new HashMap<>();
-    private Team team;
+    private static Team team;
 
     public void validateTeam() {
         System.out.println("Team " + team.getTeamName());
@@ -84,5 +84,7 @@ public class SignInLogic {
             System.out.println(e.getKey().toString());
         }
     }
-
+    public static Team getTeam(){
+        return team;
+    }
 }
