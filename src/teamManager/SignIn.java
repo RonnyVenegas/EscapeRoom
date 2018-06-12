@@ -36,7 +36,7 @@ public class SignIn {
 
         btnEnrollTeam.setPrefSize(107.0, 25.0);
         btnEnrollTeam.setTranslateX(82.0);
-        btnEnrollTeam.setTranslateY(133.0);
+        btnEnrollTeam.setTranslateY(120.0);
         btnEnrollTeam.setOnAction(event -> {
             System.out.println("btnEnrollTeam");
             signInTeam.displaySignTeamWindow();
@@ -45,25 +45,24 @@ public class SignIn {
 
         btnModifyTeam.setPrefSize(107.0, 25.0);
         btnModifyTeam.setTranslateX(82.0);
-        btnModifyTeam.setTranslateY(209.0);
+        btnModifyTeam.setTranslateY(190.0);
         btnModifyTeam.setOnAction(event -> {
             System.out.println("btnModifyTeam");
             modify.displaySignWindow();
             stage.close();
         });
         
-        imageSignIn.setFitHeight(474.0);
-        imageSignIn.setFitWidth(335.0);
-        imageSignIn.setLayoutX(249.0);
-        imageSignIn.setLayoutY(18.0);
-        imageSignIn.setOpacity(0.74);
+        imageSignIn.setFitHeight(435.0);
+        imageSignIn.setFitWidth(450.0);
+        imageSignIn.setTranslateX(220);
+        imageSignIn.setTranslateY(5);
 
         pane.getChildren().addAll(btnEnrollTeam, btnModifyTeam, imageSignIn);
     }
 
     public void displaySignWindow() {
         inicializerElements();
-        scene = new Scene(pane, 680.0, 380.0);
+        scene = new Scene(pane, 680.0, 440.0);
         stage.setTitle("SingIn");
         stage.setScene(scene);
         stage.setResizable(false);
