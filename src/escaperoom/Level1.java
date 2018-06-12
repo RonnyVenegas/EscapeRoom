@@ -21,6 +21,7 @@ public class Level1 {
 
     private final Stage levelStage = new Stage();
     private Scene levelScene;
+    private Lock1 lockScene = new Lock1();
     private AnchorPane levelContainer;
     private Button lock1;
     private Button lock2;
@@ -248,6 +249,7 @@ public class Level1 {
 
         lock1.setOnAction(event -> {
             System.out.println("lock1");
+            lockScene.displayLock();
             imageLock1.setVisible(false);
         });
 
