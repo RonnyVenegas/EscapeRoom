@@ -60,10 +60,6 @@ public class ModifyTeam {
             addPlayer.displaySignWindow();
         });
 
-        img.setFitHeight(474.0);
-        img.setFitWidth(335.0);
-        img.setLayoutX(249.0);
-        img.setLayoutY(18.0);
         img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/3d6cdcd6-43e3-40d7-8a99-0e8f01437663.jpg")));
 
@@ -72,7 +68,7 @@ public class ModifyTeam {
 
     public void displaySignWindow() {
         inicializerElements();
-        scene = new Scene(pane, 680.0, 380.0);
+        scene = new Scene(pane, 600.0, 380.0);
         stage.setTitle("ModifyTeam");
         stage.setScene(scene);
         stage.setResizable(false);
