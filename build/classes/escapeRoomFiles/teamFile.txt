@@ -1,4 +1,4 @@
-Team: ABC-java.text.SimpleDateFormat@9586200-
-Player: abc1
-Player: abc3
-Player: abc2
+Team:-ABC-Mon Jun 11 00:00:00 CST 2018-
+Player:-abc1
+Player:-abc3
+Player:-abc2

@@ -1,4 +1,1 @@
-Team: ABC-java.text.DateFormatSymbols@77598c51-
-Player: abc1
-Player: abc3
-Player: abc2
+ABC-Mon Jun 11 00:00:00 CST 2018-abc1-abc3-abc2

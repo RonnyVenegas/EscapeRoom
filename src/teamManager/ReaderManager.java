@@ -21,7 +21,7 @@ import java.util.logging.Logger;
  */
 public class ReaderManager {
 
-     private BufferedReader reader;
+    private BufferedReader reader;
 
     public void open(String fileName) throws FileNotFoundException {
         reader = new BufferedReader(new FileReader(fileName));
@@ -38,7 +38,11 @@ public class ReaderManager {
                 datos = line.split("-");
                 team.setTeamName(datos[0]);
                 team.setSignInDate(format.parse(datos[1]));
-                //?? lista de jugadores
+                for(int i = 2; i < datos.length; i++) {
+                    Player player = new Player(datos[i]);
+                    team.addPlayerToArray(player);
+                }
+
             } catch (ParseException ex) {
                 Logger.getLogger(ReaderManager.class.getName()).log(Level.SEVERE, null, ex);
             }

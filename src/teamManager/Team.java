@@ -40,13 +40,13 @@ public class Team {
     public String getTeamPlayersList() {
         String content = "";
         for(Player player : teamPlayers){
-            content +="\nPlayer: "+ player.getID();
+            content +="-"+ player.getID();
         }
         return content;
     }
 
     public String toFileString() {
-        return "Team: "+teamName + "-" + signInDate + "-" + getTeamPlayersList();
+        return teamName + "-" + signInDate + getTeamPlayersList();
     }
     
 }
