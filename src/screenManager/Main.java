@@ -10,25 +10,31 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import teamManager.SignInGUI;
+import teamManager.SignInTeam;
+import teamManager.SignIn;
+import static javafx.application.Application.launch;
 
 /**
  *
  * @author Ronny
  */
 public class Main extends Application {
-    private SignInGUI signIn = new SignInGUI();
+    private SignInTeam signInTeam = new SignInTeam();
+    private SignIn signIn = new SignIn();
     private Level1 Level1 = new Level1();
     private Button btn;
     private Button gameButton;
+    private Button signInButton;
     
     @Override
     public void start(Stage primaryStage) {
         
         btn = new Button();
-        btn.setText("Open Sign");
+        btn.setText("Open Sign Team");
         gameButton = new Button();
         gameButton.setText("Open Game");
+        signInButton = new Button();
+        signInButton.setText("Open Signin");
         
         /**
         btn.setLayoutX(50);
@@ -42,12 +48,15 @@ public class Main extends Application {
         gameButton.setTranslateX(0);
         gameButton.setTranslateY(30);
         
+        signInButton.setTranslateX(0);
+        signInButton.setTranslateY(60);
+        
         btn.setOnAction(new EventHandler<ActionEvent>() {
             
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
-                signIn.displaySignWindow();
+                signInTeam.displaySignTeamWindow();
             }
         });
         
@@ -60,8 +69,17 @@ public class Main extends Application {
             }
         });
         
+        signInButton.setOnAction(new EventHandler<ActionEvent>() {
+            
+            @Override
+            public void handle(ActionEvent event) {
+                primaryStage.close();
+                signIn.displaySignWindow();
+            }
+        });
+        
         StackPane root = new StackPane();
-        root.getChildren().addAll(btn, gameButton);
+        root.getChildren().addAll(btn, gameButton, signInButton);
         
         Scene scene = new Scene(root, 400, 400);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");

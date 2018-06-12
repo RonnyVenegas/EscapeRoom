@@ -53,21 +53,21 @@ public class Lock1 {
         label.setTranslateX(20);
         label.setTranslateY(100);
         
-        txtLock1.setPrefSize(30, 30);
-        txtLock2.setPrefSize(30, 30);
-        txtLock3.setPrefSize(30, 30);
-        txtLock4.setPrefSize(30, 30);
+        txtLock1.setPrefSize(40, 40);
+        txtLock2.setPrefSize(40, 40);
+        txtLock3.setPrefSize(40, 40);
+        txtLock4.setPrefSize(40, 40);
 
         txtLock1.setTranslateX(20);
         txtLock1.setTranslateY(200);
         
-        txtLock2.setTranslateX(50);
+        txtLock2.setTranslateX(60);
         txtLock2.setTranslateY(200);
         
-        txtLock3.setTranslateX(80);
+        txtLock3.setTranslateX(120);
         txtLock3.setTranslateY(200);
         
-        txtLock4.setTranslateX(110);
+        txtLock4.setTranslateX(160);
         txtLock4.setTranslateY(200);
         
         btnReturn.setTranslateX(20);
@@ -84,13 +84,13 @@ public class Lock1 {
         
         lockContainer.getChildren().addAll(btnReturn, lock1, txtLock1,txtLock2, txtLock3, txtLock4, label);
     }
-
+    
     public void displayLock() {
         initializeElements();
-        lockScene = new Scene(lockContainer, 300, 300);
+        lockScene = new Scene(lockContainer, 500, 500);
         String cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
         lockScene.getStylesheets().add("file:///" + cssPath);
-        lockStage.setTitle("Escape Room - Level 1 Test");
+        lockStage.setTitle("Escape Room - Lock");
         lockStage.setScene(lockScene);
         lockStage.setResizable(false);
         lockStage.show();

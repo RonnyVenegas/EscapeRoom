@@ -49,11 +49,11 @@ public class SignInLogic {
     }
 
     public void addPlayerToMap() {
-        if (playersList.containsKey(SignInGUI.txtPlayerID.getText())) {
+        if (playersList.containsKey(SignInTeam.txtPlayerID.getText())) {
             System.out.println("No se puede introducir el jugador. El identificador esta repetido.");
         } else {
-            Player player = new Player(SignInGUI.txtPlayerID.getText());
-            playersList.put(SignInGUI.txtPlayerID.getText(), player);
+            Player player = new Player(SignInTeam.txtPlayerID.getText());
+            playersList.put(SignInTeam.txtPlayerID.getText(), player);
 
         }
         mostrarJugadores();

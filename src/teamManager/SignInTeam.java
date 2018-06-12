@@ -24,7 +24,7 @@ import screenManager.Main;
  *
  * @author San
  */
-public class SignInGUI {
+public class SignInTeam {
 
     public static final Stage signStage = new Stage();
     public static Scene signScene;
@@ -123,7 +123,7 @@ public class SignInGUI {
           btnSave, scrollPanePlayerList, returnButton);
     }
 
-    public void displaySignWindow() {
+    public void displaySignTeamWindow() {
         initializeElements();
         signScene = new Scene(signContainer, 350, 350);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");

@@ -276,7 +276,7 @@ public class Level1 {
         levelScene = new Scene(levelContainer, 1820, 980);
         String cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
         levelScene.getStylesheets().add("file:///" + cssPath);
-        levelStage.setTitle("Escape Room - Level 1 Test");
+        levelStage.setTitle("Escape Room - Level");
         levelStage.setScene(levelScene);
         levelStage.setResizable(false);
         levelStage.show();

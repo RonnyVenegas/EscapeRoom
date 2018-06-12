@@ -28,7 +28,7 @@ public class TeamBuilder implements AbstractBuilder {
 
     @Override
     public void buildTeamName() {
-        String teamName = SignInGUI.txtTeamName.getText();
+        String teamName = SignInTeam.txtTeamName.getText();
         boolean result = validateString(teamName, REG_EXP_1, minLength1, maxLength1);
         if (result == true) {
             System.out.println("Nombre equipo invalido");
@@ -65,7 +65,7 @@ public class TeamBuilder implements AbstractBuilder {
     public void buildDate() {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         try {
-            team.setSignInDate(format.parse(SignInGUI.txtDate.getText()));
+            team.setSignInDate(format.parse(SignInTeam.txtDate.getText()));
         } catch (ParseException ex) {
             ex.getMessage();
         }
