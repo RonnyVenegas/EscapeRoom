@@ -19,7 +19,7 @@ import javafx.stage.Stage;
  *
  * @author Maricela Ledezma
  */
-public class ModifyPlayerIdGUI {
+public class ModifyPlayerIdGUI { // esta clase es diferente
 
     ImageView img;
     private Scene scene;
@@ -28,26 +28,26 @@ public class ModifyPlayerIdGUI {
     public static AnchorPane signContainer;
     public static Label lblPlayerId;
     public static Label lblNewPlayerId;
-    private static Label lblPlayerList;
+    private static Label lblPlayer;
     public static TextField txtPlayerID;
     public static TextField txtNewPlayerId;
     public static Button btnSave;
     public static Button returnButton;
-    public static TextArea textAreaPlayerList;
+    public static TextArea textAreaPlayer;
 
     public void initializeElements() {
         signContainer = new AnchorPane();
-        lblPlayerId = new Label("Player Id");
-        lblNewPlayerId = new Label("New Player Id");
-        lblPlayerList = new Label("Player List");
+        lblPlayerId = new Label("Name Team");
+        lblNewPlayerId = new Label("Player Id");
+        lblPlayer = new Label("Player");
         txtPlayerID = new TextField();
         txtNewPlayerId = new TextField();
         btnSave = new Button("Save");
         returnButton = new Button("Return");
-        textAreaPlayerList = new TextArea();
+        textAreaPlayer = new TextArea();
         img = new ImageView();
 
-        txtPlayerID.setPromptText("Player");
+        txtPlayerID.setPromptText("Team");
         txtPlayerID.setPrefSize(160, 10);
         txtPlayerID.setTranslateX(130);
         txtPlayerID.setTranslateY(40);
@@ -57,11 +57,11 @@ public class ModifyPlayerIdGUI {
         txtNewPlayerId.setTranslateX(130);
         txtNewPlayerId.setTranslateY(90);
 
-        textAreaPlayerList.setText("Team players \n-----------------------------------------------------------");
-        textAreaPlayerList.setPrefSize(300, 100);
-        textAreaPlayerList.setTranslateX(130);
-        textAreaPlayerList.setTranslateY(135);
-        textAreaPlayerList.setEditable(false);
+        textAreaPlayer.setText("Add Player \n-----------------------------------------------------------");
+        textAreaPlayer.setPrefSize(300, 100);
+        textAreaPlayer.setTranslateX(130);
+        textAreaPlayer.setTranslateY(135);
+        textAreaPlayer.setEditable(false);
 
         btnSave.setPrefSize(80, 10);
         btnSave.setTranslateX(100);
@@ -77,19 +77,23 @@ public class ModifyPlayerIdGUI {
         lblNewPlayerId.setTranslateX(30);
         lblNewPlayerId.setTranslateY(90);
 
-        lblPlayerList.setTranslateX(30);
-        lblPlayerList.setTranslateY(130);
+        lblPlayer.setTranslateX(30);
+        lblPlayer.setTranslateY(130);
         
         img.setOpacity(0.74);
-        img = new ImageView(new Image(getClass().getResourceAsStream("/images/3d6cdcd6-43e3-40d7-8a99-0e8f01437663.jpg")));
+        img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
 //            signInLogic.createTeam();
 //            signInLogic.validateTeam();
         });
+        returnButton.setOnAction(event -> {
+            stage.close();
+            new ModifyTeam().displaySignWindow();
+        });
 
-        signContainer.getChildren().addAll(img,lblPlayerId, lblNewPlayerId, lblPlayerList, txtPlayerID, txtNewPlayerId,
-                        textAreaPlayerList,btnSave,returnButton);
+        signContainer.getChildren().addAll(img,lblPlayerId, lblNewPlayerId, lblPlayer, txtPlayerID, txtNewPlayerId,
+                        textAreaPlayer,btnSave,returnButton);
     }
 
     public void displaySignWindow() {

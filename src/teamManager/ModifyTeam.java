@@ -22,6 +22,7 @@ public class ModifyTeam {
     Button btnChangeNameTeam;
     Button btnModifyPlayerId;
     Button btnAddPlayer;
+    Button btnReturn;
     ImageView img;
     Scene scene;
     Stage stage = new Stage();
@@ -34,36 +35,41 @@ public class ModifyTeam {
         btnChangeNameTeam = new Button("Cambiar Nombre de Equipo");
         btnModifyPlayerId = new Button("Modificar Jugador");
         btnAddPlayer = new Button("Agregar Jugador");
+        btnReturn = new Button("Retun");
         img = new ImageView();
 
-        btnChangeNameTeam.setPrefSize(107.0, 25.0);
+        btnChangeNameTeam.setPrefSize(110.0, 25.0);
         btnChangeNameTeam.setTranslateX(82.0);
         btnChangeNameTeam.setTranslateY(100.0);
         btnChangeNameTeam.setOnAction(event -> {
-            System.out.println("lock4");
             nameTeam.displaySignWindow();
         });
 
-        btnModifyPlayerId.setPrefSize(107.0, 25.0);
+        btnModifyPlayerId.setPrefSize(110.0, 25.0);
         btnModifyPlayerId.setTranslateX(82.0);
         btnModifyPlayerId.setTranslateY(150.0);
         btnModifyPlayerId.setOnAction(event -> {
-            System.out.println("lock4");
             playerId.displaySignWindow();
         });
 
-        btnAddPlayer.setPrefSize(107.0, 25.0);
+        btnAddPlayer.setPrefSize(110.0, 25.0);
         btnAddPlayer.setTranslateX(82.0);
         btnAddPlayer.setTranslateY(200.0);
         btnAddPlayer.setOnAction(event -> {
-            System.out.println("lock4");
             addPlayer.displaySignWindow();
         });
 
-        img.setOpacity(0.74);
+        btnReturn.setPrefSize(90.0, 25.0);
+        btnReturn.setTranslateX(500);
+        btnReturn.setTranslateY(350);
+        btnReturn.setOnAction(event -> {
+            stage.close();
+            new SignIn().displaySignWindow();
+        });
+//        img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/3d6cdcd6-43e3-40d7-8a99-0e8f01437663.jpg")));
 
-        pane.getChildren().addAll(img, btnChangeNameTeam, btnModifyPlayerId, btnAddPlayer );
+        pane.getChildren().addAll(img, btnChangeNameTeam, btnModifyPlayerId, btnAddPlayer,btnReturn);
     }
 
     public void displaySignWindow() {
