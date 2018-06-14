@@ -15,6 +15,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
+import static javafx.scene.paint.Color.color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import screenManager.Main;
 
@@ -31,6 +33,7 @@ public class Lock1 {
     private TextField txtLock4;
     private Button btnReturn;
     private ImageView imageLock1;
+    private int riddle;
 
     public void initializeElements() {
         lockContainer = new AnchorPane();
@@ -41,50 +44,79 @@ public class Lock1 {
         txtLock2 = new TextField();
         txtLock3 = new TextField();
         txtLock4 = new TextField();
-        
-        lockContainer.setPadding(new Insets(10));
-        lock1.setPrefSize(40, 40);
-        btnReturn.setPrefSize(80, 10);
-        
-        lock1.setTranslateX(160);
-        lock1.setTranslateY(200);
-        
-        label.setPrefSize(150, 150);
-        label.setTranslateX(20);
-        label.setTranslateY(100);
-        
-        txtLock1.setPrefSize(40, 40);
-        txtLock2.setPrefSize(40, 40);
-        txtLock3.setPrefSize(40, 40);
-        txtLock4.setPrefSize(40, 40);
 
-        txtLock1.setTranslateX(20);
+        label.setFont(new Font(30));
+        label.setPrefWidth(400);
+
+        lockContainer.setPadding(new Insets(10));
+        lock1.setPrefSize(100, 40);
+        btnReturn.setPrefSize(80, 10);
+
+        lock1.setTranslateX(250);
+        lock1.setTranslateY(300);
+
+        label.setPrefSize(100, 100);
+        label.setTranslateX(20);
+        label.setTranslateY(50);
+
+        txtLock1.setPrefSize(50, 50);
+        txtLock2.setPrefSize(50, 50);
+        txtLock3.setPrefSize(50, 50);
+        txtLock4.setPrefSize(50, 50);
+
+        txtLock1.setTranslateX(40);
         txtLock1.setTranslateY(200);
-        
-        txtLock2.setTranslateX(60);
+
+        txtLock2.setTranslateX(110);
         txtLock2.setTranslateY(200);
-        
-        txtLock3.setTranslateX(120);
+
+        txtLock3.setTranslateX(180);
         txtLock3.setTranslateY(200);
-        
-        txtLock4.setTranslateX(160);
+
+        txtLock4.setTranslateX(250);
         txtLock4.setTranslateY(200);
-        
+
         btnReturn.setTranslateX(20);
-        btnReturn.setTranslateY(260);
+        btnReturn.setTranslateY(400);
 
         btnReturn.setOnAction(event -> {
             lockStage.close();
         });
 
         lock1.setOnAction(event -> {
-            System.out.println("lock1");
-            lockStage.close();
+            System.out.println("lock " + riddle);
+
+            if (getRiddle() == 1) {
+                if(txtLock1.getText() == "1" && txtLock2.getText() == "2" 
+                        && txtLock3.getText() == "3" && txtLock4.getText() == "4"){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+                
+            } else if (getRiddle() == 2) {
+                if(txtLock1.getText() == "A" && txtLock2.getText() == "B" 
+                        && txtLock3.getText() == "C" && txtLock4.getText() == "D"){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+            } else if (getRiddle() == 3) {
+                if(txtLock1.getText() == "A1" && txtLock2.getText() == "A2" 
+                        && txtLock3.getText() == "A3" && txtLock4.getText() == "A4"){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+            } else if (getRiddle() == 4) {
+                if(txtLock1.getText() == "01" && txtLock2.getText() == "02" 
+                        && txtLock3.getText() == "03" && txtLock4.getText() == "04"){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+            }
         });
-        
-        lockContainer.getChildren().addAll(btnReturn, lock1, txtLock1,txtLock2, txtLock3, txtLock4, label);
+
+        lockContainer.getChildren().addAll(btnReturn, lock1, txtLock1, txtLock2, txtLock3, txtLock4, label);
     }
-    
+
     public void displayLock() {
         initializeElements();
         lockScene = new Scene(lockContainer, 500, 500);
@@ -96,5 +128,12 @@ public class Lock1 {
         lockStage.show();
     }
 
-}
+    public int getRiddle() {
+        return riddle;
+    }
 
+    public void setRiddle(int riddle) {
+        this.riddle = riddle;
+    }
+
+}

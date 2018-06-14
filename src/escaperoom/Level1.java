@@ -50,7 +50,7 @@ public class Level1 {
         //later it has to recieve this number from the server to display the same
         //to all the players in the same game.
         int randomLevel = (int) Math.floor((Math.random() * 4) + 1);
-        //randomLevel = 1;
+        randomLevel = 2;
         if (randomLevel == 1) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
@@ -234,10 +234,10 @@ public class Level1 {
         }
         
         //needed to hide the buttons for the image interaction.
-        lock1.setOpacity(0);
+        /**lock1.setOpacity(0);
         lock2.setOpacity(0);
         lock3.setOpacity(0);
-        lock4.setOpacity(0);
+        lock4.setOpacity(0);*/
 
         btnReturn.setTranslateX(20);
         btnReturn.setTranslateY(940);
@@ -249,22 +249,29 @@ public class Level1 {
 
         lock1.setOnAction(event -> {
             System.out.println("lock1");
+            lockScene.setRiddle(1);
             lockScene.displayLock();
             imageLock1.setVisible(false);
         });
 
         lock2.setOnAction(event -> {
             System.out.println("lock2");
+            lockScene.setRiddle(2);
+            lockScene.displayLock();
             imageLock2.setVisible(false);
         });
 
         lock3.setOnAction(event -> {
             System.out.println("lock3");
+            lockScene.setRiddle(3);
+            lockScene.displayLock();
             imageLock3.setVisible(false);
         });
 
         lock4.setOnAction(event -> {
             System.out.println("lock4");
+            lockScene.setRiddle(4);
+            lockScene.displayLock();
             imageLock4.setVisible(false);
         });
 
