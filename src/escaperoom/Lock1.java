@@ -10,6 +10,7 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -39,14 +40,14 @@ public class Lock1 {
         lockContainer = new AnchorPane();
         lock1 = new Button("Unlock");
         btnReturn = new Button("Return");
-        label = new Label("Math question for the win...");
+        label = new Label("Math question for the win... \nbla bla bla");
         txtLock1 = new TextField();
         txtLock2 = new TextField();
         txtLock3 = new TextField();
         txtLock4 = new TextField();
-
-        label.setFont(new Font(30));
-        label.setPrefWidth(400);
+        
+        /**
+        label.setFont(new Font(30));*/
 
         lockContainer.setPadding(new Insets(10));
         lock1.setPrefSize(100, 40);
@@ -55,9 +56,9 @@ public class Lock1 {
         lock1.setTranslateX(250);
         lock1.setTranslateY(300);
 
-        label.setPrefSize(100, 100);
+        label.setPrefSize(480, 150);
         label.setTranslateX(20);
-        label.setTranslateY(50);
+        label.setTranslateY(20);
 
         txtLock1.setPrefSize(50, 50);
         txtLock2.setPrefSize(50, 50);
@@ -82,32 +83,46 @@ public class Lock1 {
         btnReturn.setOnAction(event -> {
             lockStage.close();
         });
+        
+        
 
         lock1.setOnAction(event -> {
             System.out.println("lock " + riddle);
+            String strLock1 = txtLock1.getText();
+            String strLock2 = txtLock2.getText();
+            String strLock3 = txtLock3.getText();
+            String strLock4 = txtLock4.getText();
+            System.out.println(strLock1);
+            System.out.println(strLock2);
+            System.out.println(strLock3);
+            System.out.println(strLock4);
 
-            if (getRiddle() == 1) {
-                if(txtLock1.getText() == "1" && txtLock2.getText() == "2" 
-                        && txtLock3.getText() == "3" && txtLock4.getText() == "4"){
+            if (riddle == 1) {
+                System.out.println("riddle 1");
+                if(strLock1.equals("1") && strLock2.equals("1") 
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
                     System.out.println("unlocked");
                     lockStage.close();
                 }
                 
-            } else if (getRiddle() == 2) {
-                if(txtLock1.getText() == "A" && txtLock2.getText() == "B" 
-                        && txtLock3.getText() == "C" && txtLock4.getText() == "D"){
+            } else if (riddle == 2) {
+                System.out.println("riddle 2");
+                if(strLock1.equals("1")  && strLock2.equals("1")  
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
                     System.out.println("unlocked");
                     lockStage.close();
                 }
-            } else if (getRiddle() == 3) {
-                if(txtLock1.getText() == "A1" && txtLock2.getText() == "A2" 
-                        && txtLock3.getText() == "A3" && txtLock4.getText() == "A4"){
+            } else if (riddle == 3) {
+                System.out.println("riddle 3");
+                if(strLock1.equals("1")  && strLock2.equals("1")  
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
                     System.out.println("unlocked");
                     lockStage.close();
                 }
-            } else if (getRiddle() == 4) {
-                if(txtLock1.getText() == "01" && txtLock2.getText() == "02" 
-                        && txtLock3.getText() == "03" && txtLock4.getText() == "04"){
+            } else if (riddle == 4) {
+                System.out.println("riddle 4");
+                if(strLock1.equals("1")  && strLock2.equals("1")  
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
                     System.out.println("unlocked");
                     lockStage.close();
                 }
@@ -120,7 +135,7 @@ public class Lock1 {
     public void displayLock() {
         initializeElements();
         lockScene = new Scene(lockContainer, 500, 500);
-        String cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
+        String cssPath = new File("src/css/styleLock.css").getAbsolutePath().replace("\\", "/");
         lockScene.getStylesheets().add("file:///" + cssPath);
         lockStage.setTitle("Escape Room - Lock");
         lockStage.setScene(lockScene);
