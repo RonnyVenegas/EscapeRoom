@@ -5,9 +5,10 @@
  */
 package teamManager;
 
-import java.util.HashMap;
+//import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +17,7 @@ public class SignInLogic {
     private final String REG_EXP = "[A-Za-z0-9]";
     private final int minLength = 2;
     private final int maxLength = 8;
-    private final HashMap<String, Player> playersList = new HashMap<>();
+    private final TreeSet<Player> playersList = new TreeSet<>();
     private static Team team;
     private TeamFileManager manager = new TeamFileManager();
 
@@ -24,9 +25,13 @@ public class SignInLogic {
         System.out.println("Team " + team.getTeamName());
         if (!playersList.isEmpty() && playersList.size() >= 3) {
             System.out.println("validate team");
-            for (Map.Entry<String, Player> e : playersList.entrySet()) {
-                team.addPlayerToArray(e.getValue());
-                System.out.println(e.getKey() + " " + e.getValue().toString());
+//            for (Map.Entry<Player> e : playersList.entrySet()) {
+//                team.addPlayerToArray(e.getValue());
+//                System.out.println(e.getKey() + " " + e.getValue().toString());
+//            }
+            for (Player p : playersList) {
+                team.addPlayerToArray(p);
+                System.out.println(p.getID().toString());
             }
             manager.createOpenTeamFile();
         } else {
@@ -49,11 +54,12 @@ public class SignInLogic {
     }
 
     public void addPlayerToMap() {
-        if (playersList.containsKey(SignInTeam.txtPlayerID.getText())) {
+        if (playersList.contains(SignInTeam.txtPlayerID.getText())) {
             System.out.println("No se puede introducir el jugador. El identificador esta repetido.");
         } else {
             Player player = new Player(SignInTeam.txtPlayerID.getText());
-            playersList.put(SignInTeam.txtPlayerID.getText(), player);
+            //playersList.put(SignInTeam.txtPlayerID.getText(), player);
+            playersList.add(player);
 
         }
         mostrarJugadores();
@@ -80,7 +86,8 @@ public class SignInLogic {
     }
 
     public void mostrarJugadores() {
-        Iterator list = playersList.entrySet().iterator();
+        //Iterator list = playersList.entrySet().iterator();
+        Iterator list = playersList.iterator();
         while (list.hasNext()) {
             Map.Entry e = (Map.Entry) list.next();
             System.out.println(e.getKey().toString());
@@ -92,7 +99,7 @@ public class SignInLogic {
     }
 
     public boolean containsPlayer(String valor) {
-        return playersList.containsKey(valor);
+        return playersList.contains(valor);
     }
 
     public void modifyId() {
@@ -101,15 +108,16 @@ public class SignInLogic {
         } else if (validatePlayerID(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
             ModifyPlayerIdGUI.textAreaPlayer.setText("El identificador es invalido.");
         } else {
-            Iterator list = playersList.entrySet().iterator();
+            Iterator list = playersList.iterator();
             boolean next = true;
             while (next) {
                 if (list.next().equals(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
                     next = false;
                 }
-                Map.Entry e = (Map.Entry) list.next();
+                // Map.Entry e = (Map.Entry) list.next();
+                next = list.hasNext();
             }
-            //list.next() = ModifyPlayerIdGUI.txtNewPlayerId.getText();            
+            //list.next(). = ModifyPlayerIdGUI.txtNewPlayerId.getText();  
             ModifyPlayerIdGUI.textAreaPlayer.setText("Id modificado");
         }
     }
