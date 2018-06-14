@@ -99,10 +99,12 @@ public class SignInTeam {
         textAreaPlayerList.setEditable(false);
         txtDate.setText(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
         scrollPanePlayerList.setContent(textAreaPlayerList);
+        
         btnSave.setOnAction(event -> {
             signInLogic.createTeam();
             signInLogic.validateTeam();
         });
+        
         btnAddPlayer.setOnAction(event -> {
             boolean invalidName = signInLogic.validatePlayerID(txtPlayerID.getText());
             
@@ -117,7 +119,7 @@ public class SignInTeam {
         
         returnButton.setOnAction(event -> {
             signStage.close();
-            new Main().start(new Stage());
+            new SignIn().displaySignWindow();
         });
         signContainer.getChildren().addAll(lblDate, lblPlayerList, lblTeamName, txtDate, txtTeamName, txtPlayerID, btnAddPlayer,
           btnSave, scrollPanePlayerList, returnButton);

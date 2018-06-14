@@ -13,74 +13,61 @@ import javafx.stage.Stage;
 import teamManager.SignInTeam;
 import teamManager.SignIn;
 import static javafx.application.Application.launch;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  *
  * @author Ronny
  */
 public class Main extends Application {
+
     private SignInTeam signInTeam = new SignInTeam();
     private SignIn signIn = new SignIn();
     private Level1 Level1 = new Level1();
-    private Button btn;
     private Button gameButton;
     private Button signInButton;
-    
+    ImageView img;
+
     @Override
     public void start(Stage primaryStage) {
-        
-        btn = new Button();
-        btn.setText("Open Sign Team");
+
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
         signInButton.setText("Open Signin");
+        img = new ImageView(new Image(getClass().getResourceAsStream("/images/signInImage.jpg")));
+
+        img.setFitHeight(400.0);
+        img.setFitWidth(400.0);
         
-        /**
-        btn.setLayoutX(50);
-        btn.setLayoutY(50);*/
-        btn.setTranslateX(0);
-        btn.setTranslateY(0);
-        /**
-        gameButton.setLayoutX(200);
-        gameButton.setLayoutY(200);*/
-        
-        gameButton.setTranslateX(0);
-        gameButton.setTranslateY(30);
-        
-        signInButton.setTranslateX(0);
-        signInButton.setTranslateY(60);
-        
-        btn.setOnAction(new EventHandler<ActionEvent>() {
-            
-            @Override
-            public void handle(ActionEvent event) {
-                primaryStage.close();
-                signInTeam.displaySignTeamWindow();
-            }
-        });
-        
+        gameButton.setTranslateX(2);
+        gameButton.setTranslateY(120);
+
+        signInButton.setTranslateX(100);
+        signInButton.setTranslateY(120);
+
         gameButton.setOnAction(new EventHandler<ActionEvent>() {
-            
+
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
                 Level1.displayLevel();
             }
         });
-        
+
         signInButton.setOnAction(new EventHandler<ActionEvent>() {
-            
+
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
                 signIn.displaySignWindow();
             }
         });
-        
+
         StackPane root = new StackPane();
-        root.getChildren().addAll(btn, gameButton, signInButton);
-        
+        root.getChildren().addAll(img,gameButton, signInButton);
+
         Scene scene = new Scene(root, 400, 400);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
         scene.getStylesheets().add("file:///" + cssPath);
@@ -95,5 +82,5 @@ public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

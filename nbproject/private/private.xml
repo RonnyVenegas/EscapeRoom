@@ -2,24 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/bloodHandPrint.png</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/InformationRequiredException.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/SignInLogic.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/Team.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/css/styleLevel1.css</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/screenManager/Main.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/Player.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/TeamBuilder.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/backgroundDefault.jpg</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/ReaderManager.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escaperoom/Lock1.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/EscapeRoomConfigurations.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escaperoom/Level1.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/AbstractBuilder.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/SignInGUI.java</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/bicycleLock.png</file>
-            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/teamFile.txt</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
