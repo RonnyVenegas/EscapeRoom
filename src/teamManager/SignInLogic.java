@@ -86,7 +86,31 @@ public class SignInLogic {
             System.out.println(e.getKey().toString());
         }
     }
-    public static Team getTeam(){
+
+    public static Team getTeam() {
         return team;
+    }
+
+    public boolean containsPlayer(String valor) {
+        return playersList.containsKey(valor);
+    }
+
+    public void modifyId() {
+        if (containsPlayer(ModifyPlayerIdGUI.txtNewPlayerId.getText()) == true) {
+            ModifyPlayerIdGUI.textAreaPlayer.setText("No se puede modificar el jugador. El identificador esta repetido.");
+        } else if (validatePlayerID(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
+            ModifyPlayerIdGUI.textAreaPlayer.setText("El identificador es invalido.");
+        } else {
+            Iterator list = playersList.entrySet().iterator();
+            boolean next = true;
+            while (next) {
+                if (list.next().equals(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
+                    next = false;
+                }
+                Map.Entry e = (Map.Entry) list.next();
+            }
+            //list.next() = ModifyPlayerIdGUI.txtNewPlayerId.getText();            
+            ModifyPlayerIdGUI.textAreaPlayer.setText("Id modificado");
+        }
     }
 }
