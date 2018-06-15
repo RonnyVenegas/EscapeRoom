@@ -5,6 +5,7 @@
  */
 package teamManager;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -72,6 +73,7 @@ public class SignIn {
     public void displaySignWindow() {
         inicializerElements();
         scene = new Scene(pane, 680.0, 440.0);
+        scene.getStylesheets().add(EscapeRoomConfigurations.getCSS_PATH());
         stage.setTitle("SingIn");
         stage.setScene(scene);
         stage.setResizable(false);

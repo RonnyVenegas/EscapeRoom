@@ -85,7 +85,7 @@
 }
 
 .dialog-pane:header .header-panel {
-    -fx-background-image: url("/Images/windowBackground.png");
+    -fx-background-color: #000000;
 }
 
 .dialog-pane:header .header-panel .label {

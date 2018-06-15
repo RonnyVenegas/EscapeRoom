@@ -55,8 +55,8 @@ public class SignInTeamGUI {
 
         btnAddPlayer = new Button("+");
         btnSave = new Button("Save");
-        
-        returnButton = new Button("Retun");
+  
+        returnButton = new Button("Return");
         
 
         scrollPanePlayerList = new ScrollPane();

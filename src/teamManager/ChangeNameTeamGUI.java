@@ -73,7 +73,7 @@ public class ChangeNameTeamGUI {
         
         btnSave.setOnAction(event -> {
 //            signInLogic.createTeam();
-//            signInLogic.validateTeam();
+//            signInLogic.validateTeamPlayers();
         });
         returnButton.setOnAction(event -> {
             stage.close();
