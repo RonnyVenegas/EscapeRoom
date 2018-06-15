@@ -84,11 +84,11 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-            if (signInLogic.containsPlayer(txtPlayerID.getText()) == false) {
-             textAreaPlayer.setText("El jugador no existe");
-            }else{
-            signInLogic.modifyId();
-            }
+//            if (signInLogic.containsPlayer(txtPlayerID.getText()) == false) {
+//             textAreaPlayer.setText("El jugador no existe");
+//            }else{
+//            //signInLogic.modifyId();
+//            }
         });
         returnButton.setOnAction(event -> {
             stage.close();
