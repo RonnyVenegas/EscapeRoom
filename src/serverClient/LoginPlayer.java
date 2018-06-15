@@ -22,7 +22,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 import screenManager.Main;
-import serverClient.Client;
 import serverClient.Lobby;
 
 /**
@@ -126,7 +125,7 @@ public class LoginPlayer extends Application {
      */
     public static void main(String[] args) {
         launch(args);
-        new Client().runClient();
+        new LoginPlayer().runClient();
     }
     
     private DataOutputStream output; // output stream to client
