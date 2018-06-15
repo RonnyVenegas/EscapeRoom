@@ -57,7 +57,7 @@ public class SignInLogic {
     public void addPlayerToMap() {
 
 //        if (playersList.contains(SignInTeamGUI.txtPlayerID.getText())) {
-        if (playersList.contains(new Player(SignInTeamGUI.txtPlayerID.getText()))) {
+        /**if (playersList.contains(new Player(SignInTeamGUI.txtPlayerID.getText()))) {
             ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
         } else {
             String playerID = SignInTeamGUI.txtPlayerID.getText();
@@ -65,7 +65,7 @@ public class SignInLogic {
             //playersList.put(SignInTeamGUI.txtPlayerID.getText(), player);
             playersList.add(player);
             SignInTeamGUI.textAreaPlayerList.setText(SignInTeamGUI.textAreaPlayerList.getText() + "\n" + playerID);
-        }
+        }*/
         mostrarJugadores();
     }
 
