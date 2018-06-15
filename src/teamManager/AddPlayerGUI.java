@@ -28,40 +28,30 @@ public class AddPlayerGUI {
     public static AnchorPane signContainer;
     public static Label lblTeam;
     public static Label lblNewPlayerId;
-    private static Label lblPlayer;
     public static TextField txtTeam;
     public static TextField txtNewPlayerId;
     public static Button btnSave;
     public static Button returnButton;
-    public static TextArea textAreaAddPlayer;
 
     public void initializeElements() {
         signContainer = new AnchorPane();
         lblTeam = new Label("Name Team");
         lblNewPlayerId = new Label("New Player Id");
-        lblPlayer = new Label("Player");
         txtTeam = new TextField();
         txtNewPlayerId = new TextField();
         btnSave = new Button("Save");
         returnButton = new Button("Return");
-        textAreaAddPlayer = new TextArea();
         img = new ImageView();
 
         txtTeam.setPromptText("Team");
         txtTeam.setPrefSize(160, 10);
-        txtTeam.setTranslateX(130);
-        txtTeam.setTranslateY(40);
+        txtTeam.setTranslateX(180);
+        txtTeam.setTranslateY(80);
         
         txtNewPlayerId.setPromptText("New player");
         txtNewPlayerId.setPrefSize(160, 10);
-        txtNewPlayerId.setTranslateX(130);
-        txtNewPlayerId.setTranslateY(90);
-
-        textAreaAddPlayer.setText("Add Player \n-----------------------------------------------------------");
-        textAreaAddPlayer.setPrefSize(300, 100);
-        textAreaAddPlayer.setTranslateX(130);
-        textAreaAddPlayer.setTranslateY(135);
-        textAreaAddPlayer.setEditable(false);
+        txtNewPlayerId.setTranslateX(180);
+        txtNewPlayerId.setTranslateY(160);
 
         btnSave.setPrefSize(80, 10);
         btnSave.setTranslateX(100);
@@ -71,14 +61,11 @@ public class AddPlayerGUI {
         returnButton.setTranslateX(200);
         returnButton.setTranslateY(350);
 
-        lblTeam.setTranslateX(30);
-        lblTeam.setTranslateY(40);
+        lblTeam.setTranslateX(40);
+        lblTeam.setTranslateY(90);
 
-        lblNewPlayerId.setTranslateX(30);
-        lblNewPlayerId.setTranslateY(90);
-
-        lblPlayer.setTranslateX(30);
-        lblPlayer.setTranslateY(130);
+        lblNewPlayerId.setTranslateX(40);
+        lblNewPlayerId.setTranslateY(170);
         
         img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
@@ -92,13 +79,13 @@ public class AddPlayerGUI {
             new ModifyTeam().displaySignWindow();
         });
 
-        signContainer.getChildren().addAll(img,lblTeam, lblNewPlayerId, lblPlayer, txtTeam, txtNewPlayerId,
-                        textAreaAddPlayer,btnSave,returnButton);
+        signContainer.getChildren().addAll(img,lblTeam, lblNewPlayerId,txtTeam, txtNewPlayerId,
+                        btnSave,returnButton);
     }
 
     public void displaySignWindow() {
         initializeElements();
-        scene = new Scene(signContainer, 600.0, 380.0);
+        scene = new Scene(signContainer,500.0, 380.0);
         stage.setTitle("AddPlayer");
         stage.setScene(scene);
         stage.setResizable(false);

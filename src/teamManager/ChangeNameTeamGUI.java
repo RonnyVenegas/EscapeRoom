@@ -29,40 +29,30 @@ public class ChangeNameTeamGUI {
     public static AnchorPane signContainer;
     public static Label lblNameTeam;
     public static Label lblNewNameTeam;
-    private static Label lblTeam;
     public static TextField txtNameTeam;
     public static TextField txtNewNameTeam;
     public static Button btnSave;
     public static Button returnButton;
-    public static TextArea textAreaTeam;
 
     public void initializeElements() {
         signContainer = new AnchorPane();
         lblNameTeam = new Label("Name Team");
         lblNewNameTeam = new Label("New Name Team");
-        lblTeam = new Label("Team");
         txtNameTeam = new TextField();
         txtNewNameTeam = new TextField();
         btnSave = new Button("Save");
         returnButton = new Button("Return");
-        textAreaTeam = new TextArea();
         img = new ImageView();
 
         txtNameTeam.setPromptText("Team");
         txtNameTeam.setPrefSize(160, 10);
-        txtNameTeam.setTranslateX(130);
-        txtNameTeam.setTranslateY(40);
+        txtNameTeam.setTranslateX(180);
+        txtNameTeam.setTranslateY(80);
         
         txtNewNameTeam.setPromptText("New Name");
         txtNewNameTeam.setPrefSize(160, 10);
-        txtNewNameTeam.setTranslateX(130);
-        txtNewNameTeam.setTranslateY(90);
-
-        textAreaTeam.setText("Name Team \n-----------------------------------------------------------");
-        textAreaTeam.setPrefSize(300, 100);
-        textAreaTeam.setTranslateX(130);
-        textAreaTeam.setTranslateY(135);
-        textAreaTeam.setEditable(false);
+        txtNewNameTeam.setTranslateX(180);
+        txtNewNameTeam.setTranslateY(160);
 
         btnSave.setPrefSize(80, 10);
         btnSave.setTranslateX(100);
@@ -72,14 +62,11 @@ public class ChangeNameTeamGUI {
         returnButton.setTranslateX(200);
         returnButton.setTranslateY(350);
 
-        lblNameTeam.setTranslateX(30);
-        lblNameTeam.setTranslateY(40);
+        lblNameTeam.setTranslateX(40);
+        lblNameTeam.setTranslateY(90);
 
-        lblNewNameTeam.setTranslateX(30);
-        lblNewNameTeam.setTranslateY(90);
-
-        lblTeam.setTranslateX(30);
-        lblTeam.setTranslateY(130);
+        lblNewNameTeam.setTranslateX(40);
+        lblNewNameTeam.setTranslateY(170);
         
         img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
@@ -93,13 +80,13 @@ public class ChangeNameTeamGUI {
             new ModifyTeam().displaySignWindow();
         });
 
-        signContainer.getChildren().addAll(img,lblNameTeam, lblNewNameTeam, lblTeam, txtNameTeam, txtNewNameTeam,
-                        textAreaTeam,btnSave,returnButton);
+        signContainer.getChildren().addAll(img,lblNameTeam, lblNewNameTeam,txtNameTeam, txtNewNameTeam,
+                  btnSave,returnButton);
     }
 
     public void displaySignWindow() {
         initializeElements();
-        scene = new Scene(signContainer, 600.0, 380.0);
+        scene = new Scene(signContainer, 500.0, 380.0);
         stage.setTitle("ChangeNameTeam");
         stage.setScene(scene);
         stage.setResizable(false);
