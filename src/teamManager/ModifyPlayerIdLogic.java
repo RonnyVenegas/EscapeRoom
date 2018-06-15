@@ -20,11 +20,11 @@ public class ModifyPlayerIdLogic {
     }
 
     public void modifyId() {
-        if (containsPlayer(ModifyPlayerIdGUI.txtNewPlayerId.getText()) == true) {
-            ModifyPlayerIdGUI.textAreaPlayer.setText("No se puede modificar el jugador. El identificador esta repetido.");
-        } else if (signInLogic.validatePlayerID(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
-            ModifyPlayerIdGUI.textAreaPlayer.setText("El identificador es invalido.");
-        } else {
+//        if (containsPlayer(ModifyPlayerIdGUI.txtNewPlayerId.getText()) == true) {
+//            ModifyPlayerIdGUI.textAreaPlayer.setText("No se puede modificar el jugador. El identificador esta repetido.");
+//        } else if (signInLogic.validatePlayerID(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
+//            ModifyPlayerIdGUI.textAreaPlayer.setText("El identificador es invalido.");
+//        } else {
 //            Iterator list = playersList.iterator();
 //            boolean next = true;
 //            while (next) {
@@ -35,9 +35,9 @@ public class ModifyPlayerIdLogic {
                // next = list.hasNext();
             }
             //list.next(). = ModifyPlayerIdGUI.txtNewPlayerId.getText();  
-            ModifyPlayerIdGUI.textAreaPlayer.setText("Id modificado");
+           // ModifyPlayerIdGUI.textAreaPlayer.setText("Id modificado");
         }
-    }
+   // }
     
     
 
