@@ -18,7 +18,10 @@ public class WriterManager {
     private BufferedWriter writer;
 
     public void open(String fileName) throws IOException {
-        writer = new BufferedWriter(new FileWriter(fileName));
+        if(writer == null){
+            writer = new BufferedWriter(new FileWriter(fileName));
+        }
+                  
     }
 
     public void write(Team team) throws IOException {

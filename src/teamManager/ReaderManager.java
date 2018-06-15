@@ -5,11 +5,11 @@
  */
 package teamManager;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.logging.Level;
@@ -24,12 +24,13 @@ public class ReaderManager {
     private BufferedReader reader;
 
     public void open(String fileName) throws FileNotFoundException {
+        if(reader == null){
         reader = new BufferedReader(new FileReader(fileName));
+        }
     }
 
     public Team read() throws IOException {
         Team team = null;
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         String line = reader.readLine();
         String datos[];
         if (line != null) {
@@ -37,7 +38,7 @@ public class ReaderManager {
                 team = new Team();
                 datos = line.split("-");
                 team.setTeamName(datos[0]);
-                team.setSignInDate(format.parse(datos[1]));
+                team.setSignInDate(EscapeRoomConfigurations.getDATE_FORMAT().parse(datos[1]));
                 for(int i = 2; i < datos.length; i++) {
                     Player player = new Player(datos[i]);
                     team.addPlayerToArray(player);

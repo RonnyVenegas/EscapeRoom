@@ -5,6 +5,7 @@
  */
 package teamManager;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -46,7 +47,7 @@ public class Team {
     }
 
     public String toFileString() {
-        return teamName + "-" + signInDate + getTeamPlayersList();
+        return teamName + "-" + EscapeRoomConfigurations.getDATE_FORMAT().format(signInDate) + getTeamPlayersList();
     }
     
 }
