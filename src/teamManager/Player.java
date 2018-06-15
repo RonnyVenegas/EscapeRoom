@@ -29,7 +29,13 @@ public class Player implements Comparable<Player> {
 
     @Override
     public int compareTo(Player o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int compare = 0;
+        if(o.getID().equals(this.ID)){
+            compare = 0;
+        } else {
+            compare = 1;
+        }
+        return compare;
     }
 
     @Override
@@ -38,24 +44,24 @@ public class Player implements Comparable<Player> {
         hash = 79 * hash + Objects.hashCode(this.ID);
         return hash;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Player other = (Player) obj;
-        if (!Objects.equals(this.ID, other.ID)) {
-            return false;
-        }
-        return true;
-    }
+//
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (this == obj) {
+//            return true;
+//        }
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//            return false;
+//        }
+//        final Player other = (Player) obj;
+//        if (!Objects.equals(this.ID, other.ID)) {
+//            return false;
+//        }
+//        return true;
+//    }
 
     
 }

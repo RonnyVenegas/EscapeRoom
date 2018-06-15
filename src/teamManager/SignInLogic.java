@@ -57,16 +57,16 @@ public class SignInLogic {
     public void addPlayerToMap() {
 
 //        if (playersList.contains(SignInTeamGUI.txtPlayerID.getText())) {
-        /**if (playersList.contains(new Player(SignInTeamGUI.txtPlayerID.getText()))) {
+        String playerID = SignInTeamGUI.txtPlayerID.getText();
+        Player player = new Player(playerID);
+        boolean addPlayer = playersList.add(player);
+        if (addPlayer == false) {
             ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
         } else {
-            String playerID = SignInTeamGUI.txtPlayerID.getText();
-            Player player = new Player(playerID);
             //playersList.put(SignInTeamGUI.txtPlayerID.getText(), player);
-            playersList.add(player);
             SignInTeamGUI.textAreaPlayerList.setText(SignInTeamGUI.textAreaPlayerList.getText() + "\n" + playerID);
-        }*/
-        mostrarJugadores();
+        }
+//        mostrarJugadores();
     }
 
     /**
@@ -101,17 +101,17 @@ public class SignInLogic {
         return nombreInvalido;
     }
 
-    public void mostrarJugadores() {
-        //Iterator list = playersList.entrySet().iterator();
-        Iterator list = playersList.iterator();
-        while (list.hasNext()) {
-            Map.Entry e = (Map.Entry) list.next();
-            System.out.println(e.getKey().toString());
-        }
-    }
+//    public void mostrarJugadores() {
+//        //Iterator list = playersList.entrySet().iterator();
+//        Iterator list = playersList.iterator();
+//        while (list.hasNext()) {
+//            Map.Entry e = (Map.Entry) list.next();
+//            System.out.println(e.getKey().toString());
+//        }
+//    }
 
     public static Team getTeam() {
         return team;
     }
-    
+
 }
