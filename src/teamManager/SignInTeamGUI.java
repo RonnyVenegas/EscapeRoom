@@ -5,6 +5,8 @@
  */
 package teamManager;
 
+import alerts.ErrorWindow;
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,14 +19,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import screenManager.Main;
 
 /**
  *
  * @author San
  */
-public class SignInTeam {
+public class SignInTeamGUI {
 
     public static final Stage signStage = new Stage();
     public static Scene signScene;
@@ -41,7 +41,6 @@ public class SignInTeam {
     public static TextArea textAreaPlayerList;
     public static Button returnButton;
     private SignInLogic signInLogic = new SignInLogic();
-    String txt = "";
 
     public void initializeElements() {
          
@@ -97,23 +96,21 @@ public class SignInTeam {
         returnButton.setTranslateY(325);
         txtDate.setEditable(false);
         textAreaPlayerList.setEditable(false);
-        txtDate.setText(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+        txtDate.setText(EscapeRoomConfigurations.getDATE_FORMAT().format(new Date()));
         scrollPanePlayerList.setContent(textAreaPlayerList);
         
         btnSave.setOnAction(event -> {
             signInLogic.createTeam();
-            signInLogic.validateTeam();
         });
         
         btnAddPlayer.setOnAction(event -> {
             boolean invalidName = signInLogic.validatePlayerID(txtPlayerID.getText());
             
             if (invalidName) {
-                JOptionPane.showMessageDialog(null, "Invalid player name");
+                ErrorWindow.displayErrorWindow("Invalid player name", "Player name must have only letters or numbers"
+                    + "\nTeam name length must be between 2 and 8 characters");
             } else {        
-                signInLogic.addPlayerToMap();
-                txt += "\n"+txtPlayerID.getText();
-                textAreaPlayerList.setText(txt);            
+                signInLogic.addPlayerToMap();           
             }
         });
         
@@ -128,11 +125,11 @@ public class SignInTeam {
     public void displaySignTeamWindow() {
         initializeElements();
         signScene = new Scene(signContainer, 350, 350);
-        String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
-        signScene.getStylesheets().add("file:///" + cssPath);
+        signScene.getStylesheets().add(EscapeRoomConfigurations.getCSS_PATH());
         signStage.setTitle("Team Builder - Sign In");
         signStage.setScene(signScene);
         signStage.setResizable(false);
         signStage.show();
+        
     }
 }
