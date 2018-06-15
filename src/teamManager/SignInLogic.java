@@ -5,11 +5,8 @@
  */
 package teamManager;
 
-//import java.util.HashMap;
 import alerts.ErrorWindow;
 import alerts.InformationWindow;
-import java.util.Iterator;
-import java.util.Map;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
