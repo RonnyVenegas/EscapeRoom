@@ -27,7 +27,7 @@ public class SignIn {
     Scene scene;
     Stage stage = new Stage();
     ModifyTeam modify = new ModifyTeam();
-    SignInTeam signInTeam = new SignInTeam();
+    SignInTeamGUI signInTeam = new SignInTeamGUI();
 
     public void inicializerElements() {
         pane = new AnchorPane();

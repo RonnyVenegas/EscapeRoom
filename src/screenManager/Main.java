@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import teamManager.SignInTeam;
+import teamManager.SignInTeamGUI;
 import teamManager.SignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
@@ -23,7 +23,7 @@ import serverClient.Lobby;
  */
 public class Main extends Application {
 
-    private SignInTeam signInTeam = new SignInTeam();
+    private SignInTeamGUI signInTeam = new SignInTeamGUI();
     private SignIn signIn = new SignIn();
     private Level1 Level1 = new Level1();
     private Lobby lobby = new Lobby();
