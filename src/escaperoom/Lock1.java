@@ -35,20 +35,21 @@ public class Lock1 {
     private Button btnReturn;
     private ImageView imageLock1;
     private int riddle;
+    private String lockStringClue;
 
     public void initializeElements() {
         lockContainer = new AnchorPane();
         lock1 = new Button("Unlock");
         btnReturn = new Button("Return");
-        label = new Label("Math question for the win... \nbla bla bla");
+        label = new Label();
         txtLock1 = new TextField();
         txtLock2 = new TextField();
         txtLock3 = new TextField();
         txtLock4 = new TextField();
         
-        /**
-        label.setFont(new Font(30));*/
-
+        //dummy data for test.
+        lockStringClue = "Math question for the win... \nbla bla bla";
+        
         lockContainer.setPadding(new Insets(10));
         lock1.setPrefSize(100, 40);
         btnReturn.setPrefSize(80, 10);
@@ -88,6 +89,7 @@ public class Lock1 {
 
         lock1.setOnAction(event -> {
             System.out.println("lock " + riddle);
+            label.setText(lockStringClue);
             String strLock1 = txtLock1.getText();
             String strLock2 = txtLock2.getText();
             String strLock3 = txtLock3.getText();
@@ -151,4 +153,12 @@ public class Lock1 {
         this.riddle = riddle;
     }
 
+    public String getLockStringClue() {
+        return lockStringClue;
+    }
+
+    public void setLockStringClue(String lockStringClue) {
+        this.lockStringClue = lockStringClue;
+    }
+    
 }

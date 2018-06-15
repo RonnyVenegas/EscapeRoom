@@ -15,6 +15,7 @@ import teamManager.SignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import serverClient.Lobby;
 
 /**
  *
@@ -25,6 +26,7 @@ public class Main extends Application {
     private SignInTeam signInTeam = new SignInTeam();
     private SignIn signIn = new SignIn();
     private Level1 Level1 = new Level1();
+    private Lobby lobby = new Lobby();
     private Button gameButton;
     private Button signInButton;
     ImageView img;
@@ -52,7 +54,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
-                Level1.displayLevel();
+                lobby.displayLobby();
             }
         });
 

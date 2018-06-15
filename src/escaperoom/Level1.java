@@ -50,7 +50,7 @@ public class Level1 {
         //later it has to recieve this number from the server to display the same
         //to all the players in the same game.
         int randomLevel = (int) Math.floor((Math.random() * 4) + 1);
-        randomLevel = 2;
+        //randomLevel = 2;
         if (randomLevel == 1) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
