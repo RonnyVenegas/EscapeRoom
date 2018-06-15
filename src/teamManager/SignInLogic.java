@@ -7,6 +7,7 @@ package teamManager;
 
 //import java.util.HashMap;
 import alerts.ErrorWindow;
+import alerts.InformationWindow;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
@@ -22,7 +23,7 @@ public class SignInLogic {
     private static Team team;
     private TeamFileManager manager = new TeamFileManager();
 
-    public void validateTeam() {
+    public void validateTeamPlayers() {
         System.out.println("Team " + team.getTeamName());
         if (!playersList.isEmpty() && playersList.size() >= 3) {
             System.out.println("validate team");
@@ -35,8 +36,11 @@ public class SignInLogic {
                 System.out.println(p.getID().toString());
             }
             manager.createOpenTeamFile();
+            SignInTeamGUI.signStage.close();
+            InformationWindow.displayInformationWindow("Team saved");
+            new SignIn().displaySignWindow();
         } else {
-            System.out.println("El equipo debe contener al menos 3 jugadores");
+            ErrorWindow.displayErrorWindow("Can not save Team", "Team must have at least 3 players");
         }
     }
 
@@ -47,10 +51,10 @@ public class SignInLogic {
             builder.buildTeamName();
             builder.buildDate();
             team = builder.getTeam();
-
-            System.out.println("Team " + team.getTeamName());
+            validateTeamPlayers();
         } catch (InformationRequiredException ex) {
-            System.out.println("ERROR: " + ex.getMessage());
+            ErrorWindow.displayErrorWindow(ex.getMessage(), "Team name must have only letters and spaces"
+                    + "\nTeam name length must be between 2 and 10 characters");
         }
     }
 
