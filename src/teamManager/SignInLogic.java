@@ -6,6 +6,7 @@
 package teamManager;
 
 //import java.util.HashMap;
+import alerts.ErrorWindow;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.TreeSet;
@@ -54,17 +55,32 @@ public class SignInLogic {
     }
 
     public void addPlayerToMap() {
-        if (playersList.contains(SignInTeam.txtPlayerID.getText())) {
-            System.out.println("No se puede introducir el jugador. El identificador esta repetido.");
-        } else {
-            Player player = new Player(SignInTeam.txtPlayerID.getText());
-            //playersList.put(SignInTeam.txtPlayerID.getText(), player);
-            playersList.add(player);
 
+//        if (playersList.contains(SignInTeamGUI.txtPlayerID.getText())) {
+        if (playersList.contains(new Player(SignInTeamGUI.txtPlayerID.getText()))) {
+            ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
+        } else {
+            String playerID = SignInTeamGUI.txtPlayerID.getText();
+            Player player = new Player(playerID);
+            //playersList.put(SignInTeamGUI.txtPlayerID.getText(), player);
+            playersList.add(player);
+            SignInTeamGUI.textAreaPlayerList.setText(SignInTeamGUI.textAreaPlayerList.getText() + "\n" + playerID);
         }
         mostrarJugadores();
     }
 
+    /**
+     *
+     * public void addPlayerToMap() { if
+     * (playersList.containsKey(GUISignInTeam.txtPlayerID.getText())) {
+     * ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat
+     * player IDs"); } else { String playerID =
+     * GUISignInTeam.txtPlayerID.getText(); Player player = new
+     * Player(playerID); playersList.put(playerID, player);
+     * GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText()
+     * + "\n" + playerID); } mostrarJugadores(); }
+     *
+     */
     public boolean validatePlayerID(String valor) {
         Pattern pattern = Pattern.compile(REG_EXP);
         Matcher matcher;
