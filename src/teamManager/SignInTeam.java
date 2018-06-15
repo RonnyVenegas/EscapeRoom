@@ -24,7 +24,7 @@ import screenManager.Main;
  *
  * @author San
  */
-public class SignInGUI {
+public class SignInTeam {
 
     public static final Stage signStage = new Stage();
     public static Scene signScene;
@@ -99,10 +99,12 @@ public class SignInGUI {
         textAreaPlayerList.setEditable(false);
         txtDate.setText(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
         scrollPanePlayerList.setContent(textAreaPlayerList);
+        
         btnSave.setOnAction(event -> {
             signInLogic.createTeam();
             signInLogic.validateTeam();
         });
+        
         btnAddPlayer.setOnAction(event -> {
             boolean invalidName = signInLogic.validatePlayerID(txtPlayerID.getText());
             
@@ -117,13 +119,13 @@ public class SignInGUI {
         
         returnButton.setOnAction(event -> {
             signStage.close();
-            new Main().start(new Stage());
+            new SignIn().displaySignWindow();
         });
         signContainer.getChildren().addAll(lblDate, lblPlayerList, lblTeamName, txtDate, txtTeamName, txtPlayerID, btnAddPlayer,
           btnSave, scrollPanePlayerList, returnButton);
     }
 
-    public void displaySignWindow() {
+    public void displaySignTeamWindow() {
         initializeElements();
         signScene = new Scene(signContainer, 350, 350);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");

@@ -2,6 +2,7 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
         <group>
             <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/Team.java</file>
             <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/TeamFileManager.java</file>
@@ -9,5 +10,8 @@
             <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/teamFile.txt</file>
             <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/WriterManager.java</file>
         </group>
+=======
+        <group/>
+>>>>>>> ac121cf47cfbae18d5904aa8eb41cfed012682c6
     </open-files>
 </project-private>

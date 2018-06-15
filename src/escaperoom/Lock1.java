@@ -10,10 +10,14 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Background;
+import static javafx.scene.paint.Color.color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import screenManager.Main;
 
@@ -21,263 +25,140 @@ public class Lock1 {
 
     private final Stage lockStage = new Stage();
     private Scene lockScene;
-    private AnchorPane levelContainer;
+    private AnchorPane lockContainer;
     private Button lock1;
-    private Button lock2;
-    private Button lock3;
-    private Button lock4;
-    private Button btnReturn;
     private Label label;
-    //private Image image;
+    private TextField txtLock1;
+    private TextField txtLock2;
+    private TextField txtLock3;
+    private TextField txtLock4;
+    private Button btnReturn;
     private ImageView imageLock1;
-    private ImageView imageLock2;
-    private ImageView imageLock3;
-    private ImageView imageLock4;
+    private int riddle;
+    private String lockStringClue;
 
     public void initializeElements() {
-        levelContainer = new AnchorPane();
-        lock1 = new Button();
-        lock2 = new Button();
-        lock3 = new Button();
-        lock4 = new Button();
+        lockContainer = new AnchorPane();
+        lock1 = new Button("Unlock");
         btnReturn = new Button("Return");
         label = new Label();
-
-        levelContainer.setPadding(new Insets(10));
+        txtLock1 = new TextField();
+        txtLock2 = new TextField();
+        txtLock3 = new TextField();
+        txtLock4 = new TextField();
+        
+        //dummy data for test.
+        lockStringClue = "Math question for the win... \nbla bla bla";
+        
+        lockContainer.setPadding(new Insets(10));
+        lock1.setPrefSize(100, 40);
         btnReturn.setPrefSize(80, 10);
-        
-        //later it has to recieve this number from the server to display the same
-        //to all the players in the same game.
-        int randomLevel = (int) Math.floor((Math.random() * 4) + 1);
-        //randomLevel = 1;
-        if (randomLevel == 1) {
 
-            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
-            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog2.png")));
-            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog3.png")));
-            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog4.png")));
+        lock1.setTranslateX(250);
+        lock1.setTranslateY(300);
 
-            lock1.setPrefSize(28, 16);
-            lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
-            lock4.setPrefSize(15, 10);
+        label.setPrefSize(480, 150);
+        label.setTranslateX(20);
+        label.setTranslateY(20);
 
-            imageLock1.setFitHeight(128);
-            imageLock1.setFitWidth(116);
+        txtLock1.setPrefSize(50, 50);
+        txtLock2.setPrefSize(50, 50);
+        txtLock3.setPrefSize(50, 50);
+        txtLock4.setPrefSize(50, 50);
 
-            imageLock2.setFitHeight(153);
-            imageLock2.setFitWidth(163);
+        txtLock1.setTranslateX(40);
+        txtLock1.setTranslateY(200);
 
-            
-            imageLock3.setFitHeight(124);
-            imageLock3.setFitWidth(119);
+        txtLock2.setTranslateX(110);
+        txtLock2.setTranslateY(200);
 
-            imageLock4.setFitHeight(115);
-            imageLock4.setFitWidth(110);
+        txtLock3.setTranslateX(180);
+        txtLock3.setTranslateY(200);
 
-            lock1.setLayoutX(991);
-            lock1.setLayoutY(536);
-            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
-            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
-
-            lock2.setLayoutX(606);
-            lock2.setLayoutY(343);
-            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
-            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
-
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
-
-            lock4.setLayoutX(941);
-            lock4.setLayoutY(123);
-            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
-            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-
-        } else if (randomLevel == 2) {
-
-            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/camAntique.png")));
-            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/camObscura.png")));
-            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/camVintage.png")));
-            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/camPolaroid.png")));
-
-            lock1.setPrefSize(28, 16);
-            lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
-            lock4.setPrefSize(15, 10);
-
-            imageLock1.setFitHeight(128);
-            imageLock1.setFitWidth(116);
-
-            imageLock2.setFitHeight(153);
-            imageLock2.setFitWidth(163);
-
-            
-            imageLock3.setFitHeight(124);
-            imageLock3.setFitWidth(119);
-
-            imageLock4.setFitHeight(115);
-            imageLock4.setFitWidth(110);
-
-            lock1.setLayoutX(991);
-            lock1.setLayoutY(536);
-            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
-            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
-
-            lock2.setLayoutX(606);
-            lock2.setLayoutY(343);
-            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
-            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
-
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
-
-            lock4.setLayoutX(941);
-            lock4.setLayoutY(123);
-            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
-            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-
-        } else if (randomLevel == 3) {
-
-            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/bicycleLock.png")));
-            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/bloodSplash.png")));
-            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/bloodHandPrint2.png")));
-            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/bloodHandPrint.png")));
-
-            lock1.setPrefSize(28, 16);
-            lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
-            lock4.setPrefSize(15, 10);
-
-            imageLock1.setFitHeight(128);
-            imageLock1.setFitWidth(116);
-
-            imageLock2.setFitHeight(153);
-            imageLock2.setFitWidth(163);
-
-            
-            imageLock3.setFitHeight(124);
-            imageLock3.setFitWidth(119);
-
-            imageLock4.setFitHeight(115);
-            imageLock4.setFitWidth(110);
-
-            lock1.setLayoutX(991);
-            lock1.setLayoutY(536);
-            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
-            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
-
-            lock2.setLayoutX(606);
-            lock2.setLayoutY(343);
-            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
-            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
-
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
-
-            lock4.setLayoutX(941);
-            lock4.setLayoutY(123);
-            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
-            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-
-        } else {
-
-            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/sunDialCompass.png")));
-            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/woodenCompass.png")));
-            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/plasticCompass.png")));
-            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/combinationLock.png")));
-
-            lock1.setPrefSize(28, 16);
-            lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
-            lock4.setPrefSize(15, 10);
-
-            imageLock1.setFitHeight(128);
-            imageLock1.setFitWidth(116);
-
-            imageLock2.setFitHeight(153);
-            imageLock2.setFitWidth(163);
-
-            
-            imageLock3.setFitHeight(124);
-            imageLock3.setFitWidth(119);
-
-            imageLock4.setFitHeight(115);
-            imageLock4.setFitWidth(110);
-
-            lock1.setLayoutX(991);
-            lock1.setLayoutY(536);
-            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
-            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
-
-            lock2.setLayoutX(606);
-            lock2.setLayoutY(343);
-            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
-            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
-
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
-
-            lock4.setLayoutX(941);
-            lock4.setLayoutY(123);
-            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
-            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-
-        }
-        
-        //needed to hide the buttons for the image interaction.
-        lock1.setOpacity(0);
-        lock2.setOpacity(0);
-        lock3.setOpacity(0);
-        lock4.setOpacity(0);
+        txtLock4.setTranslateX(250);
+        txtLock4.setTranslateY(200);
 
         btnReturn.setTranslateX(20);
-        btnReturn.setTranslateY(940);
+        btnReturn.setTranslateY(400);
 
         btnReturn.setOnAction(event -> {
             lockStage.close();
         });
+        
+        
 
         lock1.setOnAction(event -> {
-            System.out.println("lock1");
-            imageLock1.setVisible(false);
+            System.out.println("lock " + riddle);
+            label.setText(lockStringClue);
+            String strLock1 = txtLock1.getText();
+            String strLock2 = txtLock2.getText();
+            String strLock3 = txtLock3.getText();
+            String strLock4 = txtLock4.getText();
+            System.out.println(strLock1);
+            System.out.println(strLock2);
+            System.out.println(strLock3);
+            System.out.println(strLock4);
+
+            if (riddle == 1) {
+                System.out.println("riddle 1");
+                if(strLock1.equals("1") && strLock2.equals("1") 
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+                
+            } else if (riddle == 2) {
+                System.out.println("riddle 2");
+                if(strLock1.equals("1")  && strLock2.equals("1")  
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+            } else if (riddle == 3) {
+                System.out.println("riddle 3");
+                if(strLock1.equals("1")  && strLock2.equals("1")  
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+            } else if (riddle == 4) {
+                System.out.println("riddle 4");
+                if(strLock1.equals("1")  && strLock2.equals("1")  
+                        && strLock3.equals("1")  && strLock4.equals("1") ){
+                    System.out.println("unlocked");
+                    lockStage.close();
+                }
+            }
         });
 
-        lock2.setOnAction(event -> {
-            System.out.println("lock2");
-            imageLock2.setVisible(false);
-        });
-
-        lock3.setOnAction(event -> {
-            System.out.println("lock3");
-            imageLock3.setVisible(false);
-        });
-
-        lock4.setOnAction(event -> {
-            System.out.println("lock4");
-            imageLock4.setVisible(false);
-        });
-
-        levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3, lock4);
+        lockContainer.getChildren().addAll(btnReturn, lock1, txtLock1, txtLock2, txtLock3, txtLock4, label);
     }
 
     public void displayLock() {
         initializeElements();
-        lockScene = new Scene(levelContainer, 300, 300);
-        String cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
+        lockScene = new Scene(lockContainer, 500, 500);
+        String cssPath = new File("src/css/styleLock.css").getAbsolutePath().replace("\\", "/");
         lockScene.getStylesheets().add("file:///" + cssPath);
-        lockStage.setTitle("Escape Room - Level 1 Test");
+        lockStage.setTitle("Escape Room - Lock");
         lockStage.setScene(lockScene);
         lockStage.setResizable(false);
         lockStage.show();
     }
 
-}
+    public int getRiddle() {
+        return riddle;
+    }
 
+    public void setRiddle(int riddle) {
+        this.riddle = riddle;
+    }
+
+    public String getLockStringClue() {
+        return lockStringClue;
+    }
+
+    public void setLockStringClue(String lockStringClue) {
+        this.lockStringClue = lockStringClue;
+    }
+    
+}

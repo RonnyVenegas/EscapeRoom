@@ -1,13 +1,14 @@
 .root {
-    /*-fx-background-color: url("/Images/windowBackground.png");*/
-    -fx-background-color: #000000;
+    -fx-background-image: url("/images/sherlockLevel.png");
+    /*-fx-background-color: #000000;*/
     -fx-border-color: #a34313;
     -fx-border-width: 4;
 }
 
 .label {
     -fx-font-weight: bold;
-    -fx-font-size: 14;
+    -fx-background-color: #000000;
+    -fx-font-size: 30;
     -fx-text-fill: #FFFFFF;
 }
 
