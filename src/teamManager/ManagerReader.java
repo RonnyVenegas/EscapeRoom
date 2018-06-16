@@ -3,14 +3,9 @@ package teamManager;
 import escapeRoomFiles.EscapeRoomConfigurations;
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.TreeSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -20,10 +15,10 @@ public class ManagerReader {
 
     public void readTeamsFromFile() throws IOException {
 
-        Team team = null;
-        File file = null;
+        Team team;
+        File file;
         FileReader fileReader = null;
-        BufferedReader bufferedReader = null;
+        BufferedReader bufferedReader;
 
         try {
             file = new File(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
@@ -42,8 +37,6 @@ public class ManagerReader {
                     Player player = new Player(teamData[i]);
                     team.addPlayerToArray(player);
                 }
-
-                EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
 
                 EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
             }
