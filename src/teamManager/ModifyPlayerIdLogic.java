@@ -7,7 +7,7 @@ package teamManager;
 
 import alerts.ErrorWindow;
 import alerts.InformationWindow;
-import java.util.Iterator;
+import static teamManager.ModifyPlayerIdGUI.txtPlayerID;
 
 /**
  *
@@ -22,10 +22,12 @@ public class ModifyPlayerIdLogic {
     }
 
     public void modifyId() {
-        if (containsPlayer(ModifyPlayerIdGUI.txtNewPlayerId.getText()) == true) {
+        if (verifyTeam() == false) {
+            ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Equipo no existe");
+        } else if (containsPlayer(txtPlayerID.getText()) == false) {
+            ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Jugador no existe");
+        } else if (containsPlayer(ModifyPlayerIdGUI.txtNewPlayerId.getText()) == true) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
-        } else if (signInLogic.validatePlayerID(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
-            InformationWindow.displayInformationWindow("Identificador valido");
         } else {
             for (int i = 0; i < SignInTeamLogic.getTeam().getTeamPlayers().size(); i++) {
                 if (SignInTeamLogic.getTeam().getTeamPlayers().get(i).getID().equals(ModifyPlayerIdGUI.txtNewPlayerId.getText())) {
@@ -35,5 +37,15 @@ public class ModifyPlayerIdLogic {
             }
 
         }
+
+    }
+
+    public boolean verifyTeam() {
+//        for (int i = 0; i < ListaTeam.size(); i++) {
+//            if (listaTeam.get(i).getName().equals(ModifyPlayerIdGUI.txtTeam.getText())  {
+//                return true;
+//            }verifyTeam
+//        }
+        return false;
     }
 }

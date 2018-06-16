@@ -9,7 +9,6 @@ import alerts.ErrorWindow;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -84,11 +83,7 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-            if (modifyPlayerIdLogic.containsPlayer(txtPlayerID.getText()) == false) {
-             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Jugador no existe");
-            }else{
-            modifyPlayerIdLogic.modifyId();
-            }
+            modifyPlayerIdLogic.modifyId();            
         });
         returnButton.setOnAction(event -> {
             stage.close();
