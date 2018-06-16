@@ -20,6 +20,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
 import teamManager.ManagerReader;
+import teamManager.ManagerTeamFile;
 
 /**
  *
@@ -33,11 +34,12 @@ public class Main extends Application {
     private Lobby lobby = new Lobby();
     private Button gameButton;
     private Button signInButton;
+    ManagerTeamFile manager = new ManagerTeamFile();
     ImageView img;
 
     @Override
     public void start(Stage primaryStage) {
-
+        manager.readTeamsFromFile();
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
@@ -46,7 +48,7 @@ public class Main extends Application {
 
         img.setFitHeight(400.0);
         img.setFitWidth(400.0);
-        
+
         gameButton.setTranslateX(2);
         gameButton.setTranslateY(120);
 
@@ -76,8 +78,8 @@ public class Main extends Application {
         });
 
         StackPane root = new StackPane();
-        root.getChildren().addAll(img,gameButton, signInButton);
-        
+        root.getChildren().addAll(img, gameButton, signInButton);
+
         Scene scene = new Scene(root, 400, 400);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
         scene.getStylesheets().add("file:///" + cssPath);
@@ -91,6 +93,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
     }
 
 }

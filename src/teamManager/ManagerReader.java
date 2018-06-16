@@ -24,9 +24,7 @@ public class ManagerReader {
             file = new File(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
             fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
-
             String fileLine;
-
             while ((fileLine = bufferedReader.readLine()) != null) {
                 team = new Team();
                 String[] teamData = fileLine.split("-");
