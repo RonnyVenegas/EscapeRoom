@@ -9,10 +9,10 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TeamFileManager {
+public class ManagerTeamFile {
 
-    WriterManager writer = new WriterManager();
-    ReaderManager reader = new ReaderManager();
+    ManagerWriter writer = new ManagerWriter();
+    ManagerReader reader = new ManagerReader();
 
     public void saveTeamsOnFile() {
         writer.writeTeams();
@@ -24,18 +24,22 @@ public class TeamFileManager {
 //            writer.write(SignInTeamLogic.getTeam());
 //            writer.close();
 //        } catch (IOException ex) {
-//            Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(ManagerTeamFile.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
     public void readTeamsFromFile(){
-        reader.readTeamsFromFile();
+        try {
+            reader.readTeamsFromFile();
+        } catch (IOException ex) {
+            Logger.getLogger(ManagerTeamFile.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 //    public void readTeamFile(){
 //        try {
 //            reader.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
 //            
 //        } catch (IOException ex) {
-//            Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger.getLogger(ManagerTeamFile.class.getName()).log(Level.SEVERE, null, ex);
 //        }
 //    }
 

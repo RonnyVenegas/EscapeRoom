@@ -7,13 +7,13 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SignInTeamLogic {
+public class LogicSignInTeam {
     private final String REG_EXP = "[A-Za-z0-9]";
     private final int minLength = 2;
     private final int maxLength = 8;
     private final TreeSet<Player> playersList = new TreeSet<>();
     private static Team team;
-    private TeamFileManager manager = new TeamFileManager();
+    private ManagerTeamFile manager = new ManagerTeamFile();
 
     public boolean checkTeamDuplicated(Team team) {
         return EscapeRoomConfigurations.TEAMS_FROM_FILE.contains(team);
@@ -35,9 +35,9 @@ public class SignInTeamLogic {
 
     public void createTeam() {
         try {
-            AbstractBuilder builder = new TeamBuilder();
+            BuilderAbstract builder = new BuilderTeam();
             builder.buildTeam();
-            builder.buildTeamName(SignInTeamGUI.txtTeamName.getText());
+            builder.buildTeamName(GUISignInTeam.txtTeamName.getText());
             builder.buildDate();
             team = builder.getTeam();
             
@@ -49,32 +49,32 @@ public class SignInTeamLogic {
                 boolean completeTeam = validateTeamPlayers();
                 
                 if (completeTeam) {
-                    SignInTeamGUI.signStage.close();
+                    GUISignInTeam.signStage.close();
                     EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
                     manager.saveTeamsOnFile();
                     InformationWindow.displayInformationWindow("Team saved");
-                    new SignIn().displaySignWindow();
+                    new GUISignIn().displaySignWindow();
                 } else {
                     completeTeam = false;
                     ErrorWindow.displayErrorWindow("Can not save Team", "Team must have at least 3 players");
                 }
             }
-        } catch (InformationRequiredException ex) {
+        } catch (ExceptionInformationRequired ex) {
             ErrorWindow.displayErrorWindow(ex.getMessage(), "Team name must have only letters and spaces"
                     + "\nTeam name length must be between 2 and 10 characters");
         }
     }
 
     public void addPlayerToMap() {
-//        if (playersList.contains(SignInTeamGUI.txtPlayerID.getText())) {
-        String playerID = SignInTeamGUI.txtPlayerID.getText();
+//        if (playersList.contains(GUISignInTeam.txtPlayerID.getText())) {
+        String playerID = GUISignInTeam.txtPlayerID.getText();
         Player player = new Player(playerID);
         boolean addPlayer = playersList.add(player);
         if (addPlayer == false) {
             ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
         } else {
-            //playersList.put(SignInTeamGUI.txtPlayerID.getText(), player);
-            SignInTeamGUI.textAreaPlayerList.setText(SignInTeamGUI.textAreaPlayerList.getText() + "\n" + playerID);
+            //playersList.put(GUISignInTeam.txtPlayerID.getText(), player);
+            GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText() + "\n" + playerID);
         }
     }
 

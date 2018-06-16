@@ -7,9 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class WriterManager {
-
-    private BufferedWriter writer;
+public class ManagerWriter {
 
     public void writeTeams() {
         File file = null;
@@ -37,17 +35,4 @@ public class WriterManager {
         }
     }
     
-//    public void open(String fileName) throws IOException {
-//        if(writer == null){
-//            writer = new BufferedWriter(new FileWriter(fileName));
-//        }         
-//    }
-//
-//    public void write(Team team) throws IOException {
-//        writer.write(team.toFileString() + "\n");
-//    }
-//
-//    public void close() throws IOException {
-//        writer.close();
-//    }
 }

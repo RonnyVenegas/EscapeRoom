@@ -13,17 +13,17 @@ import escapeRoomFiles.EscapeRoomConfigurations;
  *
  * @author Maricela Ledezma
  */
-public class ModifyTeamLogic {
+public class LogicModifyTeam {
 
     private final String REG_EXP_1 = "[A-Za-z ]";
     private final int minLength1 = 2;
     private final int maxLength1 = 10;
-    SignInTeamLogic signInLogic = new SignInTeamLogic();
-    TeamBuilder teamBuilder = new TeamBuilder();
+    LogicSignInTeam signInLogic = new LogicSignInTeam();
+    BuilderTeam teamBuilder = new BuilderTeam();
 
     public boolean containsPlayer(String valor) {
-        for (int i = 0; i < SignInTeamLogic.getTeam().getTeamPlayers().size(); i++) {
-            if (SignInTeamLogic.getTeam().getTeamPlayers().get(i).getID().equals(valor)) {
+        for (int i = 0; i < LogicSignInTeam.getTeam().getTeamPlayers().size(); i++) {
+            if (LogicSignInTeam.getTeam().getTeamPlayers().get(i).getID().equals(valor)) {
                 return true;
             }
         }
@@ -31,16 +31,16 @@ public class ModifyTeamLogic {
     }
 
     public void modifyId() {
-        if (verifyTeam(ModifyPlayerIdGUI.txtTeam.getText()) == false) {
+        if (verifyTeam(GUIModifyPlayerId.txtTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Equipo no existe");
-        } else if (containsPlayer(ModifyPlayerIdGUI.txtPlayerID.getText()) == false) {
+        } else if (containsPlayer(GUIModifyPlayerId.txtPlayerID.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Jugador no existe");
-        } else if (containsPlayer(ModifyPlayerIdGUI.txtNewPlayerId.getText()) == true) {
+        } else if (containsPlayer(GUIModifyPlayerId.txtNewPlayerId.getText()) == true) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
         } else {
-            for (int i = 0; i < SignInTeamLogic.getTeam().getTeamPlayers().size(); i++) {
-                if (SignInTeamLogic.getTeam().getTeamPlayers().get(i).getID().equals(ModifyPlayerIdGUI.txtPlayerID.getText())) {
-                    SignInTeamLogic.getTeam().getTeamPlayers().get(i).setID(ModifyPlayerIdGUI.txtNewPlayerId.getText());
+            for (int i = 0; i < LogicSignInTeam.getTeam().getTeamPlayers().size(); i++) {
+                if (LogicSignInTeam.getTeam().getTeamPlayers().get(i).getID().equals(GUIModifyPlayerId.txtPlayerID.getText())) {
+                    LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
                     InformationWindow.displayInformationWindow("Identificador modificado");
                 }
             }
@@ -59,25 +59,25 @@ public class ModifyTeamLogic {
     }
 
     public void addPlayer() {
-        if (verifyTeam(AddPlayerGUI.txtTeam.getText()) == false) {
+        if (verifyTeam(GUIAddPlayer.txtTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Equipo no existe");
-        } else if (containsPlayer(AddPlayerGUI.txtNewPlayerId.getText()) == true) {
+        } else if (containsPlayer(GUIAddPlayer.txtNewPlayerId.getText()) == true) {
             ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Id Repetido");
         } else {
-            Player player = new Player(AddPlayerGUI.txtNewPlayerId.getText());
+            Player player = new Player(GUIAddPlayer.txtNewPlayerId.getText());
             //team.getListPlayer.add(player);
             InformationWindow.displayInformationWindow("Jugador agregado");
         }
     }
 
     public void changeNameTeam() {
-        if (verifyTeam(ChangeNameTeamGUI.txtNameTeam.getText()) == false) {
+        if (verifyTeam(GUIChangeNameTeam.txtNameTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
-                if (team.getTeamName().equals(ChangeNameTeamGUI.txtNameTeam.getText())) {
-                    if (teamBuilder.validateString(ModifyPlayerIdGUI.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
-                        team.setTeamName(ChangeNameTeamGUI.txtNewNameTeam.getText());
+                if (team.getTeamName().equals(GUIChangeNameTeam.txtNameTeam.getText())) {
+                    if (teamBuilder.validateString(GUIModifyPlayerId.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
+                        team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
                         InformationWindow.displayInformationWindow("Nombre modificado");
                     }
                 }

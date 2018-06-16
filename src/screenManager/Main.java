@@ -13,13 +13,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import teamManager.SignInTeamGUI;
-import teamManager.SignIn;
+import teamManager.GUISignInTeam;
+import teamManager.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
-import teamManager.ReaderManager;
+import teamManager.ManagerReader;
 
 /**
  *
@@ -27,8 +27,8 @@ import teamManager.ReaderManager;
  */
 public class Main extends Application {
 
-    private SignInTeamGUI signInTeam = new SignInTeamGUI();
-    private SignIn signIn = new SignIn();
+    private GUISignInTeam signInTeam = new GUISignInTeam();
+    private GUISignIn signIn = new GUISignIn();
     private Level1 Level1 = new Level1();
     private Lobby lobby = new Lobby();
     private Button gameButton;
@@ -37,19 +37,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-<<<<<<< HEAD
-        
-=======
-//<<<<<<< HEAD
-////<<<<<<< HEAD
-////        //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-////=======
-////       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-////>>>>>>> 13a21d6294249b9f89e433566984780600bca98d
-//=======
-//       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-//>>>>>>> a44f6fdb7d216f6e580366de39fefefa36eab54f
->>>>>>> 32758026187322c3e0f2061b78a034c29cd10bcb
+
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();

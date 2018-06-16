@@ -5,7 +5,7 @@ import java.text.ParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TeamBuilder implements AbstractBuilder {
+public class BuilderTeam implements BuilderAbstract {
 
     private final String REG_EXP_1 = "[A-Za-z ]";
     private final int minLength1 = 2;
@@ -53,16 +53,16 @@ public class TeamBuilder implements AbstractBuilder {
     @Override
     public void buildDate() {
         try {
-            team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(SignInTeamGUI.txtDate.getText()));
+            team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(GUISignInTeam.txtDate.getText()));
         } catch (ParseException ex) {
             ex.getMessage();
         }
     }
 
     @Override
-    public Team getTeam() throws InformationRequiredException {
+    public Team getTeam() throws ExceptionInformationRequired {
         if (team.getTeamName().equals("")) {
-            throw new InformationRequiredException("Invalid Team Name");
+            throw new ExceptionInformationRequired("Invalid Team Name");
         }
         return team;
     }

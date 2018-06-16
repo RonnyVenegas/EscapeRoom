@@ -16,7 +16,7 @@ import javafx.stage.Stage;
  *
  * @author Maricela Ledezma
  */
-public class ModifyTeam {
+public class GUIModifyTeam {
 
     AnchorPane pane;
     Button btnChangeNameTeam;
@@ -26,9 +26,9 @@ public class ModifyTeam {
     ImageView img;
     Scene scene;
     Stage stage = new Stage();
-    ChangeNameTeamGUI nameTeam = new ChangeNameTeamGUI();
-    ModifyPlayerIdGUI playerId = new ModifyPlayerIdGUI();
-    AddPlayerGUI addPlayer = new AddPlayerGUI();
+    GUIChangeNameTeam nameTeam = new GUIChangeNameTeam();
+    GUIModifyPlayerId playerId = new GUIModifyPlayerId();
+    GUIAddPlayer addPlayer = new GUIAddPlayer();
 
     public void inicializerElements() {
         pane = new AnchorPane();
@@ -67,7 +67,7 @@ public class ModifyTeam {
         btnReturn.setTranslateY(350);
         btnReturn.setOnAction(event -> {
             stage.close();
-            new SignIn().displaySignWindow();
+            new GUISignIn().displaySignWindow();
         });
 //        img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/3d6cdcd6-43e3-40d7-8a99-0e8f01437663.jpg")));
