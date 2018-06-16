@@ -5,7 +5,6 @@
  */
 package teamManager;
 
-import alerts.ErrorWindow;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +23,7 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private ModifyPlayerIdLogic modifyPlayerIdLogic = new ModifyPlayerIdLogic();
+    private ModifyTeamLogic modifyTeamLogic = new ModifyTeamLogic();
     public static AnchorPane signContainer;
     public static Label lblTeam;
     public static Label lblPlayerId;
@@ -83,7 +82,7 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-            modifyPlayerIdLogic.modifyId();            
+            modifyTeamLogic.modifyId();            
         });
         returnButton.setOnAction(event -> {
             stage.close();

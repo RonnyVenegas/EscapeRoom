@@ -5,11 +5,9 @@
  */
 package teamManager;
 
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -25,7 +23,7 @@ public class ChangeNameTeamGUI {
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private SignInTeamLogic signInLogic = new SignInTeamLogic();
+    private ModifyTeamLogic modifyTeamLogic = new ModifyTeamLogic();
     public static AnchorPane signContainer;
     public static Label lblNameTeam;
     public static Label lblNewNameTeam;
@@ -72,8 +70,7 @@ public class ChangeNameTeamGUI {
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-//            signInLogic.createTeam();
-//            signInLogic.validateTeamPlayers();
+            modifyTeamLogic.changeNameTeam();
         });
         returnButton.setOnAction(event -> {
             stage.close();
