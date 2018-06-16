@@ -1,9 +1,9 @@
 package screenManager;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import escaperoom.Level1;
 import java.io.File;
 import javafx.application.Application;
-import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Scene;
@@ -16,6 +16,7 @@ import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
+import teamManager.ReaderManager;
 
 /**
  *
@@ -33,7 +34,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-
+        EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
