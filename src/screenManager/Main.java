@@ -13,13 +13,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import teamManager.SignInTeamGUI;
-import teamManager.SignIn;
+import teamManager.GUISignInTeam;
+import teamManager.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
-import teamManager.ReaderManager;
+import teamManager.ManagerReader;
+import teamManager.ManagerTeamFile;
 
 /**
  *
@@ -27,20 +28,25 @@ import teamManager.ReaderManager;
  */
 public class Main extends Application {
 
-    private SignInTeamGUI signInTeam = new SignInTeamGUI();
-    private SignIn signIn = new SignIn();
+    private GUISignInTeam signInTeam = new GUISignInTeam();
+    private GUISignIn signIn = new GUISignIn();
     private Level1 Level1 = new Level1();
     private Lobby lobby = new Lobby();
     private Button gameButton;
     private Button signInButton;
+    ManagerTeamFile manager = new ManagerTeamFile();
     ImageView img;
 
     @Override
     public void start(Stage primaryStage) {
+<<<<<<< HEAD
         
         //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
         // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
         // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
+=======
+        manager.readTeamsFromFile();
+>>>>>>> 9b484f253a4ad3e782d8f6059f21afa12101e09d
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
@@ -94,6 +100,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
     }
 
 }

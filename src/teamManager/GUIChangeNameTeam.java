@@ -18,39 +18,39 @@ import javafx.stage.Stage;
  *
  * @author Maricela Ledezma
  */
-public class AddPlayerGUI {
-  
+public class GUIChangeNameTeam {
+    
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private ModifyTeamLogic modifyTeamLogic = new ModifyTeamLogic();
+    private LogicModifyTeam modifyTeamLogic = new LogicModifyTeam();
     public static AnchorPane signContainer;
-    public static Label lblTeam;
-    public static Label lblNewPlayerId;
-    public static TextField txtTeam;
-    public static TextField txtNewPlayerId;
+    public static Label lblNameTeam;
+    public static Label lblNewNameTeam;
+    public static TextField txtNameTeam;
+    public static TextField txtNewNameTeam;
     public static Button btnSave;
     public static Button returnButton;
 
     public void initializeElements() {
         signContainer = new AnchorPane();
-        lblTeam = new Label("Name Team");
-        lblNewPlayerId = new Label("New Player Id");
-        txtTeam = new TextField();
-        txtNewPlayerId = new TextField();
+        lblNameTeam = new Label("Name Team");
+        lblNewNameTeam = new Label("New Name Team");
+        txtNameTeam = new TextField();
+        txtNewNameTeam = new TextField();
         btnSave = new Button("Save");
         returnButton = new Button("Return");
         img = new ImageView();
 
-        txtTeam.setPromptText("Team");
-        txtTeam.setPrefSize(160, 10);
-        txtTeam.setTranslateX(180);
-        txtTeam.setTranslateY(80);
+        txtNameTeam.setPromptText("Team");
+        txtNameTeam.setPrefSize(160, 10);
+        txtNameTeam.setTranslateX(180);
+        txtNameTeam.setTranslateY(80);
         
-        txtNewPlayerId.setPromptText("New player");
-        txtNewPlayerId.setPrefSize(160, 10);
-        txtNewPlayerId.setTranslateX(180);
-        txtNewPlayerId.setTranslateY(160);
+        txtNewNameTeam.setPromptText("New Name");
+        txtNewNameTeam.setPrefSize(160, 10);
+        txtNewNameTeam.setTranslateX(180);
+        txtNewNameTeam.setTranslateY(160);
 
         btnSave.setPrefSize(80, 10);
         btnSave.setTranslateX(100);
@@ -60,31 +60,31 @@ public class AddPlayerGUI {
         returnButton.setTranslateX(200);
         returnButton.setTranslateY(350);
 
-        lblTeam.setTranslateX(40);
-        lblTeam.setTranslateY(90);
+        lblNameTeam.setTranslateX(40);
+        lblNameTeam.setTranslateY(90);
 
-        lblNewPlayerId.setTranslateX(40);
-        lblNewPlayerId.setTranslateY(170);
+        lblNewNameTeam.setTranslateX(40);
+        lblNewNameTeam.setTranslateY(170);
         
         img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-            modifyTeamLogic.addPlayer();
+            modifyTeamLogic.changeNameTeam();
         });
         returnButton.setOnAction(event -> {
             stage.close();
-            new ModifyTeam().displaySignWindow();
+            new GUIModifyTeam().displaySignWindow();
         });
 
-        signContainer.getChildren().addAll(img,lblTeam, lblNewPlayerId,txtTeam, txtNewPlayerId,
-                        btnSave,returnButton);
+        signContainer.getChildren().addAll(img,lblNameTeam, lblNewNameTeam,txtNameTeam, txtNewNameTeam,
+                  btnSave,returnButton);
     }
 
     public void displaySignWindow() {
         initializeElements();
-        scene = new Scene(signContainer,500.0, 380.0);
-        stage.setTitle("AddPlayer");
+        scene = new Scene(signContainer, 500.0, 380.0);
+        stage.setTitle("ChangeNameTeam");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

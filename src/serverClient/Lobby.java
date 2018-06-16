@@ -18,7 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import screenManager.Main;
-import teamManager.ReaderManager;
+import teamManager.ManagerReader;
 import static escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,7 +33,7 @@ import teamManager.Team;
 public class Lobby {
 
     public static final Stage lobbyStage = new Stage();
-    private ReaderManager reader;
+    private ManagerReader reader;
     public static Scene lobbyScene;
     public static AnchorPane lobbyContainer;
     public static Label lblTeamName;

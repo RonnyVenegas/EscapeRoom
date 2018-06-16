@@ -11,12 +11,12 @@ import java.util.Date;
  *
  * @author San
  */
-public interface AbstractBuilder {
+public interface BuilderAbstract {
     
     void buildTeam();
-    void buildTeamName();
+    void buildTeamName(String teamName);
     void buildDate();
-    Team getTeam() throws InformationRequiredException;
+    Team getTeam() throws ExceptionInformationRequired;
     
     
 }

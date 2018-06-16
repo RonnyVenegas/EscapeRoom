@@ -18,29 +18,25 @@ import javafx.stage.Stage;
  *
  * @author Maricela Ledezma
  */
-public class ModifyPlayerIdGUI { // esta clase es diferente
-
+public class GUIAddPlayer {
+  
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private ModifyTeamLogic modifyTeamLogic = new ModifyTeamLogic();
+    private LogicModifyTeam modifyTeamLogic = new LogicModifyTeam();
     public static AnchorPane signContainer;
     public static Label lblTeam;
-    public static Label lblPlayerId;
     public static Label lblNewPlayerId;
     public static TextField txtTeam;
-    public static TextField txtPlayerID;
     public static TextField txtNewPlayerId;
     public static Button btnSave;
     public static Button returnButton;
 
     public void initializeElements() {
         signContainer = new AnchorPane();
-        lblTeam = new Label("Team");
-        lblPlayerId = new Label("Player Id");
+        lblTeam = new Label("Name Team");
         lblNewPlayerId = new Label("New Player Id");
         txtTeam = new TextField();
-        txtPlayerID = new TextField();
         txtNewPlayerId = new TextField();
         btnSave = new Button("Save");
         returnButton = new Button("Return");
@@ -49,17 +45,12 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         txtTeam.setPromptText("Team");
         txtTeam.setPrefSize(160, 10);
         txtTeam.setTranslateX(180);
-        txtTeam.setTranslateY(40);
+        txtTeam.setTranslateY(80);
         
-        txtPlayerID.setPromptText("Player Id");
-        txtPlayerID.setPrefSize(160, 10);
-        txtPlayerID.setTranslateX(180);
-        txtPlayerID.setTranslateY(120);
-        
-        txtNewPlayerId.setPromptText("New player Id");
+        txtNewPlayerId.setPromptText("New player");
         txtNewPlayerId.setPrefSize(160, 10);
         txtNewPlayerId.setTranslateX(180);
-        txtNewPlayerId.setTranslateY(200);
+        txtNewPlayerId.setTranslateY(160);
 
         btnSave.setPrefSize(80, 10);
         btnSave.setTranslateX(100);
@@ -70,33 +61,30 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         returnButton.setTranslateY(350);
 
         lblTeam.setTranslateX(40);
-        lblTeam.setTranslateY(50);
+        lblTeam.setTranslateY(90);
 
-        lblPlayerId.setTranslateX(40);
-        lblPlayerId.setTranslateY(130);
-        
         lblNewPlayerId.setTranslateX(40);
-        lblNewPlayerId.setTranslateY(210);
+        lblNewPlayerId.setTranslateY(170);
         
         img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-            modifyTeamLogic.modifyId();            
+            modifyTeamLogic.addPlayer();
         });
         returnButton.setOnAction(event -> {
             stage.close();
-            new ModifyTeam().displaySignWindow();
+            new GUIModifyTeam().displaySignWindow();
         });
 
-        signContainer.getChildren().addAll(img,lblTeam,lblPlayerId,lblNewPlayerId,txtTeam,txtPlayerID,txtNewPlayerId,
+        signContainer.getChildren().addAll(img,lblTeam, lblNewPlayerId,txtTeam, txtNewPlayerId,
                         btnSave,returnButton);
     }
 
     public void displaySignWindow() {
         initializeElements();
         scene = new Scene(signContainer,500.0, 380.0);
-        stage.setTitle("ModifyPlayerId");
+        stage.setTitle("AddPlayer");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

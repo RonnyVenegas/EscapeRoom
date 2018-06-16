@@ -13,7 +13,7 @@ import screenManager.Main;
  *
  * @author Maricela Ledezma
  */
-public class SignIn {
+public class GUISignIn {
 
     AnchorPane pane;
     Button btnEnrollTeam;
@@ -22,8 +22,8 @@ public class SignIn {
     ImageView imageSignIn;
     Scene scene;
     Stage stage = new Stage();
-    ModifyTeam modify = new ModifyTeam();
-    SignInTeamGUI signInTeam = new SignInTeamGUI();
+    GUIModifyTeam modify = new GUIModifyTeam();
+    GUISignInTeam signInTeam = new GUISignInTeam();
 
     public void inicializerElements() {
         pane = new AnchorPane();
