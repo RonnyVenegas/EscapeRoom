@@ -7,6 +7,7 @@ package teamManager;
 
 import alerts.ErrorWindow;
 import alerts.InformationWindow;
+import escapeRoomFiles.EscapeRoomConfigurations;
 
 /**
  *
@@ -14,7 +15,11 @@ import alerts.InformationWindow;
  */
 public class ModifyTeamLogic {
 
+    private final String REG_EXP_1 = "[A-Za-z ]";
+    private final int minLength1 = 2;
+    private final int maxLength1 = 10;
     SignInTeamLogic signInLogic = new SignInTeamLogic();
+    TeamBuilder teamBuilder = new TeamBuilder();
 
     public boolean containsPlayer(String valor) {
         for (int i = 0; i < SignInTeamLogic.getTeam().getTeamPlayers().size(); i++) {
@@ -45,11 +50,11 @@ public class ModifyTeamLogic {
     }
 
     public boolean verifyTeam(String team) {
-//        for (int i = 0; i < ListaTeam.size(); i++) {
-//            if (listaTeam.get(i).getName().equals(team){
-//                return true;
-//            }
-//        }
+        for (Team t : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
+            if (t.getTeamName().equals(team)) {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -67,14 +72,16 @@ public class ModifyTeamLogic {
 
     public void changeNameTeam() {
         if (verifyTeam(ChangeNameTeamGUI.txtNameTeam.getText()) == false) {
-            ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Equipo no existe");
+            ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
         } else {
-            //for (int i = 0; i < ListaTeam.size(); i++) {
-            //if (listaTeam.get(i).getName().equals(ChangeNameTeamGUI.txtNameTeam.getText()){
-            //listaTeam.get(i).setName(ChangeNameTeamGUI.txtNewNameTeam.getText());
-            InformationWindow.displayInformationWindow("Nombre modificado");
-            //}
-            //}
+            for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
+                if (team.getTeamName().equals(ChangeNameTeamGUI.txtNameTeam.getText())) {
+                    if (teamBuilder.validateString(ModifyPlayerIdGUI.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
+                        team.setTeamName(ChangeNameTeamGUI.txtNewNameTeam.getText());
+                        InformationWindow.displayInformationWindow("Nombre modificado");
+                    }
+                }
+            }
         }
 
     }

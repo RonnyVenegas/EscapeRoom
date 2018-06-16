@@ -18,8 +18,7 @@ public class TeamBuilder implements AbstractBuilder {
     }
 
     @Override
-    public void buildTeamName() {
-        String teamName = SignInTeamGUI.txtTeamName.getText();
+    public void buildTeamName(String teamName) {
         boolean invalidName = validateString(teamName, REG_EXP_1, minLength1, maxLength1);
         if (invalidName == true) {
             team.setTeamName("");
@@ -30,7 +29,7 @@ public class TeamBuilder implements AbstractBuilder {
         }
     }
 
-    private boolean validateString(String valor, String expresion, int maxLength, int minLength) {
+    public boolean validateString(String valor, String expresion, int maxLength, int minLength) {
 
         String REG_EXP = expresion;
         Pattern pattern = Pattern.compile(REG_EXP);

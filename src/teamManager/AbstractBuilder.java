@@ -14,7 +14,7 @@ import java.util.Date;
 public interface AbstractBuilder {
     
     void buildTeam();
-    void buildTeamName();
+    void buildTeamName(String teamName);
     void buildDate();
     Team getTeam() throws InformationRequiredException;
     

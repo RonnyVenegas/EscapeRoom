@@ -3,6 +3,9 @@ package screenManager;
 import escapeRoomFiles.EscapeRoomConfigurations;
 import escaperoom.Level1;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -34,7 +37,19 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
+<<<<<<< HEAD
         
+=======
+//<<<<<<< HEAD
+////<<<<<<< HEAD
+////        //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
+////=======
+////       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
+////>>>>>>> 13a21d6294249b9f89e433566984780600bca98d
+//=======
+//       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
+//>>>>>>> a44f6fdb7d216f6e580366de39fefefa36eab54f
+>>>>>>> 32758026187322c3e0f2061b78a034c29cd10bcb
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
@@ -55,7 +70,11 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
-                lobby.displayLobby();
+                try {
+                    lobby.displayLobby();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
