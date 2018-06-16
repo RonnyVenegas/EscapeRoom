@@ -3,11 +3,43 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/Team.java</file>
-            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/TeamFileManager.java</file>
-            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/SignInLogic.java</file>
-            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/SignInTeamGUI.java</file>
-            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/SignIn.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/css/styles.css</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/InformationRequiredException.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/SignInLogic.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/serverClient/LoginPlayer.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/css/styleLevel1.css</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/forLayouts/FXMLController.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/TeamBuilder.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/ReaderManager.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/serverClient/ClientHandler.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/serverClient/Lobby.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/EscapeRoomConfigurations.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/serverClient/Server.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escaperoom/Level1.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/shutterLock.png</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/ModifyPlayerIdLogic.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/bicycleLock.png</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/ModifyTeam.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/bloodHandPrint.png</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/combinationLock.png</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/forLayouts/FXML.fxml</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/Team.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/screenManager/Main.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/Player.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/backgroundDefault.jpg</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/SignIn.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/ModifyPlayerIdGUI.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/css/styleLock.css</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/SignInTeamGUI.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/appleWatch.png</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/ChangeNameTeamGUI.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/sherlockLevel.png</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/AddPlayerGUI.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/signInImage.jpg</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escaperoom/Lock1.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/AbstractBuilder.java</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/pubLevel.jpg</file>
+            <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/teamFile.txt</file>
         </group>
     </open-files>
 </project-private>

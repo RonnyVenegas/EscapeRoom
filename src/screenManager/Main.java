@@ -2,6 +2,9 @@ package screenManager;
 
 import escaperoom.Level1;
 import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
@@ -54,7 +57,11 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
-                lobby.displayLobby();
+                try {
+                    lobby.displayLobby();
+                } catch (IOException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
 
