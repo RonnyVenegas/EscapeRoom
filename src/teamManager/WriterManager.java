@@ -37,17 +37,17 @@ public class WriterManager {
         }
     }
     
-    public void open(String fileName) throws IOException {
-        if(writer == null){
-            writer = new BufferedWriter(new FileWriter(fileName));
-        }         
-    }
-
-    public void write(Team team) throws IOException {
-        writer.write(team.toFileString() + "\n");
-    }
-
-    public void close() throws IOException {
-        writer.close();
-    }
+//    public void open(String fileName) throws IOException {
+//        if(writer == null){
+//            writer = new BufferedWriter(new FileWriter(fileName));
+//        }         
+//    }
+//
+//    public void write(Team team) throws IOException {
+//        writer.write(team.toFileString() + "\n");
+//    }
+//
+//    public void close() throws IOException {
+//        writer.close();
+//    }
 }

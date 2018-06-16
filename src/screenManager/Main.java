@@ -34,7 +34,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
+        
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
@@ -70,7 +70,7 @@ public class Main extends Application {
 
         StackPane root = new StackPane();
         root.getChildren().addAll(img,gameButton, signInButton);
-
+        
         Scene scene = new Scene(root, 400, 400);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
         scene.getStylesheets().add("file:///" + cssPath);

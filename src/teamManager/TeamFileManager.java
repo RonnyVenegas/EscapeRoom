@@ -17,23 +17,26 @@ public class TeamFileManager {
     public void saveTeamsOnFile() {
         writer.writeTeams();
     }
-    
-    public void createOpenTeamFile() {
-        try {
-            writer.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
-            writer.write(SignInTeamLogic.getTeam());
-            writer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//    
+//    public void createOpenTeamFile() {
+//        try {
+//            writer.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
+//            writer.write(SignInTeamLogic.getTeam());
+//            writer.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    public void readTeamsFromFile(){
+        reader.readTeamsFromFile();
     }
-    public void readTeamFile(){
-        try {
-            reader.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+//    public void readTeamFile(){
+//        try {
+//            reader.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
+//            
+//        } catch (IOException ex) {
+//            Logger.getLogger(TeamFileManager.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
 
 }
