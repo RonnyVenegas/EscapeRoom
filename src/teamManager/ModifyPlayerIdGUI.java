@@ -5,6 +5,7 @@
  */
 package teamManager;
 
+import alerts.ErrorWindow;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -24,7 +25,7 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private SignInTeamLogic signInLogic = new SignInTeamLogic();
+    private ModifyPlayerIdLogic modifyPlayerIdLogic = new ModifyPlayerIdLogic();
     public static AnchorPane signContainer;
     public static Label lblTeam;
     public static Label lblPlayerId;
@@ -83,11 +84,11 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-//            if (signInLogic.containsPlayer(txtPlayerID.getText()) == false) {
-//             textAreaPlayer.setText("El jugador no existe");
-//            }else{
-//            //signInLogic.modifyId();
-//            }
+            if (modifyPlayerIdLogic.containsPlayer(txtPlayerID.getText()) == false) {
+             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Jugador no existe");
+            }else{
+            modifyPlayerIdLogic.modifyId();
+            }
         });
         returnButton.setOnAction(event -> {
             stage.close();
