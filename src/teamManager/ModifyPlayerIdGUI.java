@@ -8,7 +8,6 @@ package teamManager;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -24,7 +23,7 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private SignInTeamLogic signInLogic = new SignInTeamLogic();
+    private ModifyTeamLogic modifyTeamLogic = new ModifyTeamLogic();
     public static AnchorPane signContainer;
     public static Label lblTeam;
     public static Label lblPlayerId;
@@ -83,11 +82,7 @@ public class ModifyPlayerIdGUI { // esta clase es diferente
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/maze-hr.jpg")));
         
         btnSave.setOnAction(event -> {
-//            if (signInLogic.containsPlayer(txtPlayerID.getText()) == false) {
-//             textAreaPlayer.setText("El jugador no existe");
-//            }else{
-//            //signInLogic.modifyId();
-//            }
+            modifyTeamLogic.modifyId();            
         });
         returnButton.setOnAction(event -> {
             stage.close();
