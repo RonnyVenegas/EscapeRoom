@@ -8,17 +8,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LogicSignInTeam {
+
     private final String REG_EXP = "[A-Za-z0-9]";
     private final int minLength = 2;
     private final int maxLength = 8;
-    private final TreeSet<Player> playersList = new TreeSet<>();
+    public static final TreeSet<Player> playersList = new TreeSet<>();
     private static Team team;
     private ManagerTeamFile manager = new ManagerTeamFile();
 
     public boolean checkTeamDuplicated(Team team) {
         return EscapeRoomConfigurations.TEAMS_FROM_FILE.contains(team);
     }
-    
+
     public boolean validateTeamPlayers() {
         System.out.println("Team " + team.getTeamName());
         boolean completeTeam = false;
@@ -28,7 +29,7 @@ public class LogicSignInTeam {
                 System.out.println(p.getID());
             }
             completeTeam = true;
-            
+
         }
         return completeTeam;
     }
@@ -40,14 +41,14 @@ public class LogicSignInTeam {
             builder.buildTeamName(GUISignInTeam.txtTeamName.getText());
             builder.buildDate();
             team = builder.getTeam();
-            
+
             boolean duplicatedTeam = checkTeamDuplicated(team);
-            
+
             if (duplicatedTeam) {
                 ErrorWindow.displayErrorWindow("Team duplicated", "Can not exists two team with same names");
             } else {
                 boolean completeTeam = validateTeamPlayers();
-                
+
                 if (completeTeam) {
                     GUISignInTeam.signStage.close();
                     EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
@@ -65,9 +66,7 @@ public class LogicSignInTeam {
         }
     }
 
-    public void addPlayerToMap() {
-//        if (playersList.contains(GUISignInTeam.txtPlayerID.getText())) {
-        String playerID = GUISignInTeam.txtPlayerID.getText();
+    public void addPlayerToMap(String playerID) {
         Player player = new Player(playerID);
         boolean addPlayer = playersList.add(player);
         if (addPlayer == false) {
@@ -102,4 +101,16 @@ public class LogicSignInTeam {
         return team;
     }
 
+    public static TreeSet getTree() {
+        return playersList;
+    }
+    
+    public boolean removePlayer(String data) {
+        for (Player p : playersList) {
+            if (p.getID().equals(data)) {
+               return playersList.remove(p);  
+            }           
+        }
+        return false;
+    }
 }
