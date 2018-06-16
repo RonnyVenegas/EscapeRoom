@@ -5,6 +5,7 @@
  */
 package serverClient;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import escaperoom.Level1;
 import java.io.File;
 import javafx.geometry.Insets;
@@ -63,23 +64,22 @@ public class Lobby {
         lblGameType = new Label("Game Type");
         lblPlayerList = new Label("Player ID");
         
-        /**
-        reader.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
+        //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
+        /**reader.open(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
         team = reader.read();
         playerArray = team.getTeamPlayers();
-        reader.close();
+        reader.close();*/
 
         teamCombo = new ComboBox();
         gameTypeCombo = new ComboBox();
         playerCombo = new ComboBox();
 
         //dummy data for combo boxes
-        teamCombo.getItems().addAll(team.getTeamName());
+        /**teamCombo.getItems().addAll(team.getTeamName());
         gameTypeCombo.getItems().addAll("Indiviaul", "Equipos");
         for(int i = 0; i < playerArray.size(); i++){
             playerCombo.getItems().add(playerArray.get(i).getID());
-        }
-        */
+        }*/
 
         btnAddPlayer = new Button("+");
         play = new Button("Play");
