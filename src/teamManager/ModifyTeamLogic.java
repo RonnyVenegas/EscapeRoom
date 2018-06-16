@@ -71,11 +71,12 @@ public class ModifyTeamLogic {
     }
 
     public void changeNameTeam() {
-        if (verifyTeam(ChangeNameTeamGUI.txtNameTeam.getText()) == false) {
+        String data = ChangeNameTeamGUI.txtNameTeam.getText();
+        if (verifyTeam(data) == false) {
             ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
-                if (team.getTeamName().equals(ChangeNameTeamGUI.txtNameTeam.getText())) {
+                if (team.getTeamName().equals(data)) {
                     if (teamBuilder.validateString(ModifyPlayerIdGUI.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
                         team.setTeamName(ChangeNameTeamGUI.txtNewNameTeam.getText());
                         InformationWindow.displayInformationWindow("Nombre modificado");
