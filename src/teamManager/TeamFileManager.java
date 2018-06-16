@@ -14,6 +14,10 @@ public class TeamFileManager {
     WriterManager writer = new WriterManager();
     ReaderManager reader = new ReaderManager();
 
+    public void saveTeamsOnFile() {
+        writer.writeTeams();
+    }
+    
     public void createOpenTeamFile() {
         try {
             writer.open(escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE);
