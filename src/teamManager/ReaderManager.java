@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package teamManager;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.TreeSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,12 +21,13 @@ public class ReaderManager {
     private BufferedReader reader;
 
     public void open(String fileName) throws FileNotFoundException {
+        if(reader == null){
         reader = new BufferedReader(new FileReader(fileName));
+        }
     }
 
     public Team read() throws IOException {
         Team team = null;
-        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
         String line = reader.readLine();
         String datos[];
         if (line != null) {
@@ -37,7 +35,7 @@ public class ReaderManager {
                 team = new Team();
                 datos = line.split("-");
                 team.setTeamName(datos[0]);
-                team.setSignInDate(format.parse(datos[1]));
+                team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(datos[1]));
                 for(int i = 2; i < datos.length; i++) {
                     Player player = new Player(datos[i]);
                     team.addPlayerToArray(player);
@@ -48,6 +46,49 @@ public class ReaderManager {
             }
         }
         return team;
+    }
+    
+    public TreeSet readTeamsFromFile() {
+        TreeSet<Team> teamPlayers = new TreeSet<>();
+        Team team = null;
+        
+        File file = null;
+        FileReader fileReader = null;
+        BufferedReader bufferedReader = null;
+        
+        try {
+            file = new File(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
+            fileReader = new FileReader(file);
+            bufferedReader = new BufferedReader(fileReader);
+            
+            String fileLine;
+            
+            while ((fileLine = bufferedReader.readLine()) != null) {
+                team = new Team();
+                String[] teamData = fileLine.split("-");
+                
+                team.setTeamName(teamData[0]);
+                team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(teamData[1]));
+                for(int i = 2; i < teamData.length; i++) {
+                    Player player = new Player(teamData[i]);
+                    team.addPlayerToArray(player);
+                }
+                
+                teamPlayers.add(team);
+            }
+        } catch(IOException | ParseException e) {
+        
+        } finally {
+            try {
+                if (null != fileReader) {
+                    fileReader.close();
+                }
+            } catch (IOException ex) {
+                
+            }
+        }
+        
+        return teamPlayers;
     }
 
     public void close() throws IOException {

@@ -43,6 +43,7 @@ public class ModifyTeam {
         btnChangeNameTeam.setTranslateY(100.0);
         btnChangeNameTeam.setOnAction(event -> {
             nameTeam.displaySignWindow();
+            stage.close();
         });
 
         btnModifyPlayerId.setPrefSize(110.0, 25.0);
@@ -50,6 +51,7 @@ public class ModifyTeam {
         btnModifyPlayerId.setTranslateY(150.0);
         btnModifyPlayerId.setOnAction(event -> {
             playerId.displaySignWindow();
+            stage.close();
         });
 
         btnAddPlayer.setPrefSize(110.0, 25.0);
@@ -57,6 +59,7 @@ public class ModifyTeam {
         btnAddPlayer.setTranslateY(200.0);
         btnAddPlayer.setOnAction(event -> {
             addPlayer.displaySignWindow();
+             stage.close();
         });
 
         btnReturn.setPrefSize(90.0, 25.0);

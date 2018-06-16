@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package teamManager;
 
 import alerts.ErrorWindow;
 import escapeRoomFiles.EscapeRoomConfigurations;
-import java.io.File;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -40,7 +33,7 @@ public class SignInTeamGUI {
     public static ScrollPane scrollPanePlayerList;
     public static TextArea textAreaPlayerList;
     public static Button returnButton;
-    private SignInLogic signInLogic = new SignInLogic();
+    private SignInTeamLogic signInLogic = new SignInTeamLogic();
 
     public void initializeElements() {
          
@@ -55,8 +48,8 @@ public class SignInTeamGUI {
 
         btnAddPlayer = new Button("+");
         btnSave = new Button("Save");
-        
-        returnButton = new Button("Retun");
+  
+        returnButton = new Button("Return");
         
 
         scrollPanePlayerList = new ScrollPane();
@@ -96,7 +89,7 @@ public class SignInTeamGUI {
         returnButton.setTranslateY(325);
         txtDate.setEditable(false);
         textAreaPlayerList.setEditable(false);
-        txtDate.setText(EscapeRoomConfigurations.getDATE_FORMAT().format(new Date()));
+        txtDate.setText(EscapeRoomConfigurations.DATE_FORMAT.format(new Date()));
         scrollPanePlayerList.setContent(textAreaPlayerList);
         
         btnSave.setOnAction(event -> {
@@ -125,7 +118,7 @@ public class SignInTeamGUI {
     public void displaySignTeamWindow() {
         initializeElements();
         signScene = new Scene(signContainer, 350, 350);
-        signScene.getStylesheets().add(EscapeRoomConfigurations.getCSS_PATH());
+        signScene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
         signStage.setTitle("Team Builder - Sign In");
         signStage.setScene(signScene);
         signStage.setResizable(false);

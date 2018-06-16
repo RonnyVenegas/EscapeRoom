@@ -1,20 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package teamManager;
 
-//import java.util.HashMap;
 import alerts.ErrorWindow;
-import java.util.Iterator;
-import java.util.Map;
+import alerts.InformationWindow;
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SignInLogic {
-
+public class SignInTeamLogic {
     private final String REG_EXP = "[A-Za-z0-9]";
     private final int minLength = 2;
     private final int maxLength = 8;
@@ -22,22 +15,22 @@ public class SignInLogic {
     private static Team team;
     private TeamFileManager manager = new TeamFileManager();
 
-    public void validateTeam() {
+    public boolean checkTeamDuplicated(Team team) {
+        return EscapeRoomConfigurations.TEAMS_FROM_FILE.contains(team);
+    }
+    
+    public boolean validateTeamPlayers() {
         System.out.println("Team " + team.getTeamName());
+        boolean completeTeam = false;
         if (!playersList.isEmpty() && playersList.size() >= 3) {
-            System.out.println("validate team");
-//            for (Map.Entry<Player> e : playersList.entrySet()) {
-//                team.addPlayerToArray(e.getValue());
-//                System.out.println(e.getKey() + " " + e.getValue().toString());
-//            }
             for (Player p : playersList) {
                 team.addPlayerToArray(p);
-                System.out.println(p.getID().toString());
+                System.out.println(p.getID());
             }
-            manager.createOpenTeamFile();
-        } else {
-            System.out.println("El equipo debe contener al menos 3 jugadores");
+            completeTeam = true;
+            
         }
+        return completeTeam;
     }
 
     public void createTeam() {
@@ -47,15 +40,32 @@ public class SignInLogic {
             builder.buildTeamName();
             builder.buildDate();
             team = builder.getTeam();
-
-            System.out.println("Team " + team.getTeamName());
+            
+            boolean duplicatedTeam = checkTeamDuplicated(team);
+            
+            if (duplicatedTeam) {
+                ErrorWindow.displayErrorWindow("Team duplicated", "Can not exists two team with same names");
+            } else {
+                boolean completeTeam = validateTeamPlayers();
+                
+                if (completeTeam) {
+                    SignInTeamGUI.signStage.close();
+                    EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
+                    manager.saveTeamsOnFile();
+                    InformationWindow.displayInformationWindow("Team saved");
+                    new SignIn().displaySignWindow();
+                } else {
+                    completeTeam = false;
+                    ErrorWindow.displayErrorWindow("Can not save Team", "Team must have at least 3 players");
+                }
+            }
         } catch (InformationRequiredException ex) {
-            System.out.println("ERROR: " + ex.getMessage());
+            ErrorWindow.displayErrorWindow(ex.getMessage(), "Team name must have only letters and spaces"
+                    + "\nTeam name length must be between 2 and 10 characters");
         }
     }
 
     public void addPlayerToMap() {
-
 //        if (playersList.contains(SignInTeamGUI.txtPlayerID.getText())) {
         String playerID = SignInTeamGUI.txtPlayerID.getText();
         Player player = new Player(playerID);
@@ -66,21 +76,8 @@ public class SignInLogic {
             //playersList.put(SignInTeamGUI.txtPlayerID.getText(), player);
             SignInTeamGUI.textAreaPlayerList.setText(SignInTeamGUI.textAreaPlayerList.getText() + "\n" + playerID);
         }
-//        mostrarJugadores();
     }
 
-    /**
-     *
-     * public void addPlayerToMap() { if
-     * (playersList.containsKey(GUISignInTeam.txtPlayerID.getText())) {
-     * ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat
-     * player IDs"); } else { String playerID =
-     * GUISignInTeam.txtPlayerID.getText(); Player player = new
-     * Player(playerID); playersList.put(playerID, player);
-     * GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText()
-     * + "\n" + playerID); } mostrarJugadores(); }
-     *
-     */
     public boolean validatePlayerID(String valor) {
         Pattern pattern = Pattern.compile(REG_EXP);
         Matcher matcher;
@@ -100,15 +97,6 @@ public class SignInLogic {
 
         return nombreInvalido;
     }
-
-//    public void mostrarJugadores() {
-//        //Iterator list = playersList.entrySet().iterator();
-//        Iterator list = playersList.iterator();
-//        while (list.hasNext()) {
-//            Map.Entry e = (Map.Entry) list.next();
-//            System.out.println(e.getKey().toString());
-//        }
-//    }
 
     public static Team getTeam() {
         return team;

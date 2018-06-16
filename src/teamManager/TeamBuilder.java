@@ -54,7 +54,7 @@ public class TeamBuilder implements AbstractBuilder {
     @Override
     public void buildDate() {
         try {
-            team.setSignInDate(EscapeRoomConfigurations.getDATE_FORMAT().parse(SignInTeamGUI.txtDate.getText()));
+            team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(SignInTeamGUI.txtDate.getText()));
         } catch (ParseException ex) {
             ex.getMessage();
         }

@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package teamManager;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.util.ArrayList;
 import java.util.Date;
 
 
-public class Team {
+public class Team implements Comparable<Team> {
     private String teamName;
     private Date signInDate;
     private ArrayList<Player> teamPlayers = new ArrayList<>();
@@ -46,7 +42,17 @@ public class Team {
     }
 
     public String toFileString() {
-        return teamName + "-" + signInDate + getTeamPlayersList();
+        return teamName + "-" + EscapeRoomConfigurations.DATE_FORMAT.format(signInDate) + getTeamPlayersList();
     }
     
+    @Override
+    public int compareTo(Team o) {
+        int compare = 0;
+        if(o.getTeamName().equals(this.teamName)){
+            compare = 0;
+        } else {
+            compare = 1;
+        }
+        return compare;
+    }
 }

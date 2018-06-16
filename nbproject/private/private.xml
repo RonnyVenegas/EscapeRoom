@@ -2,7 +2,11 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/css/styles.css</file>
             <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/InformationRequiredException.java</file>
             <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/SignInLogic.java</file>
@@ -40,6 +44,17 @@
             <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/teamManager/AbstractBuilder.java</file>
             <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/images/pubLevel.jpg</file>
             <file>file:/C:/Users/Ronny/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/teamFile.txt</file>
+=======
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/TeamFileManager.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/ReaderManager.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/WriterManager.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/SignInTeamGUI.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/screenManager/Main.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/TeamBuilder.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/escapeRoomFiles/EscapeRoomConfigurations.java</file>
+            <file>file:/C:/Users/San/Documents/GitHub/EscapeRoom/src/teamManager/SignInTeamLogic.java</file>
+>>>>>>> 99e78e7ca7687aced42db721b46a11eee3d08b39
         </group>
+>>>>>>> a44f6fdb7d216f6e580366de39fefefa36eab54f
     </open-files>
 </project-private>
