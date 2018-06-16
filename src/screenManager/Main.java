@@ -13,13 +13,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import teamManager.SignInTeamGUI;
-import teamManager.SignIn;
+import teamManager.GUISignInTeam;
+import teamManager.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
-import teamManager.ReaderManager;
+import teamManager.ManagerReader;
+import teamManager.ManagerTeamFile;
 
 /**
  *
@@ -27,25 +28,18 @@ import teamManager.ReaderManager;
  */
 public class Main extends Application {
 
-    private SignInTeamGUI signInTeam = new SignInTeamGUI();
-    private SignIn signIn = new SignIn();
+    private GUISignInTeam signInTeam = new GUISignInTeam();
+    private GUISignIn signIn = new GUISignIn();
     private Level1 Level1 = new Level1();
     private Lobby lobby = new Lobby();
     private Button gameButton;
     private Button signInButton;
+    ManagerTeamFile manager = new ManagerTeamFile();
     ImageView img;
 
     @Override
     public void start(Stage primaryStage) {
-//<<<<<<< HEAD
-////<<<<<<< HEAD
-////        //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-////=======
-////       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-////>>>>>>> 13a21d6294249b9f89e433566984780600bca98d
-//=======
-//       // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-//>>>>>>> a44f6fdb7d216f6e580366de39fefefa36eab54f
+        manager.readTeamsFromFile();
         gameButton = new Button();
         gameButton.setText("Open Game");
         signInButton = new Button();
@@ -54,7 +48,7 @@ public class Main extends Application {
 
         img.setFitHeight(400.0);
         img.setFitWidth(400.0);
-        
+
         gameButton.setTranslateX(2);
         gameButton.setTranslateY(120);
 
@@ -84,7 +78,7 @@ public class Main extends Application {
         });
 
         StackPane root = new StackPane();
-        root.getChildren().addAll(img,gameButton, signInButton);
+        root.getChildren().addAll(img, gameButton, signInButton);
 
         Scene scene = new Scene(root, 400, 400);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
@@ -99,6 +93,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
     }
 
 }

@@ -17,7 +17,7 @@ import javafx.stage.Stage;
  *
  * @author San
  */
-public class SignInTeamGUI {
+public class GUISignInTeam {
 
     public static final Stage signStage = new Stage();
     public static Scene signScene;
@@ -33,7 +33,7 @@ public class SignInTeamGUI {
     public static ScrollPane scrollPanePlayerList;
     public static TextArea textAreaPlayerList;
     public static Button returnButton;
-    private SignInTeamLogic signInLogic = new SignInTeamLogic();
+    private LogicSignInTeam signInLogic = new LogicSignInTeam();
 
     public void initializeElements() {
          
@@ -109,7 +109,7 @@ public class SignInTeamGUI {
         
         returnButton.setOnAction(event -> {
             signStage.close();
-            new SignIn().displaySignWindow();
+            new GUISignIn().displaySignWindow();
         });
         signContainer.getChildren().addAll(lblDate, lblPlayerList, lblTeamName, txtDate, txtTeamName, txtPlayerID, btnAddPlayer,
           btnSave, scrollPanePlayerList, returnButton);

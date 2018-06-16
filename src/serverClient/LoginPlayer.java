@@ -10,7 +10,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import teamManager.SignIn;
+import teamManager.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
@@ -30,7 +30,7 @@ import serverClient.Lobby;
  */
 public class LoginPlayer extends Application {
 
-    private SignIn signIn = new SignIn();
+    private GUISignIn signIn = new GUISignIn();
     private Level1 Level1 = new Level1();
     private Lobby lobby = new Lobby();
     ImageView img;

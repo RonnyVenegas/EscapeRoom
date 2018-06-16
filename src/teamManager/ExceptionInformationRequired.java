@@ -9,9 +9,9 @@ package teamManager;
  *
  * @author San
  */
-public class InformationRequiredException extends Exception {
+public class ExceptionInformationRequired extends Exception {
 
-    public InformationRequiredException(String message) {
+    public ExceptionInformationRequired(String message) {
         super (message);
     }
     
