@@ -19,10 +19,11 @@ import java.util.logging.Logger;
 public class ReaderManager {
 
     private BufferedReader reader;
+    TreeSet<Team> teamPlayers = new TreeSet<>();
 
     public void open(String fileName) throws FileNotFoundException {
-        if(reader == null){
-        reader = new BufferedReader(new FileReader(fileName));
+        if (reader == null) {
+            reader = new BufferedReader(new FileReader(fileName));
         }
     }
 
@@ -36,7 +37,7 @@ public class ReaderManager {
                 datos = line.split("-");
                 team.setTeamName(datos[0]);
                 team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(datos[1]));
-                for(int i = 2; i < datos.length; i++) {
+                for (int i = 2; i < datos.length; i++) {
                     Player player = new Player(datos[i]);
                     team.addPlayerToArray(player);
                 }
@@ -47,47 +48,47 @@ public class ReaderManager {
         }
         return team;
     }
-    
-    public TreeSet readTeamsFromFile() {
-        TreeSet<Team> teamPlayers = new TreeSet<>();
+
+    public TreeSet readTeamsFromFile() throws IOException {
+        open(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
+        read();
         Team team = null;
-        
         File file = null;
         FileReader fileReader = null;
         BufferedReader bufferedReader = null;
-        
+
         try {
             file = new File(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
             fileReader = new FileReader(file);
             bufferedReader = new BufferedReader(fileReader);
-            
+
             String fileLine;
-            
+
             while ((fileLine = bufferedReader.readLine()) != null) {
                 team = new Team();
                 String[] teamData = fileLine.split("-");
-                
+
                 team.setTeamName(teamData[0]);
                 team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(teamData[1]));
-                for(int i = 2; i < teamData.length; i++) {
+                for (int i = 2; i < teamData.length; i++) {
                     Player player = new Player(teamData[i]);
                     team.addPlayerToArray(player);
                 }
-                
+
                 teamPlayers.add(team);
             }
-        } catch(IOException | ParseException e) {
-        
+        } catch (IOException | ParseException e) {
+
         } finally {
             try {
                 if (null != fileReader) {
                     fileReader.close();
                 }
             } catch (IOException ex) {
-                
+
             }
         }
-        
+
         return teamPlayers;
     }
 

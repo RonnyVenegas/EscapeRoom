@@ -37,7 +37,7 @@ public class SignInTeamLogic {
         try {
             AbstractBuilder builder = new TeamBuilder();
             builder.buildTeam();
-            builder.buildTeamName();
+            builder.buildTeamName(SignInTeamGUI.txtTeamName.getText());
             builder.buildDate();
             team = builder.getTeam();
             
