@@ -38,7 +38,7 @@ public class ReaderManager {
                 team = new Team();
                 datos = line.split("-");
                 team.setTeamName(datos[0]);
-                team.setSignInDate(EscapeRoomConfigurations.getDATE_FORMAT().parse(datos[1]));
+                team.setSignInDate(EscapeRoomConfigurations.DATE_FORMAT.parse(datos[1]));
                 for(int i = 2; i < datos.length; i++) {
                     Player player = new Player(datos[i]);
                     team.addPlayerToArray(player);

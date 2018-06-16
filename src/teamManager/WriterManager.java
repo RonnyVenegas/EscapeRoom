@@ -9,10 +9,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- *
- * @author San
- */
 public class WriterManager {
 
     private BufferedWriter writer;

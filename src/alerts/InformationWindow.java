@@ -22,7 +22,7 @@ public class InformationWindow {
         stage.getIcons().add(new Image("/images/infoIcon.png"));
 
         Scene scene = (Scene) informationAlert.getDialogPane().getScene();
-        scene.getStylesheets().add(EscapeRoomConfigurations.getCSS_PATH());
+        scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
 
         informationAlert.showAndWait();
     }//Method end
