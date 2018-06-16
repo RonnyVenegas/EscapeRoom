@@ -23,7 +23,7 @@ public class ErrorWindow {
         stage.getIcons().add(new Image("/images/alertIcon.png"));
 
         Scene scene = (Scene) errorAlert.getDialogPane().getScene();
-        scene.getStylesheets().add(EscapeRoomConfigurations.getCSS_PATH());
+        scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
 
         errorAlert.showAndWait();
     }//Method end

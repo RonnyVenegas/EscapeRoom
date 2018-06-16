@@ -25,7 +25,7 @@ public class ChangeNameTeamGUI {
     ImageView img;
     private Scene scene;
     private final Stage stage = new Stage();
-    private SignInLogic signInLogic = new SignInLogic();
+    private SignInTeamLogic signInLogic = new SignInTeamLogic();
     public static AnchorPane signContainer;
     public static Label lblNameTeam;
     public static Label lblNewNameTeam;

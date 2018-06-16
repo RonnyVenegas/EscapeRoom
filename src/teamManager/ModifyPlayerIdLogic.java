@@ -13,10 +13,10 @@ import java.util.Iterator;
  */
 public class ModifyPlayerIdLogic {
   
-    SignInLogic signInLogic = new SignInLogic();
+    SignInTeamLogic signInLogic = new SignInTeamLogic();
     
     public boolean containsPlayer(String valor) {
-        return SignInLogic.getTeam().getTeamPlayersList().contains(valor);
+        return SignInTeamLogic.getTeam().getTeamPlayersList().contains(valor);
     }
 
     public void modifyId() {
