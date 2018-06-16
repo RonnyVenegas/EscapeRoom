@@ -2,6 +2,7 @@ package teamManager;
 
 import alerts.ErrorWindow;
 import alerts.InformationWindow;
+import escapeRoomFiles.EscapeRoomConfigurations;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,20 +15,22 @@ public class SignInTeamLogic {
     private static Team team;
     private TeamFileManager manager = new TeamFileManager();
 
-    public void validateTeamPlayers() {
+    public boolean checkTeamDuplicated(Team team) {
+        return EscapeRoomConfigurations.TEAMS_FROM_FILE.contains(team);
+    }
+    
+    public boolean validateTeamPlayers() {
         System.out.println("Team " + team.getTeamName());
+        boolean completeTeam = false;
         if (!playersList.isEmpty() && playersList.size() >= 3) {
             for (Player p : playersList) {
                 team.addPlayerToArray(p);
                 System.out.println(p.getID());
             }
-            manager.createOpenTeamFile();
-            SignInTeamGUI.signStage.close();
-            InformationWindow.displayInformationWindow("Team saved");
-            new SignIn().displaySignWindow();
-        } else {
-            ErrorWindow.displayErrorWindow("Can not save Team", "Team must have at least 3 players");
+            completeTeam = true;
+            
         }
+        return completeTeam;
     }
 
     public void createTeam() {
@@ -37,7 +40,25 @@ public class SignInTeamLogic {
             builder.buildTeamName();
             builder.buildDate();
             team = builder.getTeam();
-            validateTeamPlayers();
+            
+            boolean duplicatedTeam = checkTeamDuplicated(team);
+            
+            if (duplicatedTeam) {
+                ErrorWindow.displayErrorWindow("Team duplicated", "Can not exists two team with same names");
+            } else {
+                boolean completeTeam = validateTeamPlayers();
+                
+                if (completeTeam) {
+                    SignInTeamGUI.signStage.close();
+                    EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
+                    manager.saveTeamsOnFile();
+                    InformationWindow.displayInformationWindow("Team saved");
+                    new SignIn().displaySignWindow();
+                } else {
+                    completeTeam = false;
+                    ErrorWindow.displayErrorWindow("Can not save Team", "Team must have at least 3 players");
+                }
+            }
         } catch (InformationRequiredException ex) {
             ErrorWindow.displayErrorWindow(ex.getMessage(), "Team name must have only letters and spaces"
                     + "\nTeam name length must be between 2 and 10 characters");
@@ -45,7 +66,6 @@ public class SignInTeamLogic {
     }
 
     public void addPlayerToMap() {
-
 //        if (playersList.contains(SignInTeamGUI.txtPlayerID.getText())) {
         String playerID = SignInTeamGUI.txtPlayerID.getText();
         Player player = new Player(playerID);
