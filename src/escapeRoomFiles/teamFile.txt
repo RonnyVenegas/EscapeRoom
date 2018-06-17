@@ -5,6 +5,11 @@ AAA-16/06/2018-124-125-asd
 Poderosos-16/06/2018-aa3-New Player Id-Lolita-Juanita-Juanita-Pedrito
 Los increibles-16/06/2018-inc1-inc2-inc3-New Player Id
 Hola-16/06/2018-123-124-125
+<<<<<<< HEAD
 Bye-16/06/2018-asd-New Player Id
 BCD-16/06/2018-567-A567-B567-New Player Id
+=======
+BBB-16/06/2018-567-A567-B567
+>>>>>>> 4c77c2b58ffb1ac4d01097a592ef99635fe4df6c
 Oruga-16/06/2018-Mariposo-Hoja-Flor
+FFF-17/06/2018-FFF1-FFF2-FFF3

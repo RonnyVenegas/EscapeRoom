@@ -10,16 +10,10 @@ import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
-import static javafx.scene.paint.Color.color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import screenManager.Main;
 
 public class Lock1 {
 
@@ -98,7 +92,7 @@ public class Lock1 {
             System.out.println(strLock2);
             System.out.println(strLock3);
             System.out.println(strLock4);
-
+            //Better a Switch
             if (riddle == 1) {
                 System.out.println("riddle 1");
                 if(strLock1.equals("1") && strLock2.equals("1") 
