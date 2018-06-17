@@ -99,13 +99,8 @@ public class LogicModifyTeam {
                 }
             }
         }
-<<<<<<< HEAD:src/teamManager/LogicModifyTeam.java
-       
-    }
-=======
         System.out.println("player not found");
     }//End method
->>>>>>> 4c77c2b58ffb1ac4d01097a592ef99635fe4df6c:src/teamManagerLogic/LogicModifyTeam.java
 
     /**
      * Changes team name if new one is valid

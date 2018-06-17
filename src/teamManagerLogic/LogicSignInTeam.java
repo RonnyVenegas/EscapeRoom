@@ -59,18 +59,6 @@ public class LogicSignInTeam {
         return completeTeam;
     }//End method
 
-<<<<<<< HEAD:src/teamManager/LogicSignInTeam.java
-    public void addToArray(Team team) {
-        for (Player p : playersList) {
-            System.out.println(team.getTeamPlayersList());
-            team.addPlayerToArray(p);
-            System.out.println(p.getID());
-        }
-        managerWriter.writeTeams();
-        System.out.println("Player add to array");
-    }
-
-=======
     /**
      * It adds the player list from the treeSet to the Array in the team class
      * @param team 
@@ -89,7 +77,6 @@ public class LogicSignInTeam {
      * Use a builder to create a new Team, validating duplicated teams and saving 
      * valid teams in the file
      */
->>>>>>> 4c77c2b58ffb1ac4d01097a592ef99635fe4df6c:src/teamManagerLogic/LogicSignInTeam.java
     public void createTeam() {
         try {
             BuilderAbstract builder = new BuilderTeam();
@@ -169,16 +156,12 @@ public class LogicSignInTeam {
     public static TreeSet getTree() {
         return playersList;
     }
-<<<<<<< HEAD:src/teamManager/LogicSignInTeam.java
-
-=======
     
     /**
      * Removes a team pleyer from the treeSet 
      * @param data player identifier
      * @return boolean if player was removed succesfully
      */
->>>>>>> 4c77c2b58ffb1ac4d01097a592ef99635fe4df6c:src/teamManagerLogic/LogicSignInTeam.java
     public boolean removePlayer(String data) {
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
