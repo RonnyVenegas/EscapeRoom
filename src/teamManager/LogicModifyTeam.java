@@ -76,24 +76,17 @@ public boolean verifyTeam(String team) {
     }
 
     public void changeNameTeam() {
-<<<<<<< HEAD
-
-=======
->>>>>>> 9a2ac2884f1045a48cabca8cbea7dd9687e61a49
+        
         String data = GUIChangeNameTeam.txtNameTeam.getText();
         if (verifyTeam(data) == false) {
             ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
                 if (team.getTeamName().equals(data)) {
-<<<<<<< HEAD
+
                     if (teamBuilder.validateString(GUIModifyPlayerId.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
                         team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
 
-=======
-                    if (teamBuilder.validateString(GUIChangeNameTeam.txtNewNameTeam.getText(), REG_EXP_1, minLength1, maxLength1) == false) {
-                        team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
->>>>>>> 9a2ac2884f1045a48cabca8cbea7dd9687e61a49
                         InformationWindow.displayInformationWindow("Nombre modificado");
                     } else {
                         ErrorWindow.displayErrorWindow("Error", "Nombre no valido");

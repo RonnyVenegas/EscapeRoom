@@ -68,12 +68,6 @@ public class Lobby extends Thread{
         lblTeamName = new Label("Team name");
         lblGameType = new Label("Game Type");
         lblPlayerList = new Label("Player ID");
-        
-        //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-        /**reader.open(EscapeRoomConfigurations.TEAM_FILE_ROUTE);
-        team = reader.read();
-        playerArray = team.getTeamPlayers();
-        reader.close();*/
 
         teamCombo = new ComboBox();
         gameTypeCombo = new ComboBox();
