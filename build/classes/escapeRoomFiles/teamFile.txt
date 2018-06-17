@@ -1,7 +1,5 @@
-<<<<<<< HEAD
 AAA-16/06/2018-A11-A12-A13
 ABC-16/06/2018-ABC1-ABC2-ABC3
-=======
 ASD-16/06/2018-A11-A12-A13
 ABC-16/06/2018-ABC1-ABC2-ABC3
 AAA-16/06/2018-123-124-125
@@ -10,5 +8,4 @@ Los increibles-16/06/2018-inc1-inc2-inc3
 Hola-16/06/2018-123-124-125
 Hello-16/06/2018-Maria-Jose-Ana
 BBB-16/06/2018-567-A567-B567
-Oruga-16/06/2018-Mari-Mariposo-Hoja-Flor
->>>>>>> 9a2ac2884f1045a48cabca8cbea7dd9687e61a49
+Oruga-16/06/2018-Mariposo-Hoja-Flor
