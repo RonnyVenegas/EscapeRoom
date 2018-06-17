@@ -10,7 +10,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import teamManager.GUISignIn;
+import GUITeamManager.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
