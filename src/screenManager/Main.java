@@ -18,12 +18,9 @@ import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
-<<<<<<< HEAD
 import teamFileManager.ManagerTeamFile;
-=======
 import static javafx.application.Application.launch;
-import TeamFileManager.ManagerTeamFile;
->>>>>>> 23cd67ae57743725ade3c30983f1e8609451c543
+
 
 /**
  *
