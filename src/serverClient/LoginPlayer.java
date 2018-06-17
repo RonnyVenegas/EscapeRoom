@@ -1,6 +1,6 @@
 package serverClient;
 
-import escaperoom.Level1;
+import escaperoom.LevelGenerator;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.File;
@@ -21,6 +21,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import screenManager.Main;
+import static javafx.application.Application.launch;
+
 
 /**
  *
@@ -29,7 +31,7 @@ import screenManager.Main;
 public class LoginPlayer extends Application {
 
     private GUISignIn signIn = new GUISignIn();
-    private Level1 Level1 = new Level1();
+    private LevelGenerator Level1 = new LevelGenerator();
     //private Lobby lobby = new Lobby();
     ImageView img;
     

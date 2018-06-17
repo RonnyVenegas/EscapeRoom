@@ -1,6 +1,6 @@
 package screenManager;
 
-import escaperoom.Level1;
+import escaperoom.LevelGenerator;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -18,7 +18,12 @@ import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
+<<<<<<< HEAD
 import teamFileManager.ManagerTeamFile;
+=======
+import static javafx.application.Application.launch;
+import TeamFileManager.ManagerTeamFile;
+>>>>>>> 23cd67ae57743725ade3c30983f1e8609451c543
 
 /**
  *
@@ -28,7 +33,7 @@ public class Main extends Application {
 
     private GUISignInTeam signInTeam = new GUISignInTeam();
     private GUISignIn signIn = new GUISignIn();
-    private Level1 Level1 = new Level1();
+    private LevelGenerator Level1 = new LevelGenerator();
     private Lobby lobby = new Lobby();
     private Button gameButton;
     private Button signInButton;

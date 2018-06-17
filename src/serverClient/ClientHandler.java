@@ -5,7 +5,7 @@
  */
 package serverClient;
 
-import escaperoom.Level1;
+import escaperoom.LevelGenerator;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -17,11 +17,11 @@ class ClientHandler extends Thread {
     private DataOutputStream output;
     private Socket client;
     Server server;
-    Level1 level;
+    LevelGenerator level;
 
     // Constructor
     public ClientHandler(Socket client) throws IOException {
-        this.level = new Level1();
+        this.level = new LevelGenerator();
         this.client = client;
         getStreams(client);
     }
