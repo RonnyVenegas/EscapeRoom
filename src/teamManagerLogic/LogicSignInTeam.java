@@ -58,11 +58,6 @@ public class LogicSignInTeam {
         }
         return completeTeam;
     }//End method
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> d806dbef8c78ab7e453225232685d724133ebce4
     /**
      * It adds the player list from the treeSet to the Array in the team class
      * @param team 
@@ -127,6 +122,17 @@ public class LogicSignInTeam {
         }
     }//End method
 
+     /**
+     * Adds new players to the treeSet if it does not already exist
+     * @param playerID player identifier
+     */
+    public void addPlayerToTree(String playerID) {
+        Player player = new Player(playerID);
+        boolean addPlayer = playersList.add(player);
+        if (addPlayer == false) {
+            ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
+        } 
+    }
     /**
      * Check if the identifier complies with requirements
      * using regular expresions
