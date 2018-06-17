@@ -18,6 +18,7 @@ import javafx.stage.Stage;
 public class Lock {
 
     private final Stage lockStage = new Stage();
+    private LockLogic lockLogic = new LockLogic();
     private Scene lockScene;
     private AnchorPane lockContainer;
     private Button lock1;
@@ -44,7 +45,7 @@ public class Lock {
         txtLock4 = new TextField();
 
         //dummy data for test.
-        lockStringClue = "Math question for the win... \nbla bla bla";
+        //lockStringClue = "Math question for the win... \nbla bla bla";
 
         lockContainer.setPadding(new Insets(10));
         lock1.setPrefSize(100, 40);
@@ -84,6 +85,7 @@ public class Lock {
         });
 
         lock1.setOnAction(event -> {
+            
             System.out.println("lock " + riddle);
             String strLock1 = txtLock1.getText();
             String strLock2 = txtLock2.getText();
@@ -93,294 +95,13 @@ public class Lock {
             System.out.println(strLock2);
             System.out.println(strLock3);
             System.out.println(strLock4);
-
-            switch (escapeRoomLevel) {
-                case 1:
-                    switch (riddle) {
-                        case 1:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 1");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 1");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-
-                        case 2:
-
-                            if (roomVariant == 1) {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 2");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 2");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                        case 3:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 3");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 3");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                        case 4:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 4");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 1");
-                                System.out.println("riddle 4");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                    }
-
-                    break;
-                case 2:
-                    switch (riddle) {
-                        case 1:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 1");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 1");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-
-                        case 2:
-
-                            if (roomVariant == 1) {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 2");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 2");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                        case 3:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 3");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 3");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                        case 4:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 4");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 2");
-                                System.out.println("riddle 4");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                    }
-
-                    break;
-                case 3:
-                    switch (riddle) {
-                        case 1:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 1");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 1");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-
-                        case 2:
-
-                            if (roomVariant == 1) {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 2");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 2");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                        case 3:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 3");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 3");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                        case 4:
-                            if (roomVariant == 1) {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 4");
-                                System.out.println("variant 1");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-                            } else {
-                                System.out.println("Level 3");
-                                System.out.println("riddle 4");
-                                System.out.println("variant 2");
-                                if (strLock1.equals("1") && strLock2.equals("1")
-                                        && strLock3.equals("1") && strLock4.equals("1")) {
-                                    System.out.println("unlocked");
-                                    lockStage.close();
-                                }
-
-                            }
-                            break;
-                    }
-
-                    break;
+            
+            if(lockLogic.unlock(escapeRoomLevel, riddle, roomVariant, strLock1, strLock2, strLock3, strLock4)){
+                System.out.println("UNLOCKED!");
+            } else {
+                System.out.println("Fail");
             }
+            
         });
 
         lockContainer.getChildren().addAll(btnReturn, lock1, txtLock1, txtLock2, txtLock3, txtLock4, label);
