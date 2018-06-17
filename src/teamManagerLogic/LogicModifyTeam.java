@@ -22,12 +22,18 @@ public class LogicModifyTeam {
     ManagerWriter managerWriter = new ManagerWriter();
     Team team2;
 
-    public boolean containsPlayer(String team1, String valor) {
+    /**
+     * Searches in TreeSet a team by name 
+     * @param team1 team name
+     * @param value player identifier 
+     * @return boolean if player exist
+     */
+    public boolean containsPlayer(String team1, String value) {
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (team.getTeamName().equals(team1)) {
                 System.out.println("team found");
                 for (int i = 0; i < team.getTeamPlayers().size(); i++) {
-                    if (team.getTeamPlayers().get(i).getID().equals(valor)) {
+                    if (team.getTeamPlayers().get(i).getID().equals(value)) {
                         System.out.println("player found");
                         team2 = team;
                         return true;
@@ -37,8 +43,11 @@ public class LogicModifyTeam {
         }
         System.out.println("player not found");
         return false;
-    }
+    }//End method
 
+    /**
+     * Modifies the player identifier if the new new one is valid 
+     */
     public void modifyId() {
         if (verifyTeam(GUIModifyPlayerId.txtTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Equipo no existe");
@@ -48,14 +57,19 @@ public class LogicModifyTeam {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
         } else {
             signInLogic.removePlayer(GUIModifyPlayerId.txtPlayerID.getText());
-            signInLogic.addPlayerToMap(GUIModifyPlayerId.txtNewPlayerId.getText());
+            signInLogic.addPlayerToTreeSet(GUIModifyPlayerId.txtNewPlayerId.getText());
             signInLogic.validateTeamPlayers();
             signInLogic.addToArray(team2);
             //LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
             InformationWindow.displayInformationWindow("Identificador modificado");
         }
-    }
+    }//End method
 
+    /**
+     * Verifies if team exist
+     * @param team team name
+     * @return boolean if exist
+     */
     public boolean verifyTeam(String team) {
         for (Team t : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (t.getTeamName().equals(team)) {
@@ -63,8 +77,11 @@ public class LogicModifyTeam {
             }
         }
         return false;
-    }
+    }//End Method
 
+    /**
+     * Adds a new player to Array on team class if valid
+     */
     public void addPlayer() {
         if (verifyTeam(GUIAddPlayer.txtTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Equipo no existe");
@@ -74,7 +91,7 @@ public class LogicModifyTeam {
                     if (containsPlayer(GUIAddPlayer.txtTeam.getText(), GUIAddPlayer.lblNewPlayerId.getText())) {
                         ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Identificador repetido");
                     } else {
-                        signInLogic.addPlayerToMap(GUIAddPlayer.lblNewPlayerId.getText());
+                        signInLogic.addPlayerToTreeSet(GUIAddPlayer.lblNewPlayerId.getText());
                         signInLogic.addToArray(team);
                         InformationWindow.displayInformationWindow("Jugador agregado");
                     }
@@ -82,10 +99,12 @@ public class LogicModifyTeam {
             }
         }
         System.out.println("player not found");
-    }
+    }//End method
 
+    /**
+     * Changes team name if new one is valid
+     */
     public void changeNameTeam() {
-
         String data = GUIChangeNameTeam.txtNameTeam.getText();
         if (verifyTeam(data) == false) {
             ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
@@ -104,5 +123,5 @@ public class LogicModifyTeam {
             }
         }
 
-    }
-}
+    }//End method
+}//End class

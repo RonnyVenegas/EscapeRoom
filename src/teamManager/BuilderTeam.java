@@ -14,11 +14,18 @@ public class BuilderTeam implements BuilderAbstract {
     private final int maxLength1 = 10;
     protected Team team;
 
+    /**
+     * Creates new Team Object
+     */
     @Override
     public void buildTeam() {
         team = new Team();
     }
 
+    /**
+     * Validate if team name is valid
+     * @param teamName 
+     */
     @Override
     public void buildTeamName(String teamName) {
         boolean invalidName = validateString(teamName, REG_EXP_1, minLength1, maxLength1);
@@ -29,17 +36,24 @@ public class BuilderTeam implements BuilderAbstract {
                 team.setTeamName(teamName);
             }
         }
-    }
+    }//End method
 
-    public boolean validateString(String valor, String expresion, int maxLength, int minLength) {
-
+    /**
+     * Recibes a String and validate it acording to regular expressions
+     * @param value String to be validated
+     * @param expresion regular expression
+     * @param maxLength minimum length required of  String value
+     * @param minLength maximum length required of String value
+     * @return boolean if value is invalid
+     */
+    public boolean validateString(String value, String expresion, int maxLength, int minLength) {
         String REG_EXP = expresion;
         Pattern pattern = Pattern.compile(REG_EXP);
         Matcher matcher;
         boolean invalidName = false;
 
-        if (valor.length() > minLength && valor.length() <= maxLength) {
-            for (char c : valor.toCharArray()) {
+        if (value.length() > minLength && value.length() <= maxLength) {
+            for (char c : value.toCharArray()) {
                 matcher = pattern.matcher("" + c);
                 if (!matcher.find()) {
                     invalidName = true;
@@ -49,9 +63,11 @@ public class BuilderTeam implements BuilderAbstract {
         }
 
         return invalidName;
-    }
+    }//End method
 
-
+    /**
+     * Sets a date format 
+     */
     @Override
     public void buildDate() {
         try {
@@ -59,15 +75,20 @@ public class BuilderTeam implements BuilderAbstract {
         } catch (ParseException ex) {
             ex.getMessage();
         }
-    }
+    }//End method
 
+    /**
+     * Validate team name 
+     * @return team created
+     * @throws ExceptionInformationRequired if team was not correctly created
+     */
     @Override
     public Team getTeam() throws ExceptionInformationRequired {
         if (team.getTeamName().equals("")) {
             throw new ExceptionInformationRequired("Invalid Team Name");
         }
         return team;
-    }
+    }//End method
 
     
-}
+}//End class

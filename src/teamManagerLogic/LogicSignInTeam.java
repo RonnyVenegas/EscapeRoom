@@ -16,7 +16,9 @@ import teamFileManager.ManagerTeamFile;
 import teamFileManager.ManagerWriter;
 import teamManager.Player;
 import teamManager.Team;
-
+/**
+ * This class manage the validations of new teams
+ */
 public class LogicSignInTeam {
 
     private final String REG_EXP = "[A-Za-z0-9]";
@@ -27,10 +29,21 @@ public class LogicSignInTeam {
     private ManagerTeamFile manager = new ManagerTeamFile();    
     ManagerWriter managerWriter = new ManagerWriter();
 
+    /**
+     * Check if the new team already exist in the TreeSet
+     * @param team
+     * @return boolean
+     */
     public boolean checkTeamDuplicated(Team team) {
         return EscapeRoomConfigurations.TEAMS_FROM_FILE.contains(team);
-    }
+    }//End method
 
+    /**
+     * Validate if the list saved on the treeSet complies with the parameters
+     * if it complies the list of player is added to de Array of players 
+     * in the Team class
+     * @return boolean if the list was succesfully added
+     */
     public boolean validateTeamPlayers() {
         boolean completeTeam = false;
         if (!playersList.isEmpty() && playersList.size() >= 3) {
@@ -44,8 +57,12 @@ public class LogicSignInTeam {
 
         }
         return completeTeam;
-    }
+    }//End method
 
+    /**
+     * It adds the player list from the treeSet to the Array in the team class
+     * @param team 
+     */
     public void addToArray(Team team){
         for (Player p : playersList) {
             System.out.println(team.getTeamPlayersList());
@@ -54,8 +71,12 @@ public class LogicSignInTeam {
             }
             managerWriter.writeTeams();
             System.out.println("Player add to array");
-    }
+    }//End method
     
+    /**
+     * Use a builder to create a new Team, validating duplicated teams and saving 
+     * valid teams in the file
+     */
     public void createTeam() {
         try {
             BuilderAbstract builder = new BuilderTeam();
@@ -86,9 +107,13 @@ public class LogicSignInTeam {
             ErrorWindow.displayErrorWindow(ex.getMessage(), "Team name must have only letters and spaces"
                     + "\nTeam name length must be between 2 and 10 characters");
         }
-    }
+    }//End method
 
-    public void addPlayerToMap(String playerID) {
+    /**
+     * Adds new players to the treeSet if it does not already exist
+     * @param playerID player identifier
+     */
+    public void addPlayerToTreeSet(String playerID) {
         Player player = new Player(playerID);
         boolean addPlayer = playersList.add(player);
         if (addPlayer == false) {
@@ -96,15 +121,21 @@ public class LogicSignInTeam {
         } else {
             GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText() + "\n" + playerID);
         }
-    }
+    }//End method
 
-    public boolean validatePlayerID(String valor) {
+    /**
+     * Check if the identifier complies with requirements
+     * using regular expresions
+     * @param value player identifier
+     * @return boolean if the identifier is invalid
+     */
+    public boolean validatePlayerID(String value) {
         Pattern pattern = Pattern.compile(REG_EXP);
         Matcher matcher;
         boolean nombreInvalido = false;
 
-        if (valor.length() > minLength && valor.length() <= maxLength) {
-            for (char c : valor.toCharArray()) {
+        if (value.length() > minLength && value.length() <= maxLength) {
+            for (char c : value.toCharArray()) {
                 matcher = pattern.matcher("" + c);
                 if (!matcher.find()) {
                     nombreInvalido = true;
@@ -116,7 +147,7 @@ public class LogicSignInTeam {
         }
 
         return nombreInvalido;
-    }
+    }//End method
 
     public static Team getTeam() {
         return team;
@@ -126,6 +157,11 @@ public class LogicSignInTeam {
         return playersList;
     }
     
+    /**
+     * Removes a team pleyer from the treeSet 
+     * @param data player identifier
+     * @return boolean if player was removed succesfully
+     */
     public boolean removePlayer(String data) {
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
@@ -153,5 +189,5 @@ public class LogicSignInTeam {
 //            }           
 //        }
 //        return false;
-    }
-}
+    }//End method
+}//End class

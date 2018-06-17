@@ -1,13 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package teamManager;
 
 import java.util.Objects;
 
-
+/**
+ * Contains player attributes and implements Comparable to 
+ * sort players
+ */
 public class Player implements Comparable<Player> {
     
     private String ID;
@@ -23,6 +22,7 @@ public class Player implements Comparable<Player> {
     public void setID(String ID) {
         this.ID = ID;
     }
+
 
     @Override
     public int compareTo(Player o) {
@@ -59,4 +59,4 @@ public class Player implements Comparable<Player> {
     }
 
     
-}
+}//End class

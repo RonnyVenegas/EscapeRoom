@@ -101,7 +101,7 @@ public class GUISignInTeam {
                 ErrorWindow.displayErrorWindow("Invalid player name", "Player name must have only letters or numbers"
                     + "\nTeam name length must be between 2 and 8 characters");
             } else {        
-                signInLogic.addPlayerToMap(txtPlayerID.getText());           
+                signInLogic.addPlayerToTreeSet(txtPlayerID.getText());           
             }
         });
         

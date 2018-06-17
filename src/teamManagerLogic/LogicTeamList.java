@@ -9,6 +9,9 @@ import teamManager.Team;
 
 public class LogicTeamList {
     
+    /**
+     * Sets the sortByName strategy and shows the sorted list in the textArea
+     */
     public void sortByName() {
         InterfaceSort sortStrategy = new SortByName();
         
@@ -18,7 +21,11 @@ public class LogicTeamList {
             GUITeamList.textAreaTeamList.setText(GUITeamList.textAreaTeamList.getText() 
                     + "\n" + team.toFileString());
         }
-    }
+    }//End method
+    
+    /**
+     * Sets the sortByDate strategy and shows the sorted list in the textArea
+     */
     public void sortByDate() {
         InterfaceSort sortStrategy = new SortByDate();
         
@@ -28,5 +35,5 @@ public class LogicTeamList {
             GUITeamList.textAreaTeamList.setText(GUITeamList.textAreaTeamList.getText() 
                     + "\n" + team.toFileString());
         }
-    }
-}
+    }//End method
+}//End class
