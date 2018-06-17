@@ -18,34 +18,44 @@ public class GUISignIn {
     AnchorPane pane;
     Button btnEnrollTeam;
     Button btnModifyTeam;
+    Button btnShowTeamList;
     Button btnReturn;
     ImageView imageSignIn;
     Scene scene;
     Stage stage = new Stage();
     GUIModifyTeam modify = new GUIModifyTeam();
     GUISignInTeam signInTeam = new GUISignInTeam();
+    GUITeamList teamList = new GUITeamList();
 
     public void inicializerElements() {
         pane = new AnchorPane();
-        btnEnrollTeam = new Button("Inscribir Equipo");
-        btnModifyTeam = new Button("Modificar Equipo");
+        btnEnrollTeam = new Button("Register Team");
+        btnModifyTeam = new Button("Modify Team");
+        btnShowTeamList = new Button("Teams List ");
         btnReturn = new Button("Return");
 
         imageSignIn = new ImageView(new Image(getClass().getResourceAsStream("/images/signInImage.jpg")));
 
-        btnEnrollTeam.setPrefSize(107.0, 25.0);
+        btnEnrollTeam.setPrefSize(115.0, 25.0);
         btnEnrollTeam.setTranslateX(60.0);
-        btnEnrollTeam.setTranslateY(170.0);
+        btnEnrollTeam.setTranslateY(80.0);
         btnEnrollTeam.setOnAction(event -> {
             signInTeam.displaySignTeamWindow();
             stage.close();
         });
 
-        btnModifyTeam.setPrefSize(107.0, 25.0);
+        btnModifyTeam.setPrefSize(115.0, 25.0);
         btnModifyTeam.setTranslateX(60.0);
-        btnModifyTeam.setTranslateY(250.0);
+        btnModifyTeam.setTranslateY(140.0);
         btnModifyTeam.setOnAction(event -> {
             modify.displaySignWindow();
+            stage.close();
+        });
+        btnShowTeamList.setPrefSize(115.0, 25.0);
+        btnShowTeamList.setTranslateX(60);
+        btnShowTeamList.setTranslateY(200);
+        btnShowTeamList.setOnAction(event ->{
+            teamList.displaySignTeamWindow();
             stage.close();
         });
         
@@ -62,7 +72,7 @@ public class GUISignIn {
         imageSignIn.setTranslateX(220);
         imageSignIn.setTranslateY(5);
 
-        pane.getChildren().addAll(imageSignIn,btnEnrollTeam, btnModifyTeam,btnReturn);
+        pane.getChildren().addAll(imageSignIn,btnEnrollTeam, btnModifyTeam, btnShowTeamList,btnReturn);
     }
 
     public void displaySignWindow() {
