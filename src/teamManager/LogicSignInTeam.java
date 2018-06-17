@@ -22,7 +22,6 @@ public class LogicSignInTeam {
     }
 
     public boolean validateTeamPlayers() {
-        //System.out.println("Team " + team.getTeamName());
         boolean completeTeam = false;
         if (!playersList.isEmpty() && playersList.size() >= 3) {
             for (Player p : playersList) {
@@ -85,9 +84,7 @@ public class LogicSignInTeam {
         if (addPlayer == false) {
             ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
         } else {
-            //playersList.put(GUISignInTeam.txtPlayerID.getText(), player);
-            //GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText() + "\n" + playerID);
-            System.out.println("Player add to map");
+            GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText() + "\n" + playerID);
         }
     }
 

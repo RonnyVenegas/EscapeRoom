@@ -13,10 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author San
- */
+
 public class GUISignInTeam {
 
     public static final Stage signStage = new Stage();

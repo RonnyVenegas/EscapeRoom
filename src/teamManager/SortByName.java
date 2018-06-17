@@ -11,10 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-/**
- *
- * @author San
- */
+
 public class SortByName implements InterfaceSort {
 
     @Override
@@ -38,13 +35,4 @@ public class SortByName implements InterfaceSort {
         });
         return teams;
     }
-    
-    
-    
-    /*
-    Ordenada   por   nombre   del   equipo   y   en   los   equipos,   los   jugadores   ordenados   por   su
-identificador 
-(de forma ascendente)
-.
-     */
 }

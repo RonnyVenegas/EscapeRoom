@@ -9,10 +9,7 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import screenManager.Main;
 
-/**
- *
- * @author Maricela Ledezma
- */
+
 public class GUISignIn {
 
     AnchorPane pane;

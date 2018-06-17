@@ -14,10 +14,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Maricela Ledezma
- */
+
 public class GUIChangeNameTeam {
     
     ImageView img;

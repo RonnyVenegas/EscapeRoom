@@ -7,10 +7,7 @@ package teamManager;
 
 import java.util.Objects;
 
-/**
- *
- * @author San
- */
+
 public class Player implements Comparable<Player> {
     
     private String ID;
@@ -44,24 +41,22 @@ public class Player implements Comparable<Player> {
         hash = 79 * hash + Objects.hashCode(this.ID);
         return hash;
     }
-//
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) {
-//            return true;
-//        }
-//        if (obj == null) {
-//            return false;
-//        }
-//        if (getClass() != obj.getClass()) {
-//            return false;
-//        }
-//        final Player other = (Player) obj;
-//        if (!Objects.equals(this.ID, other.ID)) {
-//            return false;
-//        }
-//        return true;
-//    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Player other = (Player) obj;
+        
+        return Objects.equals(this.ID, other.ID);
+    }
 
     
 }

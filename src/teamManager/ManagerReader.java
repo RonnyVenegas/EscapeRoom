@@ -7,10 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 
-/**
- *
- * @author San
- */
+
 public class ManagerReader {
 
     public void readTeamsFromFile() throws IOException {

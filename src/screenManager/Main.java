@@ -1,6 +1,5 @@
 package screenManager;
 
-import escapeRoomFiles.EscapeRoomConfigurations;
 import escaperoom.Level1;
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +18,6 @@ import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
-import teamManager.ManagerReader;
 import teamManager.ManagerTeamFile;
 
 /**
@@ -89,9 +87,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
 

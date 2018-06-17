@@ -1,7 +1,6 @@
 package teamManager;
 
 import escapeRoomFiles.EscapeRoomConfigurations;
-import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -10,9 +9,9 @@ import java.io.PrintWriter;
 public class ManagerWriter {
 
     public void writeTeams() {
-        File file = null;
+        File file;
         FileWriter fileWriter = null;
-        PrintWriter printWriter = null;
+        PrintWriter printWriter;
         
         try {
             file = new File(EscapeRoomConfigurations.TEAM_FILE_ROUTE);

@@ -5,10 +5,7 @@
  */
 package teamManager;
 
-/**
- *
- * @author San
- */
+
 public class SortingList {
     private InterfaceSort sorter = null;
 
