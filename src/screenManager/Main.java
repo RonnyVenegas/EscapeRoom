@@ -49,14 +49,14 @@ public class Main extends Application {
 
         img.setFitHeight(400.0);
         img.setFitWidth(400.0);
-
-        gameButton.setTranslateX(2);
-        gameButton.setTranslateY(120);
-
-        signInButton.setTranslateX(100);
+        
+        signInButton.setTranslateX(-100);
         signInButton.setTranslateY(120);
 
-        btnExit.setTranslateX(0);
+        gameButton.setTranslateX(0);
+        gameButton.setTranslateY(120);
+        
+        btnExit.setTranslateX(100);
         btnExit.setTranslateY(120);
 
         gameButton.setOnAction(new EventHandler<ActionEvent>() {

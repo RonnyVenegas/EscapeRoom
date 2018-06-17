@@ -4,9 +4,16 @@ ASD-16/06/2018-A11-A12-A13
 AAA-16/06/2018-124-125-asd
 Poderosos-16/06/2018-aa3-New Player Id-Lolita-Juanita-Juanita-Pedrito
 Los increibles-16/06/2018-inc1-inc2-inc3-New Player Id
+<<<<<<< HEAD
 Mosqueteros-16/06/2018-124-125
 Bye-16/06/2018-asd-New Player Id
 BCD-16/06/2018-567-A567-B567-New Player Id
 Hello-16/06/2018-567-A567-B567
+=======
+Hola-16/06/2018-123-124-125
+Bye-16/06/2018-asd-New Player Id
+BCD-16/06/2018-567-A567-B567-New Player Id
+BBB-16/06/2018-567-A567-B567
+>>>>>>> c2a63d230b3482bf8176c0a2ca916da1f97b66ae
 Oruga-16/06/2018-Mariposo-Hoja-Flor
 Fantabulosos-17/06/2018-FFF2-FFF3-Fanta1

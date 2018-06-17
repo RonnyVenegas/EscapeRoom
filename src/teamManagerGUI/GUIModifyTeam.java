@@ -5,6 +5,7 @@
  */
 package teamManagerGUI;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -79,6 +80,7 @@ public class GUIModifyTeam {
     public void displaySignWindow() {
         inicializerElements();
         scene = new Scene(pane, 600.0, 380.0);
+        scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
         stage.setTitle("ModifyTeam");
         stage.setScene(scene);
         stage.setResizable(false);
