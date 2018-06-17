@@ -58,10 +58,6 @@ public class LogicSignInTeam {
         }
         return completeTeam;
     }//End method
-<<<<<<< HEAD
-=======
-
->>>>>>> c2a63d230b3482bf8176c0a2ca916da1f97b66ae
     /**
      * It adds the player list from the treeSet to the Array in the team class
      * @param team 
@@ -135,7 +131,9 @@ public class LogicSignInTeam {
         boolean addPlayer = playersList.add(player);
         if (addPlayer == false) {
             ErrorWindow.displayErrorWindow("Can not add player", "Can not repeat player IDs");
-        } 
+        } else{
+            System.out.println("Player add tree");
+        }
     }
     /**
      * Check if the identifier complies with requirements
@@ -197,11 +195,6 @@ public class LogicSignInTeam {
         }
         System.out.println("player not found");
         return false;
-//        for (Player p : playersList) {
-//            if (p.getID().equals(data)) {
-//               return playersList.remove(p);  
-//            }           
-//        }
-//        return false;
+
     }//End method
 }//End class
