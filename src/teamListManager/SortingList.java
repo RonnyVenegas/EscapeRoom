@@ -5,7 +5,7 @@
  */
 package teamListManager;
 
-
+//Strategy 
 public class SortingList {
     private InterfaceSort sorter = null;
 
@@ -20,4 +20,4 @@ public class SortingList {
     public void sortTreeSet() {
         sorter.sort();
     }
-}
+}//End class

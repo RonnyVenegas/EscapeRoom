@@ -7,8 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+//Manage action of writing in file
 public class ManagerWriter {
 
+    
+    //Write from memory structure to file
     public void writeTeams() {
         File file;
         FileWriter fileWriter = null;
@@ -33,6 +36,6 @@ public class ManagerWriter {
                     
             }
         }
-    }
+    }//End method
     
-}
+}//End class

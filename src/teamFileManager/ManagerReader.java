@@ -9,9 +9,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
 
-
+//Manage action of read file
 public class ManagerReader {
 
+    /**
+     * Read teams file and save it in memory 
+     * @throws IOException 
+     */
     public void readTeamsFromFile() throws IOException {
 
         Team team;
@@ -49,6 +53,6 @@ public class ManagerReader {
             }
         }
 
-    }
+    }//End method
 
-}
+}//End class

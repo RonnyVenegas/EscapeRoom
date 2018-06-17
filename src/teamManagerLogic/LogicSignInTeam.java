@@ -95,7 +95,7 @@ public class LogicSignInTeam {
                 if (completeTeam) {
                     GUISignInTeam.signStage.close();
                     EscapeRoomConfigurations.TEAMS_FROM_FILE.add(team);
-                    manager.saveTeamsOnFile();
+                    manager.writeTeamsOnFile();
                     InformationWindow.displayInformationWindow("Team saved");
                     new GUISignIn().displaySignWindow();
                 } else {

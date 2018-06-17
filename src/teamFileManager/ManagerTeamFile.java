@@ -2,15 +2,15 @@
 package teamFileManager;
 
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
+//Manage read and write accions of teams file
 public class ManagerTeamFile {
 
     ManagerWriter writer = new ManagerWriter();
     ManagerReader reader = new ManagerReader();
 
-    public void saveTeamsOnFile() {
+    
+    public void writeTeamsOnFile() {
         writer.writeTeams();
     }
 
@@ -18,9 +18,9 @@ public class ManagerTeamFile {
         try {
             reader.readTeamsFromFile();
         } catch (IOException ex) {
-            Logger.getLogger(ManagerTeamFile.class.getName()).log(Level.SEVERE, null, ex);
+            alerts.ErrorWindow.displayErrorWindow("Error while reading file", ex.getMessage());
         }
     }
 
 
-}
+}//End class

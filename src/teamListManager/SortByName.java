@@ -12,9 +12,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-
+//Sort strategy
 public class SortByName implements InterfaceSort {
 
+    /**
+     * sort team list by team name 
+     * @return ArrayList<Team> 
+     */
     @Override
     public ArrayList<Team> sort() {
         ArrayList<Team> teams = new ArrayList<>();
@@ -35,5 +39,5 @@ public class SortByName implements InterfaceSort {
             }
         });
         return teams;
-    }
-}
+    }//End method
+}//End class

@@ -6,8 +6,13 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
+//Sort estrategy
 public class SortByDate implements InterfaceSort{
 
+    /**
+     * sort team list by sign in date 
+     * @return ArrayList<Team> 
+     */
     @Override
     public ArrayList<Team> sort() {
         ArrayList<Team> teams = new ArrayList<>();
@@ -28,6 +33,6 @@ public class SortByDate implements InterfaceSort{
             }
         });
         return teams;
-    }
+    }//End method
     
-}
+}//End class
