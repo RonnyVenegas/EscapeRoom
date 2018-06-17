@@ -74,6 +74,10 @@ public class GUITeamList {
             teamListStage.close();
             new GUISignIn().displaySignWindow();
         });
+        teamListStage.setOnCloseRequest(event ->{
+            teamListStage.close();
+            new GUISignIn().displaySignWindow();
+        });
         container.getChildren().addAll(lblSorterType, btnSortByDate, btnSortByName, btnSortByTime, btnReturn, scrollPaneTeamList);
     }
 

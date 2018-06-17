@@ -79,7 +79,9 @@ public class Lock1 {
             lockStage.close();
         });
         
-        
+        lockStage.setOnCloseRequest(event ->{
+            lockStage.close();
+        });
 
         lock1.setOnAction(event -> {
             System.out.println("lock " + riddle);

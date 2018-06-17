@@ -245,7 +245,7 @@ public class Level1 {
             levelStage.close();
             new Main().start(new Stage());
         });
-
+        
         lock1.setOnAction(event -> {
             System.out.println("lock1");
             lockScene.setRiddle(1);
@@ -273,7 +273,10 @@ public class Level1 {
             lockScene.displayLock();
             imageLock4.setVisible(false);
         });
-
+        levelStage.setOnCloseRequest(event ->{
+            levelStage.close();
+            new Main().start(new Stage());
+        });
         levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3, lock4);
     }
 

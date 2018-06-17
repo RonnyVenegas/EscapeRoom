@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 import screenManager.Main;
 
@@ -133,7 +132,10 @@ public class LevelGenerator {
                 new Main().start(new Stage());
             }
             );
-
+            levelStage.setOnCloseRequest(event -> {
+                levelStage.close();
+                new Main().start(new Stage());
+            });
             lock1.setOnAction(event
                     -> {
                 System.out.println("lock1");
@@ -349,7 +351,7 @@ public class LevelGenerator {
             lock4.setLayoutY(123);
             imageLock4.setLayoutX(lock4.getLayoutX() - 50);
             imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-            
+
         } else {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/sunDialCompass.png")));
@@ -413,7 +415,7 @@ public class LevelGenerator {
             cssPath = new File("src/css/styleLevel3.css").getAbsolutePath().replace("\\", "/");
             levelStage.setTitle("Escape Room - Level");
         }
-        
+
         levelScene.getStylesheets().add("file:///" + cssPath);
         levelStage.setScene(levelScene);
         levelStage.setResizable(false);

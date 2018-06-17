@@ -109,6 +109,10 @@ public class GUISignInTeam {
             signStage.close();
             new GUISignIn().displaySignWindow();
         });
+        signStage.setOnCloseRequest(event ->{
+            signStage.close();
+            new GUISignIn().displaySignWindow();
+        });
         signContainer.getChildren().addAll(lblDate, lblPlayerList, lblTeamName, txtDate, txtTeamName, txtPlayerID, btnAddPlayer,
           btnSave, scrollPanePlayerList, returnButton);
     }

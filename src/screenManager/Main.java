@@ -14,13 +14,11 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import teamManagerGUI.GUISignInTeam;
 import teamManagerGUI.GUISignIn;
-import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
 import teamFileManager.ManagerTeamFile;
 import static javafx.application.Application.launch;
-
 
 /**
  *
@@ -34,6 +32,7 @@ public class Main extends Application {
     private Lobby lobby = new Lobby();
     private Button gameButton;
     private Button signInButton;
+    private Button btnExit;
     ManagerTeamFile manager = new ManagerTeamFile();
     ImageView img;
 
@@ -45,6 +44,7 @@ public class Main extends Application {
         gameButton.setText("Open Game");
         signInButton = new Button();
         signInButton.setText("Open Signin");
+        btnExit = new Button("Exit game");
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/signInImage.jpg")));
 
         img.setFitHeight(400.0);
@@ -55,6 +55,9 @@ public class Main extends Application {
 
         signInButton.setTranslateX(100);
         signInButton.setTranslateY(120);
+
+        btnExit.setTranslateX(0);
+        btnExit.setTranslateY(120);
 
         gameButton.setOnAction(new EventHandler<ActionEvent>() {
 
@@ -77,9 +80,15 @@ public class Main extends Application {
                 signIn.displaySignWindow();
             }
         });
-
+        
+        btnExit.setOnAction(event -> {
+            primaryStage.close();
+        });
+        primaryStage.setOnCloseRequest(event -> {
+            primaryStage.close();
+        });
         StackPane root = new StackPane();
-        root.getChildren().addAll(img, gameButton, signInButton);
+        root.getChildren().addAll(img, gameButton, signInButton, btnExit);
 
         Scene scene = new Scene(root, 400, 400);
         String cssPath = new File("src/css/styles.css").getAbsolutePath().replace("\\", "/");
