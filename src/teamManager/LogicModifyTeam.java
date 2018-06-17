@@ -71,24 +71,16 @@ public class LogicModifyTeam {
     }
 
     public void changeNameTeam() {
-<<<<<<< HEAD:src/teamManager/ModifyTeamLogic.java
-        String data = ChangeNameTeamGUI.txtNameTeam.getText();
+
+        String data = GUIChangeNameTeam.txtNameTeam.getText();
         if (verifyTeam(data) == false) {
             ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
                 if (team.getTeamName().equals(data)) {
-                    if (teamBuilder.validateString(ModifyPlayerIdGUI.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
-                        team.setTeamName(ChangeNameTeamGUI.txtNewNameTeam.getText());
-=======
-        if (verifyTeam(GUIChangeNameTeam.txtNameTeam.getText()) == false) {
-            ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
-        } else {
-            for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
-                if (team.getTeamName().equals(GUIChangeNameTeam.txtNameTeam.getText())) {
                     if (teamBuilder.validateString(GUIModifyPlayerId.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
                         team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
->>>>>>> 9ba1a3345ae68bd8e42acfe2ce0c83c46249ee48:src/teamManager/LogicModifyTeam.java
+
                         InformationWindow.displayInformationWindow("Nombre modificado");
                     }
                 }

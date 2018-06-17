@@ -32,7 +32,7 @@ public class LoginPlayer extends Application {
 
     private GUISignIn signIn = new GUISignIn();
     private Level1 Level1 = new Level1();
-    private Lobby lobby = new Lobby();
+    //private Lobby lobby = new Lobby();
     ImageView img;
     
     public static final Stage lobbyStage = new Stage();
@@ -40,7 +40,7 @@ public class LoginPlayer extends Application {
     public static AnchorPane lobbyContainer;
     public static Label lblTeamName;
     private static Label lblPlayerList;
-    public static TextField txtTeam;
+    public static ComboBox teamcombo;
     public static TextField txtPlayer;
     public static Button play;
     public static ScrollPane scrollPanePlayerList;
@@ -58,9 +58,10 @@ public class LoginPlayer extends Application {
         lblTeamName = new Label("Team name");
         lblPlayerList = new Label("Player ID");
 
-        txtTeam = new TextField();
+        teamcombo = new ComboBox();
         txtPlayer = new TextField();
         play = new Button("Play");
+        
         
         returnButton = new Button("Retun");
 
@@ -71,11 +72,11 @@ public class LoginPlayer extends Application {
         scrollPanePlayerList.setTranslateX(30);
         scrollPanePlayerList.setTranslateY(120);
 
-        txtTeam.setPromptText("Team name");
+        teamcombo.setPromptText("Team name");
         txtPlayer.setPromptText("New player");
         textAreaPlayerList.setText("players \n-----------------------------------------------------------");
         play.setPrefSize(80, 10);
-        txtTeam.setPrefSize(160, 10);
+        teamcombo.setPrefSize(160, 10);
         txtPlayer.setPrefSize(160, 10);
         
         lblTeamName.setTranslateX(30);
@@ -83,8 +84,8 @@ public class LoginPlayer extends Application {
         lblPlayerList.setTranslateX(30);
         lblPlayerList.setTranslateY(50);
         textAreaPlayerList.setPrefSize(300, 200);
-        txtTeam.setTranslateX(130);
-        txtTeam.setTranslateY(20);
+        teamcombo.setTranslateX(130);
+        teamcombo.setTranslateY(20);
         txtPlayer.setTranslateX(130);
         txtPlayer.setTranslateY(50);
         
@@ -109,7 +110,7 @@ public class LoginPlayer extends Application {
             new Main().start(new Stage());
         });
         
-        lobbyContainer.getChildren().addAll(lblPlayerList, lblTeamName, txtTeam, txtPlayer,
+        lobbyContainer.getChildren().addAll(lblPlayerList, lblTeamName, teamcombo, txtPlayer,
           play, scrollPanePlayerList, returnButton);
 
         Scene scene = new Scene(lobbyContainer, 350, 350);

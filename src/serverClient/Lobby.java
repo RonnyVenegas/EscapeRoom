@@ -6,6 +6,7 @@
 package serverClient;
 
 import escapeRoomFiles.EscapeRoomConfigurations;
+import static escapeRoomFiles.EscapeRoomConfigurations.TEAMS_FROM_FILE;
 import escaperoom.Level1;
 import java.io.File;
 import javafx.geometry.Insets;
@@ -20,8 +21,11 @@ import javafx.stage.Stage;
 import screenManager.Main;
 import teamManager.ManagerReader;
 import static escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE;
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.Socket;
 import java.util.ArrayList;
 import teamManager.Player;
 import teamManager.Team;
@@ -30,10 +34,9 @@ import teamManager.Team;
  *
  * @author Ronny
  */
-public class Lobby {
+public class Lobby extends Thread{
 
     public static final Stage lobbyStage = new Stage();
-    private ManagerReader reader;
     public static Scene lobbyScene;
     public static AnchorPane lobbyContainer;
     public static Label lblTeamName;
@@ -47,15 +50,17 @@ public class Lobby {
     public static ScrollPane scrollPanePlayerList;
     public static TextArea textAreaPlayerList;
     public static Button returnButton;
-    private Team team;
-    private ArrayList<Player> playerArray;
 
     public int numberOfPlayers = 0;
-    //private SignInLogic signInLogic = new SignInLogic();
 
     private Level1 Level1 = new Level1();
 
     String txt = "";
+    
+    private DataInputStream input;
+    private DataOutputStream output;
+    private Socket client;
+    Server server;
 
     public void initializeElements() throws FileNotFoundException, IOException {
 
@@ -75,11 +80,17 @@ public class Lobby {
         playerCombo = new ComboBox();
 
         //dummy data for combo boxes
-        /**teamCombo.getItems().addAll(team.getTeamName());
+        for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE){
+            for(int i = 0; i < team.getTeamPlayers().size(); i++){
+                playerCombo.getItems().add(team.getTeamPlayers().get(i).getID());
+            }
+        }
+        
+        for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE){
+            teamCombo.getItems().add(team.getTeamName());
+        }
+        
         gameTypeCombo.getItems().addAll("Indiviaul", "Equipos");
-        for(int i = 0; i < playerArray.size(); i++){
-            playerCombo.getItems().add(playerArray.get(i).getID());
-        }*/
 
         btnAddPlayer = new Button("+");
         play = new Button("Play");
@@ -124,7 +135,7 @@ public class Lobby {
         returnButton.setTranslateX(300);
         returnButton.setTranslateY(325);
         textAreaPlayerList.setEditable(false);
-        gameTypeCombo.setPromptText("Level");
+        gameTypeCombo.setPromptText("Game type");
         scrollPanePlayerList.setContent(textAreaPlayerList);
 
         play.setOnAction(event -> {
