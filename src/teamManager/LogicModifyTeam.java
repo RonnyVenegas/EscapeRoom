@@ -22,7 +22,6 @@ public class LogicModifyTeam {
     BuilderTeam teamBuilder = new BuilderTeam();
 
     public boolean containsPlayer(String valor) {
-
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
                 System.out.println("team found");
