@@ -42,7 +42,8 @@ public class Level2 {
     private ImageView imageClue2;
     private ImageView imageClue3;
     private ImageView imageClue4;
-    ImageView img;
+    //ImageView img;
+    int level = 2;
 
     public void initializeElements() {
         levelContainer = new AnchorPane();
@@ -61,10 +62,10 @@ public class Level2 {
         clue3_3 = new Button();
         clue3_4 = new Button();
         clue3_5 = new Button();
-        img = new ImageView(new Image(getClass().getResourceAsStream("/images/RoomC.jpg")));
+        //img = new ImageView(new Image(getClass().getResourceAsStream("/images/RoomC.jpg")));
 
-        img.setFitHeight(1820.0);
-        img.setFitWidth(980.0);
+        //img.setFitHeight(1820.0);
+        //img.setFitWidth(980.0);
 
         levelContainer.setPadding(new Insets(10));
 
@@ -157,15 +158,21 @@ public class Level2 {
             clue3_5.setTranslateX(1395.0);
             clue3_5.setTranslateY(802.0);
         }
-    levelContainer.getChildren().addAll(img,padlock1,padlock2,padlock3,clue1_1,clue1_2,clue1_3,clue2_1,
+    levelContainer.getChildren().addAll(padlock1,padlock2,padlock3,clue1_1,clue1_2,clue1_3,clue2_1,
             clue2_2,clue2_3,clue2_4,clue3_1,clue3_2,clue3_3,clue3_4,clue3_5,imageClue1,imageClue2,
             imageClue3,imageClue4);
     }
 
-    public void displayLeve2() {
+    public void displayLevel2() {
         initializeElements();
         levelScene = new Scene(levelContainer, 1820, 980);
-        String cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
+        String cssPath = "";
+        if(level == 1){
+           cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
+        } else if(level == 2) {
+           cssPath = new File("src/css/styleLevel2.css").getAbsolutePath().replace("\\", "/"); 
+        }
+        
         levelScene.getStylesheets().add("file:///" + cssPath);
         levelStage.setTitle("Escape Room - Leve2");
         levelStage.setScene(levelScene);

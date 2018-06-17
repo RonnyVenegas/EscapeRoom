@@ -137,7 +137,7 @@ public class Lobby extends Thread{
         play.setOnAction(event -> {
 
             lobbyStage.close();
-            Level1.displayLevel();
+            Level2.displayLevel2();
             //Level2.displayLeve2();
             //recieve the sockets and start the game with N players all with the same game intance.
 
