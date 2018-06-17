@@ -30,13 +30,13 @@ public class GUIModifyTeam {
 
     public void inicializerElements() {
         pane = new AnchorPane();
-        btnChangeNameTeam = new Button("Cambiar Nombre de Equipo");
-        btnModifyPlayerId = new Button("Modificar Jugador");
-        btnAddPlayer = new Button("Agregar Jugador");
-        btnReturn = new Button("Retun");
+        btnChangeNameTeam = new Button("Change team name");
+        btnModifyPlayerId = new Button("Modify player");
+        btnAddPlayer = new Button("Add player");
+        btnReturn = new Button("Return");
         img = new ImageView();
 
-        btnChangeNameTeam.setPrefSize(110.0, 25.0);
+        btnChangeNameTeam.setPrefSize(140.0, 25.0);
         btnChangeNameTeam.setTranslateX(82.0);
         btnChangeNameTeam.setTranslateY(100.0);
         btnChangeNameTeam.setOnAction(event -> {
@@ -44,7 +44,7 @@ public class GUIModifyTeam {
             stage.close();
         });
 
-        btnModifyPlayerId.setPrefSize(110.0, 25.0);
+        btnModifyPlayerId.setPrefSize(140.0, 25.0);
         btnModifyPlayerId.setTranslateX(82.0);
         btnModifyPlayerId.setTranslateY(150.0);
         btnModifyPlayerId.setOnAction(event -> {
@@ -52,7 +52,7 @@ public class GUIModifyTeam {
             stage.close();
         });
 
-        btnAddPlayer.setPrefSize(110.0, 25.0);
+        btnAddPlayer.setPrefSize(140.0, 25.0);
         btnAddPlayer.setTranslateX(82.0);
         btnAddPlayer.setTranslateY(200.0);
         btnAddPlayer.setOnAction(event -> {
@@ -81,7 +81,7 @@ public class GUIModifyTeam {
         inicializerElements();
         scene = new Scene(pane, 600.0, 380.0);
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        stage.setTitle("ModifyTeam");
+        stage.setTitle("Modify team");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

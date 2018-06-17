@@ -85,7 +85,7 @@ public class GUITeamList {
         initializeElements();
         teamListScene = new Scene(container, 500, 350);
         teamListScene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        teamListStage.setTitle("Teams List");
+        teamListStage.setTitle("Teams list");
         teamListStage.setScene(teamListScene);
         teamListStage.setResizable(false);
         teamListStage.show();

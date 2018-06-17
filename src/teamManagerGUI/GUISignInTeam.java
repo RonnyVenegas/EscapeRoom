@@ -62,6 +62,7 @@ public class GUISignInTeam {
         textAreaPlayerList.setText("Team players \n-----------------------------------------------------------");
         btnAddPlayer.setPrefSize(30, 10);
         btnSave.setPrefSize(80, 10);
+        returnButton.setPrefSize(80, 10);
         txtTeamName.setPrefSize(160, 10);
         txtDate.setPrefSize(160, 10);
         txtPlayerID.setPrefSize(160, 10);
@@ -82,9 +83,9 @@ public class GUISignInTeam {
         btnAddPlayer.setTranslateX(300);
         btnAddPlayer.setTranslateY(80);
         btnSave.setTranslateX(30);
-        btnSave.setTranslateY(325);
-        returnButton.setTranslateX(300);
-        returnButton.setTranslateY(325);
+        btnSave.setTranslateY(340);
+        returnButton.setTranslateX(250);
+        returnButton.setTranslateY(340);
         txtDate.setEditable(false);
         textAreaPlayerList.setEditable(false);
         txtDate.setText(EscapeRoomConfigurations.DATE_FORMAT.format(new Date()));
@@ -119,9 +120,9 @@ public class GUISignInTeam {
 
     public void displaySignTeamWindow() {
         initializeElements();
-        signScene = new Scene(signContainer, 350, 350);
+        signScene = new Scene(signContainer, 370, 370);
         signScene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        signStage.setTitle("Team Builder - Sign In");
+        signStage.setTitle("Sign in");
         signStage.setScene(signScene);
         signStage.setResizable(false);
         signStage.show();

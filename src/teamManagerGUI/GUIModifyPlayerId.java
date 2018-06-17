@@ -5,6 +5,7 @@
  */
 package teamManagerGUI;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -97,7 +98,8 @@ public class GUIModifyPlayerId { // esta clase es diferente
     public void displaySignWindow() {
         initializeElements();
         scene = new Scene(signContainer,500.0, 380.0);
-        stage.setTitle("ModifyPlayerId");
+        scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
+        stage.setTitle("Modify Player Id");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

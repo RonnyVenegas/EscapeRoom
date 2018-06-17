@@ -5,6 +5,7 @@
  */
 package teamManagerGUI;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -85,7 +86,8 @@ public class GUIAddPlayer {
     public void displaySignWindow() {
         initializeElements();
         scene = new Scene(signContainer,500.0, 380.0);
-        stage.setTitle("AddPlayer");
+        scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
+        stage.setTitle("Add player");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
