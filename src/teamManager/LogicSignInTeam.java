@@ -106,11 +106,26 @@ public class LogicSignInTeam {
     }
     
     public boolean removePlayer(String data) {
-        for (Player p : playersList) {
-            if (p.getID().equals(data)) {
-               return playersList.remove(p);  
-            }           
+        for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
+            if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
+                System.out.println("Remove team found");
+                for (int i = 0; i < team.getTeamPlayers().size(); i++) {
+                    if (team.getTeamPlayers().get(i).getID().equals(data)) {
+                        System.out.println("player remove");
+                        team.getTeamPlayers().remove(i);
+                        validateTeamPlayers();
+                        return true;
+                    }
+                }
+            }
         }
+        System.out.println("player not found");
         return false;
+//        for (Player p : playersList) {
+//            if (p.getID().equals(data)) {
+//               return playersList.remove(p);  
+//            }           
+//        }
+//        return false;
     }
 }
