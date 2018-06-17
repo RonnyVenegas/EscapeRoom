@@ -51,10 +51,10 @@ public class LogicModifyTeam {
             signInLogic.validateTeamPlayers();
             //LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
             InformationWindow.displayInformationWindow("Identificador modificado");
+        }
     }
-}
 
-public boolean verifyTeam(String team) {
+    public boolean verifyTeam(String team) {
         for (Team t : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (t.getTeamName().equals(team)) {
                 return true;
@@ -84,10 +84,9 @@ public boolean verifyTeam(String team) {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
                 if (team.getTeamName().equals(data)) {
 
-                    if (teamBuilder.validateString(GUIModifyPlayerId.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
-                        team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
                     if (teamBuilder.validateString(GUIChangeNameTeam.txtNewNameTeam.getText(), REG_EXP_1, minLength1, maxLength1) == false) {
                         team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
+
                         InformationWindow.displayInformationWindow("Nombre modificado");
                     } else {
                         ErrorWindow.displayErrorWindow("Error", "Nombre no valido");
@@ -97,5 +96,4 @@ public boolean verifyTeam(String team) {
         }
 
     }
-}
 }
