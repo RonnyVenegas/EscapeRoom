@@ -51,32 +51,32 @@ public class Lock {
         lock1.setPrefSize(100, 40);
         btnReturn.setPrefSize(80, 10);
 
-        lock1.setTranslateX(250);
-        lock1.setTranslateY(300);
+        lock1.setTranslateX(350);
+        lock1.setTranslateY(270);
 
         label.setPrefSize(480, 150);
         label.setTranslateX(20);
         label.setTranslateY(20);
 
-        txtLock1.setPrefSize(50, 50);
-        txtLock2.setPrefSize(50, 50);
-        txtLock3.setPrefSize(50, 50);
-        txtLock4.setPrefSize(50, 50);
+        txtLock1.setPrefSize(200, 40);
+        txtLock2.setPrefSize(200, 40);
+        txtLock3.setPrefSize(200, 40);
+        txtLock4.setPrefSize(200, 40);
 
         txtLock1.setTranslateX(40);
         txtLock1.setTranslateY(200);
 
-        txtLock2.setTranslateX(110);
-        txtLock2.setTranslateY(200);
+        txtLock2.setTranslateX(40);
+        txtLock2.setTranslateY(250);
 
-        txtLock3.setTranslateX(180);
-        txtLock3.setTranslateY(200);
+        txtLock3.setTranslateX(40);
+        txtLock3.setTranslateY(300);
 
-        txtLock4.setTranslateX(250);
-        txtLock4.setTranslateY(200);
+        txtLock4.setTranslateX(40);
+        txtLock4.setTranslateY(350);
 
         btnReturn.setTranslateX(20);
-        btnReturn.setTranslateY(400);
+        btnReturn.setTranslateY(450);
 
         label.setText(lockStringClue);
 
