@@ -1,5 +1,5 @@
 AAA-16/06/2018-A11-A12-A13-New Player Id
-ABC-16/06/2018-ABC1-ABC2-ABC3-New Player Id
+ABC-16/06/2018-ABC1-ABC2-ABC3-New Player Id-New Player Id
 ASD-16/06/2018-A11-A12-A13-New Player Id-HOHO
 AAA-16/06/2018-124-125-asd
 Poderosos-16/06/2018-aa3-New Player Id-Lolita-Juanita-Juanita-Pedrito
@@ -7,10 +7,10 @@ Los increibles-16/06/2018-inc1-inc2-inc3-New Player Id
 Mosqueteros-16/06/2018-124-125-New Player Id
 Bye-16/06/2018-asd-New Player Id
 BCD-16/06/2018-567-A567-B567-New Player Id
-Hello-16/06/2018-567-A567-B567
+Hello-16/06/2018-567-A567-JJJJJ-JJJJJ-New Player Id
 Oruga-16/06/2018-Mariposo-Hoja-Flor-New Player Id
 Fantabulosos-17/06/2018-FFF2-FFF3-Fanta1-New Player Id
-ABC-16/06/2018-ABC1-ABC2-ABC3
+ABC-16/06/2018-ABC1-ABC2-ABC3-New Player Id
 ASD-16/06/2018-A11-A12-A13-New Player Id
 Poderosos-16/06/2018-aa3-New Player Id-Lolita-Juanita-Juanita-Pedrito
 Los increibles-16/06/2018-inc1-inc2-inc3-New Player Id
@@ -18,4 +18,5 @@ Mosqueteros-16/06/2018-124-125-New Player Id
 BCD-16/06/2018-567-A567-B567-New Player Id
 Hello-16/06/2018-567-A567-B567
 Oruga-16/06/2018-Mariposo-Hoja-Flor-New Player Id
-NewTeam-17/06/2018-new3-new1-new2-new3-New Player Id-new1-new2-new3-New Player Id-new0-ner
+NewTeam-17/06/2018-new1-new2-new3-New Player Id-new1-new2-new3-New Player Id-new0-ner-SSS2-SSS3-SSS1-SSS5
+SSS-17/06/2018-SSS2-SSS3-SSS1-SSS2-SSS3-SSS1-SSS2-SSS3-SSS1-SSS5-SSS2-SSS3-SSS1-SSS5-New Player Id-SSS2-SSS3-SSS1-SSS5-New Player Id
