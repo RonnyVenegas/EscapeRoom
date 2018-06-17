@@ -58,7 +58,7 @@ public class LogicModifyTeam {
         } else {
             signInLogic.removePlayer(GUIModifyPlayerId.txtPlayerID.getText());
             signInLogic.addPlayerToTreeSet(GUIModifyPlayerId.txtNewPlayerId.getText());
-            signInLogic.validateTeamPlayers();
+            //signInLogic.validateTeamPlayers();
             signInLogic.addToArray(team2);
             //LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
             InformationWindow.displayInformationWindow("Identificador modificado");
@@ -94,7 +94,6 @@ public class LogicModifyTeam {
                         signInLogic.addPlayerToTreeSet(GUIAddPlayer.lblNewPlayerId.getText());
                         signInLogic.addToArray(team);
                         InformationWindow.displayInformationWindow("Jugador agregado");
-                         System.out.println("player not found");
                     }
                 }
             }

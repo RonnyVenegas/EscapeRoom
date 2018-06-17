@@ -58,7 +58,11 @@ public class LogicSignInTeam {
         }
         return completeTeam;
     }//End method
+<<<<<<< HEAD
+    
+=======
 
+>>>>>>> d806dbef8c78ab7e453225232685d724133ebce4
     /**
      * It adds the player list from the treeSet to the Array in the team class
      * @param team 
