@@ -40,14 +40,6 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-<<<<<<< HEAD
-=======
-        
-        //EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-        // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-        // EscapeRoomConfigurations.TEAMS_FROM_FILE = new ReaderManager().readTeamsFromFile();
-
->>>>>>> fcd48ecf5aac10cd1f0e4bfe262774940657d33f
         manager.readTeamsFromFile();
         gameButton = new Button();
         gameButton.setText("Open Game");
