@@ -24,7 +24,7 @@ import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Socket;
-import TeamFileManager.Team;
+import teamManager.Team;
 
 /**
  *

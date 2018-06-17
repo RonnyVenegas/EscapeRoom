@@ -3,7 +3,7 @@ package escapeRoomFiles;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.TreeSet;
-import TeamFileManager.Team;
+import teamManager.Team;
 
 public class EscapeRoomConfigurations {
     public static final String TEAM_FILE_ROUTE = "src/escapeRoomFiles/teamFile.txt";

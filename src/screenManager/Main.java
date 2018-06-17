@@ -12,13 +12,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import GUITeamManager.GUISignInTeam;
-import GUITeamManager.GUISignIn;
+import teamManagerGUI.GUISignInTeam;
+import teamManagerGUI.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
-import TeamFileManager.ManagerTeamFile;
+import teamFileManager.ManagerTeamFile;
 
 /**
  *
