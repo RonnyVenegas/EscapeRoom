@@ -13,7 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 import screenManager.Main;
 
@@ -157,7 +156,10 @@ public class LevelGenerator {
                 new Main().start(new Stage());
             }
             );
-
+            levelStage.setOnCloseRequest(event -> {
+                levelStage.close();
+                new Main().start(new Stage());
+            });
             lock1.setOnAction(event
                     -> {
                 System.out.println("lock1");
@@ -398,10 +400,61 @@ public class LevelGenerator {
             imageLock2.setLayoutX(lock2.getLayoutX() - 50);
             imageLock2.setLayoutY(lock2.getLayoutY() - 50);
 
+<<<<<<< HEAD
             lock3_4.setLayoutX(1528);
             lock3_4.setLayoutY(549);
             imageLock3.setLayoutX(lock3_4.getLayoutX() - 50);
             imageLock3.setLayoutY(lock3_4.getLayoutY() - 50);
+=======
+            lock3.setLayoutX(1528);
+            lock3.setLayoutY(549);
+            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
+            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
+
+            lock4.setLayoutX(941);
+            lock4.setLayoutY(123);
+            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
+            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
+
+        } else {
+
+            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/sunDialCompass.png")));
+            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/woodenCompass.png")));
+            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/plasticCompass.png")));
+            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/combinationLock.png")));
+
+            lock1.setPrefSize(28, 16);
+            lock2.setPrefSize(53, 63);
+            lock3.setPrefSize(24, 19);
+            lock4.setPrefSize(15, 10);
+
+            imageLock1.setFitHeight(128);
+            imageLock1.setFitWidth(116);
+
+            imageLock2.setFitHeight(153);
+            imageLock2.setFitWidth(163);
+
+            imageLock3.setFitHeight(124);
+            imageLock3.setFitWidth(119);
+
+            imageLock4.setFitHeight(115);
+            imageLock4.setFitWidth(110);
+
+            lock1.setLayoutX(991);
+            lock1.setLayoutY(536);
+            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
+            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
+
+            lock2.setLayoutX(606);
+            lock2.setLayoutY(343);
+            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
+            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
+
+            lock3.setLayoutX(1528);
+            lock3.setLayoutY(549);
+            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
+            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
+>>>>>>> 39528a51204ae7b4b7530355621621fbc9c177bf
 
             lock4.setLayoutX(941);
             lock4.setLayoutY(123);

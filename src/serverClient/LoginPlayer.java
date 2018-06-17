@@ -10,8 +10,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import GUITeamManager.GUISignIn;
-import static javafx.application.Application.launch;
+import teamManagerGUI.GUISignIn;
 import javafx.geometry.Insets;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -109,7 +108,10 @@ public class LoginPlayer extends Application {
             lobbyStage.close();
             new Main().start(new Stage());
         });
-        
+        primaryStage.setOnCloseRequest(event ->  {
+            lobbyStage.close();
+            new Main().start(new Stage());
+        });
         lobbyContainer.getChildren().addAll(lblPlayerList, lblTeamName, teamcombo, txtPlayer,
           play, scrollPanePlayerList, returnButton);
 

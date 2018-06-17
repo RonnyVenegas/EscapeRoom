@@ -23,7 +23,7 @@ import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.Socket;
-import TeamFileManager.Team;
+import teamManager.Team;
 
 /**
  *
@@ -150,6 +150,10 @@ public class Lobby extends Thread{
         });
 
         returnButton.setOnAction(event -> {
+            lobbyStage.close();
+            new Main().start(new Stage());
+        });
+        lobbyStage.setOnCloseRequest(event -> {
             lobbyStage.close();
             new Main().start(new Stage());
         });
