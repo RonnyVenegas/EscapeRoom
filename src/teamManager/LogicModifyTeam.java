@@ -21,9 +21,9 @@ public class LogicModifyTeam {
     LogicSignInTeam signInLogic = new LogicSignInTeam();
     BuilderTeam teamBuilder = new BuilderTeam();
 
-    public boolean containsPlayer(String valor) {
+    public boolean containsPlayer(String team1,String valor) {
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
-            if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
+            if (team.getTeamName().equals(team1)) {
                 System.out.println("team found");
                 for (int i = 0; i < team.getTeamPlayers().size(); i++) {
                     if (team.getTeamPlayers().get(i).getID().equals(valor)) {
@@ -40,9 +40,9 @@ public class LogicModifyTeam {
     public void modifyId() {
         if (verifyTeam(GUIModifyPlayerId.txtTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Equipo no existe");
-        } else if (containsPlayer(GUIModifyPlayerId.txtPlayerID.getText()) == false) {
+        } else if (containsPlayer(GUIModifyPlayerId.txtTeam.getText(),GUIModifyPlayerId.txtPlayerID.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Jugador no existe");
-        } else if (containsPlayer(GUIModifyPlayerId.txtNewPlayerId.getText()) == true) {
+        } else if (containsPlayer(GUIModifyPlayerId.txtTeam.getText(),GUIModifyPlayerId.txtNewPlayerId.getText()) == true) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
         } else {
             signInLogic.removePlayer(GUIModifyPlayerId.txtPlayerID.getText());
@@ -65,13 +65,20 @@ public class LogicModifyTeam {
     public void addPlayer() {
         if (verifyTeam(GUIAddPlayer.txtTeam.getText()) == false) {
             ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Equipo no existe");
-        } else if (containsPlayer(GUIAddPlayer.txtNewPlayerId.getText()) == true) {
-            ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Id Repetido");
         } else {
-            Player player = new Player(GUIAddPlayer.txtNewPlayerId.getText());
-            //team.getListPlayer.add(player);
-            InformationWindow.displayInformationWindow("Jugador agregado");
+            for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
+                if (team.getTeamName().equals(GUIAddPlayer.txtTeam.getText())) {
+                    if (containsPlayer(GUIAddPlayer.txtTeam.getText(),GUIAddPlayer.lblNewPlayerId.getText())) {
+                        ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Identificador repetido");
+                    } else {
+                        signInLogic.addPlayerToMap(GUIAddPlayer.lblNewPlayerId.getText());
+                        signInLogic.validateTeamPlayers();
+                        InformationWindow.displayInformationWindow("Jugador agregado");
+                    }
+                }
+            }
         }
+        System.out.println("player not found");
     }
 
     public void changeNameTeam() {
