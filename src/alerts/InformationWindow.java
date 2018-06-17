@@ -8,10 +8,7 @@ import javafx.stage.Stage;
 
 public class InformationWindow {
 
-    /**
-     * Method that display the window
-     * @param header String
-     */
+    
     public static void displayInformationWindow (String header){
         Alert informationAlert = new Alert(Alert.AlertType.INFORMATION);
         informationAlert.setTitle("Information Window");
@@ -25,6 +22,6 @@ public class InformationWindow {
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
 
         informationAlert.showAndWait();
-    }//Method end
+    }
 
-}//Class end
+}

@@ -1,7 +1,11 @@
 package screenManager;
 
+<<<<<<< HEAD
 import escapeRoomFiles.EscapeRoomConfigurations;
 import escaperoom.LevelGenerator;
+=======
+import escaperoom.Level1;
+>>>>>>> 28c85b488b6e1126c690c95e1b77f65d2857166b
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -13,15 +17,19 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import teamManager.GUISignInTeam;
-import teamManager.GUISignIn;
+import GUITeamManager.GUISignInTeam;
+import GUITeamManager.GUISignIn;
 import static javafx.application.Application.launch;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import serverClient.Lobby;
+<<<<<<< HEAD
 import teamManager.ManagerReader;
 import teamManager.ManagerTeamFile;
 import static javafx.application.Application.launch;
+=======
+import TeamFileManager.ManagerTeamFile;
+>>>>>>> 28c85b488b6e1126c690c95e1b77f65d2857166b
 
 /**
  *
@@ -90,9 +98,6 @@ public class Main extends Application {
         primaryStage.show();
     }
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
         launch(args);
 
