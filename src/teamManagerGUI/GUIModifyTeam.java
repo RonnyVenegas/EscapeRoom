@@ -66,6 +66,10 @@ public class GUIModifyTeam {
             stage.close();
             new GUISignIn().displaySignWindow();
         });
+        stage.setOnCloseRequest(event ->{
+            stage.close();
+            new GUISignIn().displaySignWindow();
+        });
 //        img.setOpacity(0.74);
         img = new ImageView(new Image(getClass().getResourceAsStream("/images/3d6cdcd6-43e3-40d7-8a99-0e8f01437663.jpg")));
 

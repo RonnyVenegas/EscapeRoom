@@ -153,6 +153,10 @@ public class Lobby extends Thread{
             lobbyStage.close();
             new Main().start(new Stage());
         });
+        lobbyStage.setOnCloseRequest(event -> {
+            lobbyStage.close();
+            new Main().start(new Stage());
+        });
         lobbyContainer.getChildren().addAll(lblGameType, lblPlayerList, lblTeamName, gameTypeCombo, teamCombo, playerCombo, btnAddPlayer,
                 play, scrollPanePlayerList, returnButton);
     }

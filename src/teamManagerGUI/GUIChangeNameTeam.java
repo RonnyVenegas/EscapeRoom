@@ -74,7 +74,11 @@ public class GUIChangeNameTeam {
             new GUIModifyTeam().displaySignWindow();
             stage.close();
         });
-
+        stage.setOnCloseRequest(event -> {
+            new GUIModifyTeam().displaySignWindow();
+            stage.close();
+        });
+        
         signContainer.getChildren().addAll(img,lblNameTeam, lblNewNameTeam,txtNameTeam, txtNewNameTeam,
                   btnSave,returnButton);
     }

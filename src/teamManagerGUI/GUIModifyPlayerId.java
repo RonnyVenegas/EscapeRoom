@@ -86,7 +86,10 @@ public class GUIModifyPlayerId { // esta clase es diferente
             stage.close();
             new GUIModifyTeam().displaySignWindow();
         });
-
+        stage.setOnCloseRequest(event ->{
+            stage.close();
+            new GUIModifyTeam().displaySignWindow();
+        });
         signContainer.getChildren().addAll(img,lblTeam,lblPlayerId,lblNewPlayerId,txtTeam,txtPlayerID,txtNewPlayerId,
                         btnSave,returnButton);
     }

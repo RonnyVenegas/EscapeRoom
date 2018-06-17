@@ -74,7 +74,10 @@ public class GUIAddPlayer {
             stage.close();
             new GUIModifyTeam().displaySignWindow();
         });
-
+        stage.setOnCloseRequest(event -> {
+            stage.close();
+            new GUIModifyTeam().displaySignWindow();
+        });
         signContainer.getChildren().addAll(img,lblTeam, lblNewPlayerId,txtTeam, txtNewPlayerId,
                         btnSave,returnButton);
     }

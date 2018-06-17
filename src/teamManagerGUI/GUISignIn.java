@@ -69,6 +69,10 @@ public class GUISignIn {
         imageSignIn.setTranslateX(220);
         imageSignIn.setTranslateY(5);
 
+        stage.setOnCloseRequest(event ->{
+            stage.close();
+            new Main().start(new Stage());
+        });
         pane.getChildren().addAll(imageSignIn,btnEnrollTeam, btnModifyTeam, btnShowTeamList,btnReturn);
     }
 
