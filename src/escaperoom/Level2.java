@@ -66,11 +66,10 @@ public class Level2 {
 
         //img.setFitHeight(1820.0);
         //img.setFitWidth(980.0);
-
         levelContainer.setPadding(new Insets(10));
 
         //int randomLevel = (int) Math.floor((Math.random() * 4) + 1);
-        int randomLevel =1;
+        int randomLevel = 1;
         if (randomLevel == 1) {
             imageClue1 = new ImageView(new Image(getClass().getResourceAsStream("/images/keys.jpg")));
             imageClue2 = new ImageView(new Image(getClass().getResourceAsStream("/images/rosa.png")));
@@ -158,21 +157,42 @@ public class Level2 {
             clue3_5.setTranslateX(1395.0);
             clue3_5.setTranslateY(802.0);
         }
-    levelContainer.getChildren().addAll(padlock1,padlock2,padlock3,clue1_1,clue1_2,clue1_3,clue2_1,
-            clue2_2,clue2_3,clue2_4,clue3_1,clue3_2,clue3_3,clue3_4,clue3_5,imageClue1,imageClue2,
-            imageClue3,imageClue4);
+
+        clue1_1.setOnAction(event -> {
+            System.out.println("clue1_1");
+            System.out.println("search image\n num 1");
+        });
+
+        clue1_2.setOnAction(event -> {
+            System.out.println("clue1_2");
+            System.out.println("look for recognition \n num 3");
+        });
+
+        clue1_3.setOnAction(event -> {
+            System.out.println("clue1_2");
+            System.out.println("look for the code on the floor\num 2");
+        });
+
+        padlock1.setOnAction(event -> {
+            System.out.println("padlock1");
+            System.out.println("padlock1\n clave 132");
+        });
+
+        levelContainer.getChildren().addAll(imageClue1, imageClue2,
+                imageClue3, imageClue4, padlock1, padlock2, padlock3, clue1_1, clue1_2, clue1_3, clue2_1,
+                clue2_2, clue2_3, clue2_4, clue3_1, clue3_2, clue3_3, clue3_4, clue3_5);
     }
 
     public void displayLevel2() {
         initializeElements();
         levelScene = new Scene(levelContainer, 1820, 980);
         String cssPath = "";
-        if(level == 1){
-           cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
-        } else if(level == 2) {
-           cssPath = new File("src/css/styleLevel2.css").getAbsolutePath().replace("\\", "/"); 
+        if (level == 1) {
+            cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
+        } else if (level == 2) {
+            cssPath = new File("src/css/styleLevel2.css").getAbsolutePath().replace("\\", "/");
         }
-        
+
         levelScene.getStylesheets().add("file:///" + cssPath);
         levelStage.setTitle("Escape Room - Leve2");
         levelStage.setScene(levelScene);
