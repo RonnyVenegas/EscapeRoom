@@ -5,6 +5,7 @@
  */
 package teamManagerGUI;
 
+import escapeRoomFiles.EscapeRoomConfigurations;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -86,6 +87,7 @@ public class GUIChangeNameTeam {
     public void displaySignWindow() {
         initializeElements();
         scene = new Scene(signContainer, 500.0, 380.0);
+        scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
         stage.setTitle("ChangeNameTeam");
         stage.setScene(scene);
         stage.setResizable(false);

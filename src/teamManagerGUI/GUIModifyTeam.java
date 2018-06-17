@@ -36,7 +36,7 @@ public class GUIModifyTeam {
         btnReturn = new Button("Retun");
         img = new ImageView();
 
-        btnChangeNameTeam.setPrefSize(110.0, 25.0);
+        btnChangeNameTeam.setPrefSize(130.0, 25.0);
         btnChangeNameTeam.setTranslateX(82.0);
         btnChangeNameTeam.setTranslateY(100.0);
         btnChangeNameTeam.setOnAction(event -> {
@@ -44,7 +44,7 @@ public class GUIModifyTeam {
             stage.close();
         });
 
-        btnModifyPlayerId.setPrefSize(110.0, 25.0);
+        btnModifyPlayerId.setPrefSize(130.0, 25.0);
         btnModifyPlayerId.setTranslateX(82.0);
         btnModifyPlayerId.setTranslateY(150.0);
         btnModifyPlayerId.setOnAction(event -> {
@@ -52,7 +52,7 @@ public class GUIModifyTeam {
             stage.close();
         });
 
-        btnAddPlayer.setPrefSize(110.0, 25.0);
+        btnAddPlayer.setPrefSize(130.0, 25.0);
         btnAddPlayer.setTranslateX(82.0);
         btnAddPlayer.setTranslateY(200.0);
         btnAddPlayer.setOnAction(event -> {
