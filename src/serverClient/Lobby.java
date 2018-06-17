@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 import screenManager.Main;
 import teamManager.ManagerReader;
 import static escapeRoomFiles.EscapeRoomConfigurations.TEAM_FILE_ROUTE;
+import escaperoom.Level2;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
@@ -53,7 +54,8 @@ public class Lobby extends Thread{
 
     public int numberOfPlayers = 0;
 
-    private Level1 Level1 = new Level1();
+    private Level1 Level1 = new Level1();    
+    private Level2 Level2 = new Level2();
 
     String txt = "";
     
@@ -135,7 +137,8 @@ public class Lobby extends Thread{
         play.setOnAction(event -> {
 
             lobbyStage.close();
-            Level1.displayLevel();
+            Level2.displayLevel2();
+            //Level2.displayLeve2();
             //recieve the sockets and start the game with N players all with the same game intance.
 
         });

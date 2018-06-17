@@ -14,7 +14,8 @@ public class LogicSignInTeam {
     private final int maxLength = 8;
     public static final TreeSet<Player> playersList = new TreeSet<>();
     private static Team team;
-    private ManagerTeamFile manager = new ManagerTeamFile();
+    private ManagerTeamFile manager = new ManagerTeamFile();    
+    ManagerWriter managerWriter = new ManagerWriter();
 
     public boolean checkTeamDuplicated(Team team) {
         return EscapeRoomConfigurations.TEAMS_FROM_FILE.contains(team);
@@ -28,12 +29,24 @@ public class LogicSignInTeam {
                 team.addPlayerToArray(p);
                 System.out.println(p.getID());
             }
+            managerWriter.writeTeams();
+            System.out.println("Player add to array");
             completeTeam = true;
 
         }
         return completeTeam;
     }
 
+    public void addToArray(Team team){
+        for (Player p : playersList) {
+            System.out.println(team.getTeamPlayersList());
+                team.addPlayerToArray(p);
+                System.out.println(p.getID());
+            }
+            managerWriter.writeTeams();
+            System.out.println("Player add to array");
+    }
+    
     public void createTeam() {
         try {
             BuilderAbstract builder = new BuilderTeam();
@@ -74,6 +87,7 @@ public class LogicSignInTeam {
         } else {
             //playersList.put(GUISignInTeam.txtPlayerID.getText(), player);
             //GUISignInTeam.textAreaPlayerList.setText(GUISignInTeam.textAreaPlayerList.getText() + "\n" + playerID);
+            System.out.println("Player add to map");
         }
     }
 
@@ -106,11 +120,31 @@ public class LogicSignInTeam {
     }
     
     public boolean removePlayer(String data) {
-        for (Player p : playersList) {
-            if (p.getID().equals(data)) {
-               return playersList.remove(p);  
-            }           
+        for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
+            if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
+                System.out.println("Remove team found");
+                for (int i = 0; i < team.getTeamPlayers().size(); i++) {
+                    if (team.getTeamPlayers().get(i).getID().equals(data)) {
+                        System.out.println("player remove list");
+                        team.getTeamPlayers().remove(i);
+                        validateTeamPlayers();
+                        return true;
+                    }
+                }
+                for (Player p : playersList) {
+                    if (p.getID().equals(data)) {
+                        return playersList.remove(p);
+                    }
+                }
+            }
         }
+        System.out.println("player not found");
         return false;
+//        for (Player p : playersList) {
+//            if (p.getID().equals(data)) {
+//               return playersList.remove(p);  
+//            }           
+//        }
+//        return false;
     }
 }
