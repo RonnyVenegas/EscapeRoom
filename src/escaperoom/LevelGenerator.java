@@ -21,21 +21,26 @@ public class LevelGenerator {
 
     private final Stage levelStage = new Stage();
     private Scene levelScene;
-    private Lock1 lockScene = new Lock1();
+    private Lock lockScene = new Lock();
     private AnchorPane levelContainer;
+    
+    //Level 1 objects
     private Button lock1;
     private Button lock2;
-    private Button lock3;
+    private Button lock3_1;
+    private Button lock3_2;
+    private Button lock3_3;
+    private Button lock3_4;
     private Button lock4;
     private Button btnReturn;
     private Label label;
-    //private Image image;
     private ImageView imageLock1;
     private ImageView imageLock2;
     private ImageView imageLock3;
     private ImageView imageLock4;
 
-    int level = 2;
+    int level = 1;
+    int lock3Level1Riddle = 1;
 
     private Button padlock1;//Code
     private Button padlock2;//Note
@@ -61,7 +66,10 @@ public class LevelGenerator {
         levelContainer = new AnchorPane();
         lock1 = new Button();
         lock2 = new Button();
-        lock3 = new Button();
+        lock3_1 = new Button();
+        lock3_2 = new Button();
+        lock3_3 = new Button();
+        lock3_4 = new Button();
         lock4 = new Button();
         btnReturn = new Button("Return");
         label = new Label();
@@ -76,20 +84,15 @@ public class LevelGenerator {
         if (level == 1) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
-            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog2.png")));
-            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog3.png")));
+            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/sherlockPortrait.jpg")));
+            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/exclamationLock3Level1.png")));
             imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog4.png")));
-
-            lock1.setPrefSize(28, 16);
-            lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
-            lock4.setPrefSize(15, 10);
 
             imageLock1.setFitHeight(128);
             imageLock1.setFitWidth(116);
 
-            imageLock2.setFitHeight(153);
-            imageLock2.setFitWidth(163);
+            imageLock2.setFitHeight(108);
+            imageLock2.setFitWidth(80);
 
             imageLock3.setFitHeight(124);
             imageLock3.setFitWidth(119);
@@ -97,35 +100,56 @@ public class LevelGenerator {
             imageLock4.setFitHeight(115);
             imageLock4.setFitWidth(110);
 
-            lock1.setLayoutX(991);
-            lock1.setLayoutY(536);
-            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
-            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
+            lock1.setPrefSize(24, 64);
+            lock2.setPrefSize(80, 108);
+            lock3_1.setPrefSize(58, 54);
+            lock3_2.setPrefSize(58, 54);
+            lock3_3.setPrefSize(58, 54);
+            lock3_4.setPrefSize(58, 54);
+            lock4.setPrefSize(33, 40);
 
-            lock2.setLayoutX(606);
-            lock2.setLayoutY(343);
-            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
-            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
+            lock1.setTranslateX(519);
+            lock1.setTranslateY(171);
+            imageLock1.setTranslateX(lock1.getTranslateX() - 50);
+            imageLock1.setTranslateY(lock1.getTranslateY() - 50);
 
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
+            lock2.setTranslateX(746);
+            lock2.setTranslateY(106);
+            imageLock2.setTranslateX(lock2.getTranslateX());
+            imageLock2.setTranslateY(lock2.getTranslateY());
 
-            lock4.setLayoutX(941);
-            lock4.setLayoutY(123);
-            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
-            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
+            lock3_1.setTranslateX(1500.0);
+            lock3_1.setTranslateY(46.0);
+            lock3_2.setTranslateX(1719.0);
+            lock3_2.setTranslateY(64.0);
+            lock3_3.setTranslateX(1605.0);
+            lock3_3.setTranslateY(46.0);
+            lock3_4.setTranslateX(1379.0);
+            lock3_4.setTranslateY(46.0);
+
+            imageLock3.setTranslateX(lock3_4.getTranslateX() - 25);
+            imageLock3.setTranslateY(lock3_4.getTranslateY() - 60);
+            imageLock3.setVisible(false);
+
+            lock4.setTranslateX(340);
+            lock4.setTranslateY(426);
+            imageLock4.setTranslateX(lock4.getTranslateX() - 50);
+            imageLock4.setTranslateY(lock4.getTranslateY() - 50);
 
             //needed to hide the buttons for the image interaction.
             /**
              * lock1.setOpacity(0); lock2.setOpacity(0); lock3.setOpacity(0);
              * lock4.setOpacity(0);
              */
-            btnReturn.setTranslateX(
-                    20);
-            btnReturn.setTranslateY(
-                    940);
+            lock2.setOpacity(0);
+            //imageLock2.setVisible(false);
+            lock3_1.setOpacity(0);
+            lock3_2.setOpacity(0);
+            lock3_3.setOpacity(0);
+            lock3_4.setOpacity(0);
+
+            btnReturn.setTranslateX(20);
+            btnReturn.setTranslateY(940);
 
             btnReturn.setOnAction(event
                     -> {
@@ -147,17 +171,51 @@ public class LevelGenerator {
                     -> {
                 System.out.println("lock2");
                 lockScene.setRiddle(2);
+                lockScene.setLockStringClue("If you want to be like me first take a look of yourself.");
                 lockScene.displayLock();
+
                 imageLock2.setVisible(false);
+                System.out.println("2 find the way 4 lock 3 follow the l1ght!");//add this clue to a label
             }
             );
 
-            lock3.setOnAction(event
+            lock3_1.setOnAction(event
                     -> {
-                System.out.println("lock3");
-                lockScene.setRiddle(3);
-                lockScene.displayLock();
-                imageLock3.setVisible(false);
+                if (lock3Level1Riddle == 1) {
+                    lock3Level1Riddle = 2;
+                }
+            }
+            );
+
+            lock3_2.setOnAction(event
+                    -> {
+                if (lock3Level1Riddle == 2) {
+                    lock3Level1Riddle = 3;
+                } else {
+                    lock3Level1Riddle = 1;
+                }
+            }
+            );
+
+            lock3_3.setOnAction(event
+                    -> {
+                if (lock3Level1Riddle == 3) {
+                    lock3Level1Riddle = 4;
+                    imageLock3.setVisible(true);
+                } else {
+                    lock3Level1Riddle = 1;
+                }
+            }
+            );
+
+            lock3_4.setOnAction(event
+                    -> {
+                if (lock3Level1Riddle == 4) {
+                    lockScene.setRiddle(3);
+                    lockScene.displayLock();
+                } else {
+                    lock3Level1Riddle = 1;
+                }
             }
             );
 
@@ -170,8 +228,8 @@ public class LevelGenerator {
             }
             );
 
-            levelContainer.getChildren()
-                    .addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3, lock4);
+            levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3_1,
+                    lock3_2, lock3_3, lock3_4, lock4);
 
         } else if (level == 2) {
 
@@ -315,7 +373,7 @@ public class LevelGenerator {
 
             lock1.setPrefSize(28, 16);
             lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
+            lock3_4.setPrefSize(24, 19);
             lock4.setPrefSize(15, 10);
 
             imageLock1.setFitHeight(128);
@@ -340,54 +398,10 @@ public class LevelGenerator {
             imageLock2.setLayoutX(lock2.getLayoutX() - 50);
             imageLock2.setLayoutY(lock2.getLayoutY() - 50);
 
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
-
-            lock4.setLayoutX(941);
-            lock4.setLayoutY(123);
-            imageLock4.setLayoutX(lock4.getLayoutX() - 50);
-            imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-            
-        } else {
-
-            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/sunDialCompass.png")));
-            imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/woodenCompass.png")));
-            imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/plasticCompass.png")));
-            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/combinationLock.png")));
-
-            lock1.setPrefSize(28, 16);
-            lock2.setPrefSize(53, 63);
-            lock3.setPrefSize(24, 19);
-            lock4.setPrefSize(15, 10);
-
-            imageLock1.setFitHeight(128);
-            imageLock1.setFitWidth(116);
-
-            imageLock2.setFitHeight(153);
-            imageLock2.setFitWidth(163);
-
-            imageLock3.setFitHeight(124);
-            imageLock3.setFitWidth(119);
-
-            imageLock4.setFitHeight(115);
-            imageLock4.setFitWidth(110);
-
-            lock1.setLayoutX(991);
-            lock1.setLayoutY(536);
-            imageLock1.setLayoutX(lock1.getLayoutX() - 50);
-            imageLock1.setLayoutY(lock1.getLayoutY() - 50);
-
-            lock2.setLayoutX(606);
-            lock2.setLayoutY(343);
-            imageLock2.setLayoutX(lock2.getLayoutX() - 50);
-            imageLock2.setLayoutY(lock2.getLayoutY() - 50);
-
-            lock3.setLayoutX(1528);
-            lock3.setLayoutY(549);
-            imageLock3.setLayoutX(lock3.getLayoutX() - 50);
-            imageLock3.setLayoutY(lock3.getLayoutY() - 50);
+            lock3_4.setLayoutX(1528);
+            lock3_4.setLayoutY(549);
+            imageLock3.setLayoutX(lock3_4.getLayoutX() - 50);
+            imageLock3.setLayoutY(lock3_4.getLayoutY() - 50);
 
             lock4.setLayoutX(941);
             lock4.setLayoutY(123);
@@ -405,7 +419,7 @@ public class LevelGenerator {
         String cssPath = "";
         if (level == 1) {
             cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
-            levelStage.setTitle("Sherlock Holmes - Level");
+            levelStage.setTitle("Sherlock Holmes - Use your eyes");
         } else if (level == 2) {
             cssPath = new File("src/css/styleLevel2.css").getAbsolutePath().replace("\\", "/");
             levelStage.setTitle("Escape Room - Level");
@@ -413,7 +427,7 @@ public class LevelGenerator {
             cssPath = new File("src/css/styleLevel3.css").getAbsolutePath().replace("\\", "/");
             levelStage.setTitle("Escape Room - Level");
         }
-        
+
         levelScene.getStylesheets().add("file:///" + cssPath);
         levelStage.setScene(levelScene);
         levelStage.setResizable(false);
