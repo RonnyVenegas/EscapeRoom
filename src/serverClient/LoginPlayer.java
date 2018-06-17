@@ -21,11 +21,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import screenManager.Main;
-<<<<<<< HEAD
-import serverClient.Lobby;
 import static javafx.application.Application.launch;
-=======
->>>>>>> 28c85b488b6e1126c690c95e1b77f65d2857166b
+
 
 /**
  *

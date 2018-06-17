@@ -6,11 +6,7 @@
 package serverClient;
 
 import escapeRoomFiles.EscapeRoomConfigurations;
-<<<<<<< HEAD
 import escaperoom.LevelGenerator;
-=======
-import escaperoom.Level1;
->>>>>>> 28c85b488b6e1126c690c95e1b77f65d2857166b
 import java.io.File;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -22,10 +18,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import screenManager.Main;
-<<<<<<< HEAD
-=======
-import escaperoom.Level2;
->>>>>>> 28c85b488b6e1126c690c95e1b77f65d2857166b
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
