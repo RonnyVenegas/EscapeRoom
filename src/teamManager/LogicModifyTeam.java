@@ -78,11 +78,12 @@ public class LogicModifyTeam {
                         signInLogic.addPlayerToMap(GUIAddPlayer.lblNewPlayerId.getText());
                         signInLogic.addToArray(team);
                         InformationWindow.displayInformationWindow("Jugador agregado");
+                         System.out.println("player not found");
                     }
                 }
             }
         }
-        System.out.println("player not found");
+       
     }
 
     public void changeNameTeam() {
@@ -96,6 +97,7 @@ public class LogicModifyTeam {
 
                     if (teamBuilder.validateString(GUIChangeNameTeam.txtNewNameTeam.getText(), REG_EXP_1, minLength1, maxLength1) == false) {
                         team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
+                        signInLogic.validateTeamPlayers();
                         managerWriter.writeTeams();
                         InformationWindow.displayInformationWindow("Nombre modificado");
                     } else {

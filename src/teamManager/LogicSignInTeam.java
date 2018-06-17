@@ -14,7 +14,7 @@ public class LogicSignInTeam {
     private final int maxLength = 8;
     public static final TreeSet<Player> playersList = new TreeSet<>();
     private static Team team;
-    private ManagerTeamFile manager = new ManagerTeamFile();    
+    private ManagerTeamFile manager = new ManagerTeamFile();
     ManagerWriter managerWriter = new ManagerWriter();
 
     public boolean checkTeamDuplicated(Team team) {
@@ -37,16 +37,16 @@ public class LogicSignInTeam {
         return completeTeam;
     }
 
-    public void addToArray(Team team){
+    public void addToArray(Team team) {
         for (Player p : playersList) {
             System.out.println(team.getTeamPlayersList());
-                team.addPlayerToArray(p);
-                System.out.println(p.getID());
-            }
-            managerWriter.writeTeams();
-            System.out.println("Player add to array");
+            team.addPlayerToArray(p);
+            System.out.println(p.getID());
+        }
+        managerWriter.writeTeams();
+        System.out.println("Player add to array");
     }
-    
+
     public void createTeam() {
         try {
             BuilderAbstract builder = new BuilderTeam();
@@ -118,7 +118,7 @@ public class LogicSignInTeam {
     public static TreeSet getTree() {
         return playersList;
     }
-    
+
     public boolean removePlayer(String data) {
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
