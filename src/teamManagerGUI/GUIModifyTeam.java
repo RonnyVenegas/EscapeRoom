@@ -30,9 +30,9 @@ public class GUIModifyTeam {
 
     public void inicializerElements() {
         pane = new AnchorPane();
-        btnChangeNameTeam = new Button("Cambiar Nombre de Equipo");
-        btnModifyPlayerId = new Button("Modificar Jugador");
-        btnAddPlayer = new Button("Agregar Jugador");
+        btnChangeNameTeam = new Button("Change team name");
+        btnModifyPlayerId = new Button("Modify player");
+        btnAddPlayer = new Button("Add player");
         btnReturn = new Button("Return");
         img = new ImageView();
 
@@ -81,7 +81,7 @@ public class GUIModifyTeam {
         inicializerElements();
         scene = new Scene(pane, 600.0, 380.0);
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        stage.setTitle("ModifyTeam");
+        stage.setTitle("Modify team");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

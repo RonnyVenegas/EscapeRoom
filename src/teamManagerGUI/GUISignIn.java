@@ -80,7 +80,7 @@ public class GUISignIn {
         inicializerElements();
         scene = new Scene(pane, 680.0, 440.0);
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        stage.setTitle("SingIn");
+        stage.setTitle("Sing in");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

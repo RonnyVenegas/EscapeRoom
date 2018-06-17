@@ -87,7 +87,7 @@ public class GUIAddPlayer {
         initializeElements();
         scene = new Scene(signContainer,500.0, 380.0);
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        stage.setTitle("AddPlayer");
+        stage.setTitle("Add player");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

@@ -99,7 +99,7 @@ public class GUIModifyPlayerId { // esta clase es diferente
         initializeElements();
         scene = new Scene(signContainer,500.0, 380.0);
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        stage.setTitle("ModifyPlayerId");
+        stage.setTitle("Modify Player Id");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();

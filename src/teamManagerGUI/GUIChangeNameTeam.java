@@ -88,7 +88,7 @@ public class GUIChangeNameTeam {
         initializeElements();
         scene = new Scene(signContainer, 500.0, 380.0);
         scene.getStylesheets().add(EscapeRoomConfigurations.CSS_PATH);
-        stage.setTitle("ChangeNameTeam");
+        stage.setTitle("Change Name Team");
         stage.setScene(scene);
         stage.setResizable(false);
         stage.show();
