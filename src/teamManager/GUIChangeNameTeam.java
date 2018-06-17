@@ -73,8 +73,8 @@ public class GUIChangeNameTeam {
             modifyTeamLogic.changeNameTeam();
         });
         returnButton.setOnAction(event -> {
-            stage.close();
             new GUIModifyTeam().displaySignWindow();
+            stage.close();
         });
 
         signContainer.getChildren().addAll(img,lblNameTeam, lblNewNameTeam,txtNameTeam, txtNewNameTeam,

@@ -22,11 +22,19 @@ public class LogicModifyTeam {
     BuilderTeam teamBuilder = new BuilderTeam();
 
     public boolean containsPlayer(String valor) {
-        for (int i = 0; i < LogicSignInTeam.getTeam().getTeamPlayers().size(); i++) {
-            if (LogicSignInTeam.getTeam().getTeamPlayers().get(i).getID().equals(valor)) {
-                return true;
+
+        for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
+            if (team.getTeamName().equals(GUIModifyPlayerId.txtTeam.getText())) {
+                System.out.println("team found");
+                for (int i = 0; i < team.getTeamPlayers().size(); i++) {
+                    if (team.getTeamPlayers().get(i).getID().equals(valor)) {
+                        System.out.println("player found");
+                        return true;
+                    }
+                }
             }
         }
+        System.out.println("player not found");
         return false;
     }
 
@@ -38,18 +46,15 @@ public class LogicModifyTeam {
         } else if (containsPlayer(GUIModifyPlayerId.txtNewPlayerId.getText()) == true) {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
         } else {
-            for (int i = 0; i < LogicSignInTeam.getTeam().getTeamPlayers().size(); i++) {
-                if (LogicSignInTeam.getTeam().getTeamPlayers().get(i).getID().equals(GUIModifyPlayerId.txtPlayerID.getText())) {
-                    LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
-                    InformationWindow.displayInformationWindow("Identificador modificado");
-                }
-            }
-
-        }
-
+            signInLogic.removePlayer(GUIModifyPlayerId.txtPlayerID.getText());
+            signInLogic.addPlayerToMap(GUIModifyPlayerId.txtNewPlayerId.getText());
+            signInLogic.validateTeamPlayers();
+            //LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
+            InformationWindow.displayInformationWindow("Identificador modificado");
     }
+}
 
-    public boolean verifyTeam(String team) {
+public boolean verifyTeam(String team) {
         for (Team t : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
             if (t.getTeamName().equals(team)) {
                 return true;
@@ -71,17 +76,27 @@ public class LogicModifyTeam {
     }
 
     public void changeNameTeam() {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9a2ac2884f1045a48cabca8cbea7dd9687e61a49
         String data = GUIChangeNameTeam.txtNameTeam.getText();
         if (verifyTeam(data) == false) {
             ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
                 if (team.getTeamName().equals(data)) {
+<<<<<<< HEAD
                     if (teamBuilder.validateString(GUIModifyPlayerId.txtNewPlayerId.getText(), REG_EXP_1, minLength1, maxLength1) == true) {
                         team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
 
+=======
+                    if (teamBuilder.validateString(GUIChangeNameTeam.txtNewNameTeam.getText(), REG_EXP_1, minLength1, maxLength1) == false) {
+                        team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
+>>>>>>> 9a2ac2884f1045a48cabca8cbea7dd9687e61a49
                         InformationWindow.displayInformationWindow("Nombre modificado");
+                    } else {
+                        ErrorWindow.displayErrorWindow("Error", "Nombre no valido");
                     }
                 }
             }
