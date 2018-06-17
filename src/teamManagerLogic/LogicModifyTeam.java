@@ -57,11 +57,12 @@ public class LogicModifyTeam {
             ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
         } else {
             signInLogic.removePlayer(GUIModifyPlayerId.txtPlayerID.getText());
-            signInLogic.addPlayerToTree(GUIModifyPlayerId.txtNewPlayerId.getText());
             signInLogic.validateTeamPlayers();
+            signInLogic.addPlayerToTree(GUIModifyPlayerId.txtNewPlayerId.getText());            
             signInLogic.addToArray(team2);
             //LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
             InformationWindow.displayInformationWindow("Identificador modificado");
+ 
         }
     }//End method
 
@@ -91,7 +92,7 @@ public class LogicModifyTeam {
                     if (containsPlayer(GUIAddPlayer.txtTeam.getText(), GUIAddPlayer.lblNewPlayerId.getText())) {
                         ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Identificador repetido");
                     } else {
-                        signInLogic.addPlayerToTree(GUIAddPlayer.lblNewPlayerId.getText());
+                        signInLogic.addPlayerToTree(GUIAddPlayer.lblNewPlayerId.getText());                        
                         signInLogic.validateTeamPlayers();
                         signInLogic.addToArray(team);
                         InformationWindow.displayInformationWindow("Jugador agregado");
@@ -99,7 +100,6 @@ public class LogicModifyTeam {
                 }
             }
         }
-        System.out.println("player not found");
     }//End method
 
     /**
