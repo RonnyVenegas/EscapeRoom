@@ -18,6 +18,20 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <Button fx:id="btn" layoutX="1617.0" layoutY="275.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnRadiography" layoutX="28.0" layoutY="323.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnPhone" layoutX="558.0" layoutY="820.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnStatue" layoutX="1540.0" layoutY="418.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnBoard" layoutX="651.0" layoutY="659.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnTitle" layoutX="175.0" layoutY="247.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnCode" layoutX="1143.0" layoutY="882.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnBookOrange" layoutX="1395.0" layoutY="802.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnEliza" layoutX="990.0" layoutY="379.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnStop" layoutX="1404.0" layoutY="336.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnTable" layoutX="1601.0" layoutY="882.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnChair" layoutX="754.0" layoutY="500.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnBooks" layoutX="806.0" layoutY="625.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnFloor" layoutX="1016.0" layoutY="715.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnNote" layoutX="14.0" layoutY="475.0" mnemonicParsing="false" text="Button" />
+      <Button fx:id="btnArmchair" layoutX="1514.0" layoutY="638.0" mnemonicParsing="false" text="Button" />
    </children>
 </AnchorPane>
