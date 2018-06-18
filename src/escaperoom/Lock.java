@@ -28,7 +28,6 @@ public class Lock {
     private TextField txtLock3;
     private TextField txtLock4;
     private Button btnReturn;
-    private ImageView imageLock1;
     private int riddle;
     private int escapeRoomLevel;
     private int roomVariant;

@@ -1,5 +1,6 @@
-.root {
-    -fx-background-image: url("/images/sherlockLevel.png");
+.root { 
+    -fx-background-image: url("/images/lockBackground.jpeg");
+    -fx-background-size: 750, 750;
     /*-fx-background-color: #000000;*/
     -fx-border-color: #a34313;
     -fx-border-width: 4;

@@ -1,6 +1,5 @@
 .root {
     -fx-border-color: #fff7e6;
-    /*-fx-border-width: 2;*/
     -fx-background-image: url("/images/RoomC.jpg");
     -fx-background-size: 1820, 980;
     -fx-background-position: center;
