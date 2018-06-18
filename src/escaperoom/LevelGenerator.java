@@ -398,65 +398,92 @@ public class LevelGenerator extends Application {
             clue1_1.setOnAction(event -> {
                 System.out.println("clue1_1");
                 System.out.println("search image\n num 1");
+                clueMessage.setMessageClue("search image\n num 1");
+                clueMessage.displayClue();
             });
             clue1_2.setOnAction(event -> {
                 System.out.println("clue1_2");
                 System.out.println("look for recognition \n num 3");
+                clueMessage.setMessageClue("look for recognition \n num 3");
+                clueMessage.displayClue();
             });
             clue1_3.setOnAction(event -> {
                 System.out.println("clue1_2");
                 System.out.println("look for the code on the floor\num 2");
+                 clueMessage.setMessageClue("look for the code on the floor\num 2");
+                clueMessage.displayClue();
             });
             padlock1.setOnAction(event -> {
                 System.out.println("padlock1");
                 System.out.println("key 132");
+               lockScene.setLockStringClue("padlock1\n Decipher the code");
             });
 
             clue2_1.setOnAction(event -> {
                 System.out.println("clue2_1");
                 System.out.println("sit down\n num 3");
+                clueMessage.setMessageClue("sit down\n num 3");
+                clueMessage.displayClue();
             });
             clue2_2.setOnAction(event -> {
                 System.out.println("clue2_2");
                 System.out.println("look down");
+                clueMessage.setMessageClue("look down");
+                clueMessage.displayClue();
             });
             clue2_3.setOnAction(event -> {
                 System.out.println("clue2_3");
                 System.out.println("stop a moment\n num 5");
+                clueMessage.setMessageClue("stop a moment\n num 5");
+                clueMessage.displayClue();
             });
             clue2_4.setOnAction(event -> {
                 System.out.println("clue2_4");
                 System.out.println("now take note\n num 8");
+                clueMessage.setMessageClue("now take note\n num 8");
+                clueMessage.displayClue();
             });
             padlock2.setOnAction(event -> {
                 System.out.println("padlock2");
                 System.out.println("key 583");
+                lockScene.setLockStringClue("padlock2\n Decipher the code");
             });
             
             clue3_1.setOnAction(event -> {
                 System.out.println("clue3_1");
                 System.out.println("Good smell\n num 0");
+                clueMessage.setMessageClue("Good smell\n num 0");
+                clueMessage.displayClue();
             });
 
             clue3_2.setOnAction(event -> {
                 System.out.println("clue3_2");
                 System.out.println("Rest");
+                clueMessage.setMessageClue("Rest");
+                clueMessage.displayClue();
             });
             clue3_3.setOnAction(event -> {
                 System.out.println("clue3_3");
                 System.out.println("Motionless\n num 9");
+                clueMessage.setMessageClue("Motionless\n num 9");
+                clueMessage.displayClue();
             });
             clue3_4.setOnAction(event -> {
                 System.out.println("clue3_4");
                 System.out.println("Register it in your diary");
+                clueMessage.setMessageClue("Register it in your diary");
+                clueMessage.displayClue();
             });
             clue3_5.setOnAction(event -> {
                 System.out.println("clue3_5");
                 System.out.println("Look for her\n num 7");
+                clueMessage.setMessageClue("Look for her\n num 7");
+                clueMessage.displayClue();
             });
             padlock3.setOnAction(event -> {
                 System.out.println("padlock3");
                 System.out.println("key 790");
+                lockScene.setLockStringClue("padlock3\n Decipher the code");
             });
             
             levelContainer.getChildren().addAll(imageClue1, imageClue2,
