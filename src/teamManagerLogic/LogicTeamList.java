@@ -14,13 +14,14 @@ public class LogicTeamList {
      */
     public void sortByName() {
         InterfaceSort sortStrategy = new SortByName();
-        
+        GUITeamList.textAreaTeamList.setText("Teams list \n-----------------------------------------------------------");
         ArrayList<Team> teamsSort = sortStrategy.sort();
       
         for (Team team : teamsSort) {
             GUITeamList.textAreaTeamList.setText(GUITeamList.textAreaTeamList.getText() 
                     + "\n" + team.toFileString());
         }
+        //GUITeamList.textAreaTeamList.setText("Teams list \n-----------------------------------------------------------");
     }//End method
     
     /**
@@ -28,12 +29,13 @@ public class LogicTeamList {
      */
     public void sortByDate() {
         InterfaceSort sortStrategy = new SortByDate();
-        
+        GUITeamList.textAreaTeamList.setText("Teams list \n-----------------------------------------------------------");
         ArrayList<Team> teamsSort = sortStrategy.sort();
       
         for (Team team : teamsSort) {
             GUITeamList.textAreaTeamList.setText(GUITeamList.textAreaTeamList.getText() 
                     + "\n" + team.toFileString());
         }
+        //GUITeamList.textAreaTeamList.setText("Teams list \n-----------------------------------------------------------");
     }//End method
 }//End class
