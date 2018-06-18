@@ -18,6 +18,7 @@ public class LevelGenerator extends Application {
     private Stage levelStage;
     private Scene levelScene;
     private Lock lockScene = new Lock();
+    private ClueMessage clueMessage = new ClueMessage();
     private AnchorPane levelContainer;
     
     private static Label lblTimekeeper;
@@ -69,8 +70,6 @@ public class LevelGenerator extends Application {
         //int scenarioRandom = (int) Math.floor((Math.random() * 3) + 1);
         
     }
-    
-    
 
     public void initializeElements(Stage stage) {
         levelStage = stage;
@@ -105,7 +104,7 @@ public class LevelGenerator extends Application {
         //randomLevel = 2;
         lockScene.setEscapeRoomLevel(1);
         lockScene.setRoomVariant(1);
-        
+        scenarioRandom = 1;
         if (scenarioRandom == 1) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
@@ -205,7 +204,8 @@ public class LevelGenerator extends Application {
                 lockScene.displayLock();
 
                 imageLock2.setVisible(false);
-                System.out.println("2 find the way 4 lock \n3 follow the l1ght!");//add this clue to a label
+                clueMessage.setMessageClue("2 find the way 4 lock \n3 follow the l1ght!");
+                clueMessage.displayClue();
             }
             );
 
