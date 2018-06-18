@@ -19,13 +19,11 @@ public class LevelGenerator extends Application {
     private Scene levelScene;
     private Lock lockScene = new Lock();
     private AnchorPane levelContainer;
-<<<<<<< HEAD
+    
     private static Label lblTimekeeper;
     private Timekeeper timekeeper;
-    
-=======
 
->>>>>>> 3a1e3bb24e49a26515df18325af6647af3969e2a
+
     //Level 1 objects
     private Button lock1;
     private Button lock2;
@@ -40,13 +38,8 @@ public class LevelGenerator extends Application {
     private ImageView imageLock2;
     private ImageView imageLock3;
     private ImageView imageLock4;
-
-<<<<<<< HEAD
+    
     private int scenarioRandom;
-    int level = 1;
-=======
-    int level = 2;
->>>>>>> 3a1e3bb24e49a26515df18325af6647af3969e2a
     int lock3Level1Riddle = 1;
 
     private Button padlock1;//Code

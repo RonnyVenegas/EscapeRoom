@@ -10,7 +10,6 @@ import teamManager.Team;
 public class LogicIndividualModeLobby {
     
     ArrayList<Player> playersSelected = new ArrayList<>();
-    Design scenario;
     
     public void fillTeamsComboBox() {
         for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
@@ -55,26 +54,6 @@ public class LogicIndividualModeLobby {
             for (Player player : playersSelected) {
                 new ClientHandler(Level1, player).runScenario();
             }
-//            Random random = new Random();
-//            int scenarioRandom = random.nextInt(3 - 1 + 1) + 1;
-//            int scenarioVersion = random.nextInt(2 - 1 + 1) + 1;
-//            
-//            scenarioRandom = 1;
-//            System.out.println("RANDOM: " + scenarioRandom);
-//            
-//            switch(scenarioRandom) {
-//                case 1:
-//                    scenario = new RoomDesign(scenarioVersion);
-//                    for (Player player : playersSelected) {
-//                        new ClientHandler(scenario, player).runScenario();
-//                    }
-//                    break;
-//                case 2:
-//                    break;
-//                case 3:
-//                    break;
-//            }
-            
         }
     }
 }
