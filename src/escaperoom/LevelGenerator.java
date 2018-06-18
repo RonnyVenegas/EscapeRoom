@@ -15,7 +15,7 @@ import screenManager.Main;
 
 public class LevelGenerator extends Application {
 
-    private Stage levelStage;
+    public static Stage levelStage;
     private Scene levelScene;
     private Lock lockScene = new Lock();
     private ClueMessage clueMessage = new ClueMessage();
@@ -49,6 +49,7 @@ public class LevelGenerator extends Application {
     private Button clue1_1;//Board
     private Button clue1_2;//Radiography
     private Button clue1_3;//Title
+    private Button clue1_4;//Title
     private Button clue2_1;//Books/keys
     private Button clue2_2;//Armchair/image
     private Button clue2_3;//Floor/Image
@@ -66,8 +67,6 @@ public class LevelGenerator extends Application {
     public LevelGenerator() {
         Random random = new Random();
         scenarioRandom = random.nextInt(3 - 1 + 1) + 1;
-        //int scenarioVersion = random.nextInt(2 - 1 + 1) + 1;
-        //int scenarioRandom = (int) Math.floor((Math.random() * 3) + 1);
         
     }
 
@@ -107,10 +106,35 @@ public class LevelGenerator extends Application {
         scenarioRandom = 1;
         if (scenarioRandom == 1) {
 
-            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
+            imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/exclamationLock3Level1.png")));
             imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/sherlockPortrait.jpg")));
             imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/exclamationLock3Level1.png")));
-            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog4.png")));
+            imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/exclamationLock3Level1.png")));
+            
+            clue1_1 = new Button();
+            clue1_2 = new Button();
+            clue1_3 = new Button();
+            clue1_4 = new Button();
+            
+            clue1_1.setOnAction(event -> {
+                clueMessage.setMessageClue("Clue 1.1: fish and ...?");
+                clueMessage.displayClue();
+            });
+            
+            clue1_2.setOnAction(event -> {
+                clueMessage.setMessageClue("Clue 1.2: Fancy a cup of...?");
+                clueMessage.displayClue();
+            });
+            
+            clue1_3.setOnAction(event -> {
+                clueMessage.setMessageClue("Clue 1.3: ring ring");
+                clueMessage.displayClue();
+            });
+            
+            clue1_4.setOnAction(event -> {
+                clueMessage.setMessageClue("Clue 1.4 ring ring ring ring");
+                clueMessage.displayClue();
+            });
 
             imageLock1.setFitHeight(128);
             imageLock1.setFitWidth(116);
@@ -123,6 +147,9 @@ public class LevelGenerator extends Application {
 
             imageLock4.setFitHeight(115);
             imageLock4.setFitWidth(110);
+            
+            imageLock1.setVisible(false);
+            imageLock4.setVisible(false);
 
             lock1.setPrefSize(24, 64);
             lock2.setPrefSize(80, 108);
@@ -134,8 +161,8 @@ public class LevelGenerator extends Application {
 
             lock1.setTranslateX(519);
             lock1.setTranslateY(171);
-            imageLock1.setTranslateX(lock1.getTranslateX() - 50);
-            imageLock1.setTranslateY(lock1.getTranslateY() - 50);
+            imageLock1.setTranslateX(lock1.getTranslateX() - 25);
+            imageLock1.setTranslateY(lock1.getTranslateY() - 60);
 
             lock2.setTranslateX(746);
             lock2.setTranslateY(106);
@@ -161,12 +188,9 @@ public class LevelGenerator extends Application {
             imageLock4.setTranslateY(lock4.getTranslateY() - 50);
 
             //needed to hide the buttons for the image interaction.
-            /**
-             * lock1.setOpacity(0); 
-             * lock2.setOpacity(0); 
-             * lock3.setOpacity(0);
-             * lock4.setOpacity(0);
-             */
+            lock1.setOpacity(0);
+            lock4.setOpacity(0);
+
             lock2.setOpacity(0);
             //imageLock2.setVisible(false);
             lock3_1.setOpacity(0);
@@ -260,7 +284,7 @@ public class LevelGenerator extends Application {
             );
 
             levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3_1,
-                    lock3_2, lock3_3, lock3_4, lock4);
+                    lock3_2, lock3_3, lock3_4, lock4, clue1_1, clue1_2, clue1_3, clue1_4);
 
         } else if (scenarioRandom == 2) {
 

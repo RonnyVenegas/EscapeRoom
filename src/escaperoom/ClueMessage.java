@@ -29,6 +29,7 @@ public class ClueMessage {
         messageContainer = new AnchorPane();
         clueM = new Label();
         okButton = new Button("OK");
+        clueM.setPrefSize(445, 80);
         clueM.setText(messageClue);
         okButton.setPrefSize(40, 40);
         okButton.setTranslateX(450);
