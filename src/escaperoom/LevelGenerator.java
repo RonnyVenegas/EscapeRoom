@@ -323,9 +323,9 @@ public class LevelGenerator extends Application {
             //img.setFitWidth(980.0);
             levelContainer.setPadding(new Insets(10));
 
-            imageClue1 = new ImageView(new Image(getClass().getResourceAsStream("/images/keys.jpg")));
-            imageClue2 = new ImageView(new Image(getClass().getResourceAsStream("/images/rosa.png")));
-            imageClue3 = new ImageView(new Image(getClass().getResourceAsStream("/images/rosa.png")));
+            imageClue1 = new ImageView(new Image(getClass().getResourceAsStream("/images/appleWatch.png")));
+            imageClue2 = new ImageView(new Image(getClass().getResourceAsStream("/images/bloodHandPrint.png")));
+            imageClue3 = new ImageView(new Image(getClass().getResourceAsStream("/images/camObscura.png")));
             imageClue4 = new ImageView(new Image(getClass().getResourceAsStream("/images/rosa.png")));
 
             padlock1.setPrefSize(28, 16);
