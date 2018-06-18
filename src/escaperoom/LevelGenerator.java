@@ -80,6 +80,8 @@ public class LevelGenerator {
         //to all the players in the same game.
         //int randomLevel = (int) Math.floor((Math.random() * 4) + 1);
         //randomLevel = 2;
+        lockScene.setEscapeRoomLevel(1);
+        lockScene.setRoomVariant(1);
         if (level == 1) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
@@ -137,7 +139,9 @@ public class LevelGenerator {
 
             //needed to hide the buttons for the image interaction.
             /**
-             * lock1.setOpacity(0); lock2.setOpacity(0); lock3.setOpacity(0);
+             * lock1.setOpacity(0); 
+             * lock2.setOpacity(0); 
+             * lock3.setOpacity(0);
              * lock4.setOpacity(0);
              */
             lock2.setOpacity(0);
@@ -468,10 +472,10 @@ public class LevelGenerator {
             levelStage.setTitle("Sherlock Holmes - Use your eyes");
         } else if (level == 2) {
             cssPath = new File("src/css/styleLevel2.css").getAbsolutePath().replace("\\", "/");
-            levelStage.setTitle("Escape Room - Level");
+            levelStage.setTitle("Escape Room - Level 2");
         } else {
             cssPath = new File("src/css/styleLevel3.css").getAbsolutePath().replace("\\", "/");
-            levelStage.setTitle("Escape Room - Level");
+            levelStage.setTitle("Escape Room - Level 3");
         }
 
         levelScene.getStylesheets().add("file:///" + cssPath);
