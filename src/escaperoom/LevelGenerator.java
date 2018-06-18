@@ -20,10 +20,9 @@ public class LevelGenerator extends Application {
     private Lock lockScene = new Lock();
     private ClueMessage clueMessage = new ClueMessage();
     private AnchorPane levelContainer;
-    
+
     private static Label lblTimekeeper;
     private Timekeeper timekeeper;
-
 
     //Level 1 objects
     private Button lock1;
@@ -39,7 +38,7 @@ public class LevelGenerator extends Application {
     private ImageView imageLock2;
     private ImageView imageLock3;
     private ImageView imageLock4;
-    
+
     private int scenarioRandom;
     int lock3Level1Riddle = 1;
 
@@ -67,7 +66,7 @@ public class LevelGenerator extends Application {
     public LevelGenerator() {
         Random random = new Random();
         scenarioRandom = random.nextInt(3 - 1 + 1) + 1;
-        
+
     }
 
     public void initializeElements(Stage stage) {
@@ -86,14 +85,13 @@ public class LevelGenerator extends Application {
         btnReturn = new Button("Return");
         label = new Label();
 
-        
         lblTimekeeper.setTranslateX(10);
         lblTimekeeper.setTranslateY(10);
-        
+
         levelContainer.getChildren().add(lblTimekeeper);
-        
+
         timekeeper.startTimer();
-        
+
         levelContainer.setPadding(new Insets(10));
         btnReturn.setPrefSize(80, 10);
 
@@ -110,31 +108,43 @@ public class LevelGenerator extends Application {
             imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/sherlockPortrait.jpg")));
             imageLock3 = new ImageView(new Image(getClass().getResourceAsStream("/images/exclamationLock3Level1.png")));
             imageLock4 = new ImageView(new Image(getClass().getResourceAsStream("/images/exclamationLock3Level1.png")));
-            
+
             clue1_1 = new Button();
             clue1_2 = new Button();
             clue1_3 = new Button();
             clue1_4 = new Button();
-            
+
             clue1_1.setOnAction(event -> {
                 clueMessage.setMessageClue("Clue 1.1: fish and ...?");
                 clueMessage.displayClue();
             });
-            
+
             clue1_2.setOnAction(event -> {
                 clueMessage.setMessageClue("Clue 1.2: Fancy a cup of...?");
                 clueMessage.displayClue();
             });
-            
+
             clue1_3.setOnAction(event -> {
-                clueMessage.setMessageClue("Clue 1.3: ring ring");
+                clueMessage.setMessageClue("Clue 1.3: Do you have some \n ... for my fries?");
                 clueMessage.displayClue();
             });
-            
+
             clue1_4.setOnAction(event -> {
-                clueMessage.setMessageClue("Clue 1.4 ring ring ring ring");
+                clueMessage.setMessageClue("Clue 1.4: Just ring the bell...");
+                imageLock1.setVisible(true);
                 clueMessage.displayClue();
             });
+
+            clue1_1.setTranslateX(100);
+            clue1_1.setTranslateY(100);
+            clue1_2.setTranslateX(200);
+            clue1_2.setTranslateY(200);
+
+            clue1_3.setTranslateX(300);
+            clue1_3.setTranslateY(300);
+
+            clue1_4.setTranslateX(400);
+            clue1_4.setTranslateY(400);
 
             imageLock1.setFitHeight(128);
             imageLock1.setFitWidth(116);
@@ -147,7 +157,7 @@ public class LevelGenerator extends Application {
 
             imageLock4.setFitHeight(115);
             imageLock4.setFitWidth(110);
-            
+
             imageLock1.setVisible(false);
             imageLock4.setVisible(false);
 
@@ -215,6 +225,9 @@ public class LevelGenerator extends Application {
                     -> {
                 System.out.println("lock1");
                 lockScene.setRiddle(1);
+                clueMessage.setMessageClue("100100200200300300400400");
+                clueMessage.displayClue();
+                lockScene.setLockStringClue("Fancy something to eat?");
                 lockScene.displayLock();
                 imageLock1.setVisible(false);
             }
@@ -278,6 +291,7 @@ public class LevelGenerator extends Application {
                     -> {
                 System.out.println("lock4");
                 lockScene.setRiddle(4);
+                lockScene.setLockStringClue("Just ask me what you want... 4 words?");
                 lockScene.displayLock();
                 imageLock4.setVisible(false);
             }
@@ -410,13 +424,13 @@ public class LevelGenerator extends Application {
             clue1_3.setOnAction(event -> {
                 System.out.println("clue1_2");
                 System.out.println("look for the code on the floor\num 2");
-                 clueMessage.setMessageClue("look for the code on the floor\num 2");
+                clueMessage.setMessageClue("look for the code on the floor\num 2");
                 clueMessage.displayClue();
             });
             padlock1.setOnAction(event -> {
                 System.out.println("padlock1");
                 System.out.println("key 132");
-               lockScene.setLockStringClue("padlock1\n Decipher the code");
+                lockScene.setLockStringClue("padlock1\n Decipher the code");
             });
 
             clue2_1.setOnAction(event -> {
@@ -448,7 +462,7 @@ public class LevelGenerator extends Application {
                 System.out.println("key 583");
                 lockScene.setLockStringClue("padlock2\n Decipher the code");
             });
-            
+
             clue3_1.setOnAction(event -> {
                 System.out.println("clue3_1");
                 System.out.println("Good smell\n num 0");
@@ -485,7 +499,7 @@ public class LevelGenerator extends Application {
                 System.out.println("key 790");
                 lockScene.setLockStringClue("padlock3\n Decipher the code");
             });
-            
+
             levelContainer.getChildren().addAll(imageClue1, imageClue2,
                     imageClue3, imageClue4, padlock1, padlock2, padlock3, clue1_1, clue1_2, clue1_3, clue2_1,
                     clue2_2, clue2_3, clue2_4, clue3_1, clue3_2, clue3_3, clue3_4, clue3_5);
@@ -583,6 +597,5 @@ public class LevelGenerator extends Application {
     public void setImageLock3(ImageView imageLock3) {
         this.imageLock3 = imageLock3;
     }
-    
-    
+
 }

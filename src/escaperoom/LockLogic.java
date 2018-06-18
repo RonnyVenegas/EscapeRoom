@@ -5,6 +5,12 @@
  */
 package escaperoom;
 
+import alerts.InformationWindow;
+import com.sun.javaws.jnl.InformationDesc;
+import javafx.application.Platform;
+import javafx.stage.Stage;
+import screenManager.Main;
+
 /**
  *
  * @author Ronny
@@ -13,7 +19,7 @@ public class LockLogic {
 
     public LockLogic() {
     }
-    
+
     /**
      * This method is used to unlock the locks using the variables it can unlock
      * everysingle combination for a lock in the game.
@@ -36,8 +42,8 @@ public class LockLogic {
                             System.out.println("Level 1");
                             System.out.println("riddle 1");
                             System.out.println("variant 1");
-                            if (strLock1.equals("1") && strLock2.equals("1")
-                                    && strLock3.equals("1") && strLock4.equals("1")) {
+                            if (strLock1.equals("ships") && strLock2.equals("tea")
+                                    && strLock3.equals("ketchup") && strLock4.equals("ring ring")) {
                                 System.out.println("unlocked");
                                 return true;
                             }
@@ -60,8 +66,8 @@ public class LockLogic {
                             System.out.println("Level 1");
                             System.out.println("riddle 2");
                             System.out.println("variant 1");
-                            if (strLock1.equals("1") && strLock2.equals("1")
-                                    && strLock3.equals("1") && strLock4.equals("1")) {
+                            if (strLock1.equals("") && strLock2.equals("")
+                                    && strLock3.equals("") && strLock4.equals("")) {
                                 System.out.println("unlocked");
                                 return true;
                             }
@@ -104,8 +110,12 @@ public class LockLogic {
                             System.out.println("Level 1");
                             System.out.println("riddle 4");
                             System.out.println("variant 1");
-                            if (strLock1.equals("1") && strLock2.equals("1")
-                                    && strLock3.equals("1") && strLock4.equals("1")) {
+                            if (strLock1.equals("let") && strLock2.equals("me")
+                                    && strLock3.equals("out") && strLock4.equals("please!")) {
+                                InformationWindow.displayInformationWindow("You escaped...");
+                                Platform.setImplicitExit(false);
+                                Platform.exit();
+                                new Main().start(new Stage());
                                 System.out.println("unlocked");
                                 return true;
                             }
