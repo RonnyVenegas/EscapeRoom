@@ -1,11 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package escaperoom;
 
 import java.io.File;
+import java.util.Random;
+import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,12 +13,17 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import screenManager.Main;
 
-public class LevelGenerator {
+public class LevelGenerator extends Application {
 
-    private final Stage levelStage = new Stage();
+    private Stage levelStage;
     private Scene levelScene;
     private Lock lockScene = new Lock();
+    private ClueMessage clueMessage = new ClueMessage();
     private AnchorPane levelContainer;
+    
+    private static Label lblTimekeeper;
+    private Timekeeper timekeeper;
+
 
     //Level 1 objects
     private Button lock1;
@@ -37,8 +39,8 @@ public class LevelGenerator {
     private ImageView imageLock2;
     private ImageView imageLock3;
     private ImageView imageLock4;
-
-    int level = 2;
+    
+    private int scenarioRandom;
     int lock3Level1Riddle = 1;
 
     private Button padlock1;//Code
@@ -61,8 +63,20 @@ public class LevelGenerator {
     private ImageView imageClue3;
     private ImageView imageClue4;
 
-    public void initializeElements() {
+    public LevelGenerator() {
+        Random random = new Random();
+        scenarioRandom = random.nextInt(3 - 1 + 1) + 1;
+        //int scenarioVersion = random.nextInt(2 - 1 + 1) + 1;
+        //int scenarioRandom = (int) Math.floor((Math.random() * 3) + 1);
+        
+    }
+
+    public void initializeElements(Stage stage) {
+        levelStage = stage;
         levelContainer = new AnchorPane();
+        lblTimekeeper = new Label("0:0");
+        timekeeper = new Timekeeper(lblTimekeeper);
+        lblTimekeeper.setId("Timekeeper");
         lock1 = new Button();
         lock2 = new Button();
         lock3_1 = new Button();
@@ -73,6 +87,14 @@ public class LevelGenerator {
         btnReturn = new Button("Return");
         label = new Label();
 
+        
+        lblTimekeeper.setTranslateX(10);
+        lblTimekeeper.setTranslateY(10);
+        
+        levelContainer.getChildren().add(lblTimekeeper);
+        
+        timekeeper.startTimer();
+        
         levelContainer.setPadding(new Insets(10));
         btnReturn.setPrefSize(80, 10);
 
@@ -82,7 +104,8 @@ public class LevelGenerator {
         //randomLevel = 2;
         lockScene.setEscapeRoomLevel(1);
         lockScene.setRoomVariant(1);
-        if (level == 1) {
+        scenarioRandom = 1;
+        if (scenarioRandom == 1) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/dog1.png")));
             imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/sherlockPortrait.jpg")));
@@ -181,7 +204,8 @@ public class LevelGenerator {
                 lockScene.displayLock();
 
                 imageLock2.setVisible(false);
-                System.out.println("2 find the way 4 lock 3 follow the l1ght!");//add this clue to a label
+                clueMessage.setMessageClue("2 find the way 4 lock \n3 follow the l1ght!");
+                clueMessage.displayClue();
             }
             );
 
@@ -218,6 +242,7 @@ public class LevelGenerator {
                     -> {
                 if (lock3Level1Riddle == 4) {
                     lockScene.setRiddle(3);
+                    lockScene.setLockStringClue("how do you get here?");
                     lockScene.displayLock();
                 } else {
                     lock3Level1Riddle = 1;
@@ -237,7 +262,7 @@ public class LevelGenerator {
             levelContainer.getChildren().addAll(btnReturn, imageLock1, imageLock2, imageLock3, imageLock4, lock1, lock2, lock3_1,
                     lock3_2, lock3_3, lock3_4, lock4);
 
-        } else if (level == 2) {
+        } else if (scenarioRandom == 2) {
 
             padlock1 = new Button();
             padlock2 = new Button();
@@ -417,7 +442,7 @@ public class LevelGenerator {
                     imageClue3, imageClue4, padlock1, padlock2, padlock3, clue1_1, clue1_2, clue1_3, clue2_1,
                     clue2_2, clue2_3, clue2_4, clue3_1, clue3_2, clue3_3, clue3_4, clue3_5);
 
-        } else if (level == 3) {
+        } else if (scenarioRandom == 3) {
 
             imageLock1 = new ImageView(new Image(getClass().getResourceAsStream("/images/bicycleLock.png")));
             imageLock2 = new ImageView(new Image(getClass().getResourceAsStream("/images/bloodSplash.png")));
@@ -462,18 +487,16 @@ public class LevelGenerator {
             imageLock4.setLayoutY(lock4.getLayoutY() - 50);
 
         }
-
     }
 
     public void displayLevel() {
-        initializeElements();
         levelScene = new Scene(levelContainer, 1820, 980);
 
         String cssPath = "";
-        if (level == 1) {
+        if (scenarioRandom == 1) {
             cssPath = new File("src/css/styleLevel1.css").getAbsolutePath().replace("\\", "/");
             levelStage.setTitle("Sherlock Holmes - Use your eyes");
-        } else if (level == 2) {
+        } else if (scenarioRandom == 2) {
             cssPath = new File("src/css/styleLevel2.css").getAbsolutePath().replace("\\", "/");
             levelStage.setTitle("Escape Room - Level 2");
         } else {
@@ -487,4 +510,31 @@ public class LevelGenerator {
         levelStage.show();
     }
 
+    @Override
+    public void start(Stage primaryStage) {
+        initializeElements(primaryStage);
+        displayLevel();
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    public int getLock3Level1Riddle() {
+        return lock3Level1Riddle;
+    }
+
+    public void setLock3Level1Riddle(int lock3Level1Riddle) {
+        this.lock3Level1Riddle = lock3Level1Riddle;
+    }
+
+    public ImageView getImageLock3() {
+        return imageLock3;
+    }
+
+    public void setImageLock3(ImageView imageLock3) {
+        this.imageLock3 = imageLock3;
+    }
+    
+    
 }
