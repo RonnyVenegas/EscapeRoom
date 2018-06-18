@@ -13,7 +13,20 @@ public class LockLogic {
 
     public LockLogic() {
     }
-
+    
+    /**
+     * This method is used to unlock the locks using the variables it can unlock
+     * everysingle combination for a lock in the game.
+     *
+     * @param escapeRoomLevel
+     * @param riddle
+     * @param roomVariant
+     * @param strLock1
+     * @param strLock2
+     * @param strLock3
+     * @param strLock4
+     * @return boolean
+     */
     public boolean unlock(int escapeRoomLevel, int riddle, int roomVariant, String strLock1, String strLock2, String strLock3, String strLock4) {
         switch (escapeRoomLevel) {
             case 1:
@@ -69,8 +82,8 @@ public class LockLogic {
                             System.out.println("Level 1");
                             System.out.println("riddle 3");
                             System.out.println("variant 1");
-                            if (strLock1.equals("1") && strLock2.equals("1")
-                                    && strLock3.equals("1") && strLock4.equals("1")) {
+                            if (strLock1.equals("2") && strLock2.equals("4")
+                                    && strLock3.equals("3") && strLock4.equals("1")) {
                                 System.out.println("unlocked");
                                 return true;
                             }
@@ -303,6 +316,6 @@ public class LockLogic {
                 break;
         }
         return false;
-    }
+    }//End of method.
 
 }

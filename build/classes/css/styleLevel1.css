@@ -19,6 +19,13 @@
     -fx-background-size: 30, 30;
 }*/
 
+#Timekeeper {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 32px;
+    -fx-font-family: "Arial Black";
+}
+
 .button {
     -fx-padding: 3 10 10 10;
     -fx-background-insets: 0,0 0 5 0, 0 0 6 0, 0 0 7 0;

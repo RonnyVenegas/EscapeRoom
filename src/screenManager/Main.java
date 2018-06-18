@@ -1,6 +1,7 @@
 package screenManager;
 
 import escaperoom.LevelGenerator;
+import escaperoom.GUIGameModeSelection;
 import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -26,6 +27,7 @@ import static javafx.application.Application.launch;
  */
 public class Main extends Application {
 
+    private GUIGameModeSelection gameMode = new GUIGameModeSelection();
     private GUISignInTeam signInTeam = new GUISignInTeam();
     private GUISignIn signIn = new GUISignIn();
     private LevelGenerator Level1 = new LevelGenerator();
@@ -64,11 +66,7 @@ public class Main extends Application {
             @Override
             public void handle(ActionEvent event) {
                 primaryStage.close();
-                try {
-                    lobby.displayLobby();
-                } catch (IOException ex) {
-                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                gameMode.displayGameModeSelectionWindow();
             }
         });
 
