@@ -50,18 +50,18 @@ public class LogicModifyTeam {
      */
     public void modifyId() {
         if (verifyTeam(GUIModifyPlayerId.txtTeam.getText()) == false) {
-            ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Equipo no existe");
+            ErrorWindow.displayErrorWindow("Can´t modify the player", "Team doesn´t exist");
         } else if (containsPlayer(GUIModifyPlayerId.txtTeam.getText(), GUIModifyPlayerId.txtPlayerID.getText()) == false) {
-            ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Jugador no existe");
+            ErrorWindow.displayErrorWindow("Can´t modify the player", "Player doesn´t exist");
         } else if (containsPlayer(GUIModifyPlayerId.txtTeam.getText(), GUIModifyPlayerId.txtNewPlayerId.getText()) == true) {
-            ErrorWindow.displayErrorWindow("No se puede modificar el jugador", "Identificador repetido");
+            ErrorWindow.displayErrorWindow("Can´t modify the player", "Duplicate ID");
         } else {
             signInLogic.removePlayer(GUIModifyPlayerId.txtPlayerID.getText());
             signInLogic.validateTeamPlayers();
             signInLogic.addPlayerToTree(GUIModifyPlayerId.txtNewPlayerId.getText());            
             signInLogic.addToArray(team2);
             //LogicSignInTeam.getTeam().getTeamPlayers().get(i).setID(GUIModifyPlayerId.txtNewPlayerId.getText());
-            InformationWindow.displayInformationWindow("Identificador modificado");
+            InformationWindow.displayInformationWindow("Id modified");
  
         }
     }//End method
@@ -85,17 +85,17 @@ public class LogicModifyTeam {
      */
     public void addPlayer() {
         if (verifyTeam(GUIAddPlayer.txtTeam.getText()) == false) {
-            ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Equipo no existe");
+            ErrorWindow.displayErrorWindow("Can´t add the player", "Team doesn´t exist");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
                 if (team.getTeamName().equals(GUIAddPlayer.txtTeam.getText())) {
                     if (containsPlayer(GUIAddPlayer.txtTeam.getText(), GUIAddPlayer.lblNewPlayerId.getText())) {
-                        ErrorWindow.displayErrorWindow("No se puede agregar el jugador", "Identificador repetido");
+                        ErrorWindow.displayErrorWindow("Can´t add the player", "Duplicate ID");
                     } else {
                         signInLogic.addPlayerToTree(GUIAddPlayer.lblNewPlayerId.getText());                        
                         signInLogic.validateTeamPlayers();
                         signInLogic.addToArray(team);
-                        InformationWindow.displayInformationWindow("Jugador agregado");
+                        InformationWindow.displayInformationWindow("Player added");
                     }
                 }
             }
@@ -108,7 +108,7 @@ public class LogicModifyTeam {
     public void changeNameTeam() {
         String data = GUIChangeNameTeam.txtNameTeam.getText();
         if (verifyTeam(data) == false) {
-            ErrorWindow.displayErrorWindow("No existe", "No existe un equipo con el nombre indicado");
+            ErrorWindow.displayErrorWindow("Doesn´t exist", "Doesn´t exist team with the indicated name");
         } else {
             for (Team team : EscapeRoomConfigurations.TEAMS_FROM_FILE) {
                 if (team.getTeamName().equals(data)) {
@@ -117,9 +117,9 @@ public class LogicModifyTeam {
                         team.setTeamName(GUIChangeNameTeam.txtNewNameTeam.getText());
                         signInLogic.validateTeamPlayers();
                         managerWriter.writeTeams();
-                        InformationWindow.displayInformationWindow("Nombre modificado");
+                        InformationWindow.displayInformationWindow("Name modified");
                     } else {
-                        ErrorWindow.displayErrorWindow("Error", "Nombre no valido");
+                        ErrorWindow.displayErrorWindow("Error", "Name not valid");
                     }
                 }
             }
