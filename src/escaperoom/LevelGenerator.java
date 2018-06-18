@@ -361,6 +361,7 @@ public class LevelGenerator {
             padlock1.setOnAction(event -> {
                 System.out.println("padlock1");
                 System.out.println("key 132");
+               lockScene.setLockStringClue("padlock1\n Decifre el código");
             });
 
             clue2_1.setOnAction(event -> {
@@ -382,6 +383,7 @@ public class LevelGenerator {
             padlock2.setOnAction(event -> {
                 System.out.println("padlock2");
                 System.out.println("key 583");
+                lockScene.setLockStringClue("padlock2\n Decifre el código");
             });
             
             clue3_1.setOnAction(event -> {
@@ -408,6 +410,7 @@ public class LevelGenerator {
             padlock3.setOnAction(event -> {
                 System.out.println("padlock3");
                 System.out.println("key 790");
+                lockScene.setLockStringClue("padlock3\n Decifre el código");
             });
             
             levelContainer.getChildren().addAll(imageClue1, imageClue2,
