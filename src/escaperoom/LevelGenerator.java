@@ -19,9 +19,13 @@ public class LevelGenerator extends Application {
     private Scene levelScene;
     private Lock lockScene = new Lock();
     private AnchorPane levelContainer;
+<<<<<<< HEAD
     private static Label lblTimekeeper;
     private Timekeeper timekeeper;
     
+=======
+
+>>>>>>> 3a1e3bb24e49a26515df18325af6647af3969e2a
     //Level 1 objects
     private Button lock1;
     private Button lock2;
@@ -37,8 +41,12 @@ public class LevelGenerator extends Application {
     private ImageView imageLock3;
     private ImageView imageLock4;
 
+<<<<<<< HEAD
     private int scenarioRandom;
     int level = 1;
+=======
+    int level = 2;
+>>>>>>> 3a1e3bb24e49a26515df18325af6647af3969e2a
     int lock3Level1Riddle = 1;
 
     private Button padlock1;//Code
@@ -292,27 +300,27 @@ public class LevelGenerator extends Application {
             padlock1.setPrefSize(28, 16);
             padlock2.setPrefSize(53, 63);
             padlock3.setPrefSize(24, 19);
-            clue1_1.setPrefSize(15, 10);
-            clue1_2.setPrefSize(15, 10);
-            clue1_3.setPrefSize(15, 10);
-            clue2_1.setPrefSize(15, 10);
-            clue2_2.setPrefSize(15, 10);
-            clue2_3.setPrefSize(15, 10);
-            clue2_4.setPrefSize(15, 10);
-            clue3_1.setPrefSize(15, 10);
-            clue3_2.setPrefSize(15, 10);
-            clue3_3.setPrefSize(15, 10);
-            clue3_4.setPrefSize(15, 10);
-            clue3_5.setPrefSize(15, 10);
+            clue1_1.setPrefSize(20, 15);
+            clue1_2.setPrefSize(20, 15);
+            clue1_3.setPrefSize(20, 15);
+            clue2_1.setPrefSize(20, 15);
+            clue2_2.setPrefSize(20, 15);
+            clue2_3.setPrefSize(20, 15);
+            clue2_4.setPrefSize(20, 15);
+            clue3_1.setPrefSize(20, 15);
+            clue3_2.setPrefSize(20, 15);
+            clue3_3.setPrefSize(20, 15);
+            clue3_4.setPrefSize(20, 15);
+            clue3_5.setPrefSize(20, 15);
 
-            imageClue1.setFitHeight(128);
-            imageClue1.setFitWidth(116);
+            imageClue1.setFitHeight(50);
+            imageClue1.setFitWidth(50);
 
             imageClue2.setFitHeight(153);
             imageClue2.setFitWidth(163);
 
-            imageClue3.setFitHeight(124);
-            imageClue3.setFitWidth(119);
+            imageClue3.setFitHeight(100);
+            imageClue3.setFitWidth(100);
 
             imageClue4.setFitHeight(115);
             imageClue4.setFitWidth(110);
@@ -374,22 +382,66 @@ public class LevelGenerator extends Application {
                 System.out.println("clue1_1");
                 System.out.println("search image\n num 1");
             });
-
             clue1_2.setOnAction(event -> {
                 System.out.println("clue1_2");
                 System.out.println("look for recognition \n num 3");
             });
-
             clue1_3.setOnAction(event -> {
                 System.out.println("clue1_2");
                 System.out.println("look for the code on the floor\num 2");
             });
-
             padlock1.setOnAction(event -> {
                 System.out.println("padlock1");
-                System.out.println("padlock1\n clave 132");
+                System.out.println("key 132");
             });
 
+            clue2_1.setOnAction(event -> {
+                System.out.println("clue2_1");
+                System.out.println("sit down\n num 3");
+            });
+            clue2_2.setOnAction(event -> {
+                System.out.println("clue2_2");
+                System.out.println("look down");
+            });
+            clue2_3.setOnAction(event -> {
+                System.out.println("clue2_3");
+                System.out.println("stop a moment\n num 5");
+            });
+            clue2_4.setOnAction(event -> {
+                System.out.println("clue2_4");
+                System.out.println("now take note\n num 8");
+            });
+            padlock2.setOnAction(event -> {
+                System.out.println("padlock2");
+                System.out.println("key 583");
+            });
+            
+            clue3_1.setOnAction(event -> {
+                System.out.println("clue3_1");
+                System.out.println("Good smell\n num 0");
+            });
+
+            clue3_2.setOnAction(event -> {
+                System.out.println("clue3_2");
+                System.out.println("Rest");
+            });
+            clue3_3.setOnAction(event -> {
+                System.out.println("clue3_3");
+                System.out.println("Motionless\n num 9");
+            });
+            clue3_4.setOnAction(event -> {
+                System.out.println("clue3_4");
+                System.out.println("Register it in your diary");
+            });
+            clue3_5.setOnAction(event -> {
+                System.out.println("clue3_5");
+                System.out.println("Look for her\n num 7");
+            });
+            padlock3.setOnAction(event -> {
+                System.out.println("padlock3");
+                System.out.println("key 790");
+            });
+            
             levelContainer.getChildren().addAll(imageClue1, imageClue2,
                     imageClue3, imageClue4, padlock1, padlock2, padlock3, clue1_1, clue1_2, clue1_3, clue2_1,
                     clue2_2, clue2_3, clue2_4, clue3_1, clue3_2, clue3_3, clue3_4, clue3_5);
@@ -437,7 +489,7 @@ public class LevelGenerator extends Application {
             lock4.setLayoutY(123);
             imageLock4.setLayoutX(lock4.getLayoutX() - 50);
             imageLock4.setLayoutY(lock4.getLayoutY() - 50);
-            
+
         }
     }
 

@@ -38,13 +38,18 @@ public class Team implements Comparable<Team> {
      * Goes through array of players
      * @return String content of array
      */
+    
+    public void setTeamPlayers(ArrayList<Player> teamPlayers) {
+        this.teamPlayers = teamPlayers;
+    }
+
     public String getTeamPlayersList() {
         String content = "";
         for(Player player : teamPlayers){
             content +="-"+ player.getID();
         }
         return content;
-    }//End method
+    } //End method
 
     /**
      * String format for file
