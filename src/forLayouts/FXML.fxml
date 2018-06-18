@@ -20,7 +20,10 @@
       </ImageView>
       <Button layoutX="519.0" layoutY="171.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="24.0" text="lock" />
       <Button layoutX="736.0" layoutY="117.0" mnemonicParsing="false" prefHeight="108.0" prefWidth="80.0" text="lock2" />
-      <Button layoutX="1378.0" layoutY="65.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="54.0" text="lock3" />
+      <Button layoutX="1374.0" layoutY="51.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="58.0" text="lock3_4" />
       <Button layoutX="340.0" layoutY="426.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="33.0" text="lock4" />
+      <Button layoutX="1714.0" layoutY="69.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="58.0" text="lock3_2" />
+      <Button layoutX="1495.0" layoutY="51.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="58.0" text="lock3_1" />
+      <Button layoutX="1600.0" layoutY="51.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="58.0" text="lock3_3" />
    </children>
 </AnchorPane>
